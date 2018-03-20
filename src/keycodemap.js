@@ -1,5 +1,5 @@
 /**
- * # EasterEggs Keycode Map
+ * # Eeaas keycode map
  * Maps a list of most used keyboard keys to their respective keycodes.
  */
 export default {
@@ -59,16 +59,16 @@ export default {
   x: 88,
   y: 89,
   z: 90,
-  "0numpad": 96,
-  "1numpad": 97,
-  "2numpad": 98,
-  "3numpad": 99,
-  "4numpad": 100,
-  "5numpad": 101,
-  "6numpad": 102,
-  "7numpad": 103,
-  "8numpad": 104,
-  "9numpad": 105,
+  '0numpad': 96,
+  '1numpad': 97,
+  '2numpad': 98,
+  '3numpad': 99,
+  '4numpad': 100,
+  '5numpad': 101,
+  '6numpad': 102,
+  '7numpad': 103,
+  '8numpad': 104,
+  '9numpad': 105,
   asterisk: 106,
   plus: 107,
   minus: 109,

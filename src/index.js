@@ -1,5 +1,5 @@
 /**
- * # EasterEggs
+ * # Eeaas
  * This utility creates a very rough skelton with which easter eggs can be injected into projects with ease.
  */
 import flatten from 'lodash/flatten';
@@ -13,20 +13,20 @@ const containsKeyName = code => code.indexOf('|') > -1 || KEYCODE_MAP[code];
 const getKeyupNamespace = (egg, eventName) => `keyup.${camelCase(egg.name)}_${eventName}`;
 const getSetName = index => `Set${index + 1}`;
 
-const isHealthyEgg = function(egg) {
-  // Ensure name exists
+const isValidEgg = function(egg) {
+  // Ensure `name` exists
   if (!egg.name) {
     console.error('Failed to register, register() requires a "name".');
     return false;
   }
 
-  // Ensure startTrigger and start exist
+  // Ensure `startTrigger` and `start` methods exist
   if (!egg.startTrigger || !egg.start) {
     console.error(`Failed to register "${egg.name}", register() requires a "startTrigger" and an "start".`);
     return false;
   }
 
-  // Ensure startTrigger is a string, array or a function
+  // Ensure `startTrigger` is a string, array or a function
   if (
     typeof egg.startTrigger !== 'string' &&
     typeof egg.startTrigger !== 'function' &&
@@ -38,7 +38,7 @@ const isHealthyEgg = function(egg) {
     return false;
   }
 
-  // Ensure start is a function
+  // Ensure `start` is a function
   if (typeof egg.start !== 'function') {
     console.error(`Failed to register "${egg.name}", register() requires "start" to be a function.`);
     return false;
@@ -132,7 +132,7 @@ const EasterEggs = {
   },
 
   register(egg = {}) {
-    if (!isHealthyEgg(egg)) {
+    if (!isValidEgg(egg)) {
       return;
     }
 

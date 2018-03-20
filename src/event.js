@@ -1,4 +1,5 @@
 /**
+ * # Eeaas event namespace utility class
  * Shamelessly copied from:
  * https://stackoverflow.com/questions/21817397/event-handler-namespace-in-vanilla-javascript
  */
