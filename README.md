@@ -1,2 +1,2 @@
 # eeaas
-EasterEggs as a Service
+Easter eggs as a service
