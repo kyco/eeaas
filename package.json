@@ -11,7 +11,13 @@
     "url": "git+https://github.com/kyco/eeaas.git"
   },
   "keywords": [
-    "eeaas"
+    "eeaas",
+    "easter eggs as a service",
+    "eggs as a service",
+    "egg service",
+    "egg",
+    "easteregg",
+    "easter egg"
   ],
   "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
   "license": "MIT",
