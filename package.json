@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/kyco/eeaas#readme",
   "dependencies": {
-    "jquery": "^3.3.1",
     "lodash": "^4.17.5"
   }
 }

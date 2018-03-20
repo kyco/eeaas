@@ -2,12 +2,12 @@
  * # EasterEggs
  * This utility creates a very rough skelton with which easter eggs can be injected into projects with ease.
  */
-import $ from 'jquery';
 import flatten from 'lodash/flatten';
 import forEach from 'lodash/forEach';
 import camelCase from 'lodash/camelCase';
 
 import KEYCODE_MAP from './keycodemap';
+import { Event } from './event';
 
 const containsKeyName = code => code.indexOf('|') > -1 || KEYCODE_MAP[code];
 const getKeyupNamespace = (egg, eventName) => `keyup.${camelCase(egg.name)}_${eventName}`;
@@ -73,7 +73,7 @@ const attachKeyupHandler = function(egg, eventName, trigger, callback) {
     });
   }
 
-  $(document).on(getKeyupNamespace(egg, eventName), event => {
+  Event.addEventListener(getKeyupNamespace(egg, eventName), event => {
     if (!Array.isArray(trigger)) {
       const button = buttons[index];
       const expected = KEYCODE_MAP[button];
@@ -114,7 +114,7 @@ const attachKeyupHandler = function(egg, eventName, trigger, callback) {
 };
 
 const detachKeyupHandler = function(egg, eventName) {
-  $(document).off(getKeyupNamespace(egg, eventName));
+  Event.removeEventListener(getKeyupNamespace(egg, eventName));
 };
 
 const EasterEggs = {
