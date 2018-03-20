@@ -117,7 +117,7 @@ const detachKeyupHandler = function(egg, eventName) {
   Event.removeEventListener(getKeyupNamespace(egg, eventName));
 };
 
-const EasterEggs = {
+const Eeaas = {
   Eggs: {},
 
   enable() {
@@ -167,4 +167,4 @@ const EasterEggs = {
   }
 };
 
-export default EasterEggs;
+export default Eeaas;
