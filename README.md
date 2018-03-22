@@ -2,7 +2,7 @@
 
 Easter eggs as a service
 
-This utility creates a very rough skelton with which easter eggs can be injected into web apps running JavaScript.
+This utility creates a very rough skelton with which easter eggs can be injected into apps/websites running JavaScript.
 > Use at own risk.
 
 
@@ -42,7 +42,15 @@ That's about it. Once enabled, all eggs will listen until triggered.
 
 ## How does eeaas work?
 
-Eeaas at its core provides a keylistener and a basic event handler for adding and removing keylisteners (or start triggers) from the DOM. Eeaas is not limited to keylisteners. Any logic to trigger an easter egg can be used. Eeaas provides a container to easily manage, add/remove and start/stop easter eggs.
+At its core eeaas provides a key listener and a basic event handler for adding and removing key listeners (or start triggers). Eeaas is not limited to key listeners. Any logic to trigger an easter egg can be used.
+
+Importing eeaas won't add any easter eggs to your app/website. You'll have to write your own or import the default eggs to get started.
+
+To make an egg available it has to be registered with eeaas. You can do so by running `Eeaas.register(MyEgg)`, where `MyEgg` refers to an object. Once the egg is registered you can enable the egg by running `Eeaas.enable()`. You can also individually enable or disable eggs by calling the `enable()` or `disable` methods explicitly on the egg itself, e.g. `Eeaas.Eggs.MyEgg.enable()` or `Eeaas.Eggs.MyEgg.disable()`.
+
+If you provided a `startTrigger` which is a string then typing the keys in the provided `startTrigger` will call the egg's `start` method. The `enable()` and `disable()` methods are safety wrappers which ensure that the eggs are only ever triggerable when the eggs themselves are "enabled".
+
+If an egg is disabled it will be available but won't be triggereable via the `startTrigger`. You can always manually trigger eggs via the code. So even if an egg is disabled, calling `Eeaas.Eggs.MyEgg.start()` will run the egg.
 
 
 ## Building your own egg
