@@ -1,6 +1,7 @@
 /**
  * # Eeaas
- * This utility creates a very rough skelton with which easter eggs can be injected into projects with ease.
+ * This utility creates a very rough skelton with which easter eggs can be injected into apps/websites.
+ * Use at own risk.
  */
 import flatten from 'lodash/flatten';
 import forEach from 'lodash/forEach';
