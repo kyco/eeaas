@@ -137,23 +137,40 @@ const Eeaas = {
       return;
     }
 
-    if (
-      egg.startTrigger &&
-      (typeof egg.startTrigger === 'string' || Array.isArray(egg.startTrigger)) &&
-      egg.start &&
-      typeof egg.start === 'function'
-    ) {
-      egg.enable = () => attachKeyupHandler(egg, 'start', egg.startTrigger, egg.start);
-      egg.disable = () => detachKeyupHandler(egg, 'start');
+    if (egg.startTrigger && egg.start && typeof egg.start === 'function') {
+      if (typeof egg.startTrigger === 'string' || Array.isArray(egg.startTrigger)) {
+        egg.enable = () => {
+          attachKeyupHandler(egg, 'start', egg.startTrigger, egg.start);
+          attachKeyupHandler(egg, 'stop', egg.stopTrigger, egg.stop);
+        };
+      }
+      if (typeof egg.startTrigger === 'function' && (!egg.enable || !egg.disable)) {
+        const name = egg.name;
+        const missingMethod = egg.enable && !egg.disable ? '"disable"' : '"enable"';
+        egg.enable = () => {
+          console.warn(
+            `"${name}" has no ${missingMethod} method. Using a function as "startTrigger" requires a custom "enable" and "disable" method.`
+          );
+        };
+      }
     }
 
-    if (
-      egg.stopTrigger &&
-      (typeof egg.stopTrigger === 'string' || Array.isArray(egg.stopTrigger)) &&
-      egg.stop &&
-      typeof egg.stop === 'function'
-    ) {
-      attachKeyupHandler(egg, 'stop', egg.stopTrigger, egg.stop);
+    if (egg.stopTrigger && egg.stop && typeof egg.stop === 'function') {
+      if (typeof egg.stopTrigger === 'string' || Array.isArray(egg.stopTrigger)) {
+        egg.disable = () => {
+          detachKeyupHandler(egg, 'start');
+          detachKeyupHandler(egg, 'stop');
+        };
+      }
+      if (typeof egg.stopTrigger === 'function' && (!egg.disable || !egg.enable)) {
+        const name = egg.name;
+        const missingMethod = egg.disable && !egg.enable ? '"enable"' : '"disable"';
+        egg.disable = () => {
+          console.warn(
+            `"${name}" has no ${missingMethod} method. Using a function as "stopTrigger" requires a custom "enable" and "disable" method.`
+          );
+        };
+      }
     }
 
     if (!egg.stopTrigger) {
