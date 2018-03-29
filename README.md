@@ -41,6 +41,28 @@ Eeaas.enable();
 That's about it. Once enabled, all eggs will listen until triggered. In this example, if you included snake and nyancat, you can test out the easter eggs by typing "snake" and "nyan" respectively to trigger them (use "esc" to cancel the easter eggs).
 
 
+## As a service
+
+Alternatively you can do quick and dirty calls to the following endpoints to achieve the same result as above.
+
+URL                                          | Exposes
+-------------------------------------------- | -------------------
+https://eeaas.herokuapp.com/eeaas.js         | `window.Eeaas`
+https://eeaas.herokuapp.com/eeaas-snake.js   | `window.EeaasSnake`
+https://eeaas.herokuapp.com/eeaas-nyancat.js | `window.EeaasNyancat`
+
+```html
+<script src="https://eeaas.herokuapp.com/eeaas.js"></script>
+<script src="https://eeaas.herokuapp.com/eeaas-snake.js"></script>
+<script src="https://eeaas.herokuapp.com/eeaas-nyancat.js"></script>
+<script>
+  window.Eeaas.register(window.EeaasSnake);
+  window.Eeaas.register(window.EeaasNyancat);
+  window.Eeaas.enable();
+</script>
+```
+
+
 ## How does eeaas work?
 
 At its core eeaas provides a key listener and a basic event handler for adding and removing key listeners (or start triggers). Eeaas is not limited to key listeners. Any logic to trigger an easter egg can be used.
@@ -75,7 +97,7 @@ export default {
 
 Eeaas comes with 3 built-in methods. These methods are mainly used to add, enable and disable easter eggs.
 
-   Method    |                                                 Description
+Method       | Description
 ------------ | ------------------------------------------------------------------------------------------------------------
 `register()` | Used to add easter eggs to the eeaas container.
 `enable()`   | Used to add the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
