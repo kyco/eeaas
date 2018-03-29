@@ -144,14 +144,19 @@ const Eeaas = {
           attachKeyupHandler(egg, 'stop', egg.stopTrigger, egg.stop);
         };
       }
-      if (typeof egg.startTrigger === 'function' && (!egg.enable || !egg.disable)) {
-        const name = egg.name;
-        const missingMethod = egg.enable && !egg.disable ? '"disable"' : '"enable"';
-        egg.enable = () => {
-          console.warn(
-            `"${name}" has no ${missingMethod} method. Using a function as "startTrigger" requires a custom "enable" and "disable" method.`
-          );
-        };
+      if (typeof egg.startTrigger === 'function') {
+        if (typeof egg.stopTrigger === 'string' || Array.isArray(egg.stopTrigger)) {
+          attachKeyupHandler(egg, 'stop', egg.stopTrigger, egg.stop);
+        }
+        if (!egg.enable || !egg.disable) {
+          const name = egg.name;
+          const missingMethod = egg.enable && !egg.disable ? '"disable"' : '"enable"';
+          egg.enable = () => {
+            console.warn(
+              `"${name}" has no ${missingMethod} method. Using a function as "startTrigger" requires a custom "enable" and "disable" method.`
+            );
+          };
+        }
       }
     }
 
@@ -162,14 +167,19 @@ const Eeaas = {
           detachKeyupHandler(egg, 'stop');
         };
       }
-      if (typeof egg.stopTrigger === 'function' && (!egg.disable || !egg.enable)) {
-        const name = egg.name;
-        const missingMethod = egg.disable && !egg.enable ? '"enable"' : '"disable"';
-        egg.disable = () => {
-          console.warn(
-            `"${name}" has no ${missingMethod} method. Using a function as "stopTrigger" requires a custom "enable" and "disable" method.`
-          );
-        };
+      if (typeof egg.stopTrigger === 'function') {
+        if (typeof egg.startTrigger === 'string') {
+          detachKeyupHandler(egg, 'start');
+        }
+        if (!egg.disable || !egg.enable) {
+          const name = egg.name;
+          const missingMethod = egg.disable && !egg.enable ? '"enable"' : '"disable"';
+          egg.disable = () => {
+            console.warn(
+              `"${name}" has no ${missingMethod} method. Using a function as "stopTrigger" requires a custom "enable" and "disable" method.`
+            );
+          };
+        }
       }
     }
 
