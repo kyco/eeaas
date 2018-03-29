@@ -37,7 +37,7 @@ Eeaas.register(Nyancat);
 Eeaas.enable();
 ```
 
-That's about it. Once enabled, all eggs will listen until triggered. In this example, if you included snake and nyancat, you can test out the easter eggs by typing "snake" and "nyan" respectivelyto trigger them (use "esc" to cancel the easter eggs).
+That's about it. Once enabled, all eggs will listen until triggered. In this example, if you included snake and nyancat, you can test out the easter eggs by typing "snake" and "nyan" respectively to trigger them (use "esc" to cancel the easter eggs).
 
 
 ## How does eeaas work?
