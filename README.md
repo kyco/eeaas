@@ -65,7 +65,7 @@ export default {
 
   start() { ... }, // Required, contains all logic for the easter egg and attaches necessary elements to the DOM
 
-  stop() { ... } // Optional, contains logic to remove all the easter egg functionality and to remove the attached elements from the DOM
+  stop() { ... } // Optional, contains logic to remove the easter egg functionality and the attached elements from the DOM
 };
 ```
 
