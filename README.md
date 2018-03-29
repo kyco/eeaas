@@ -11,6 +11,7 @@ This utility creates a very basic skelton with which easter eggs can be injected
 ```javascript
 yarn add eeaas
 ```
+
 Once installed you can import the utility and start creating your own easter eggs.
 
 
