@@ -1,6 +1,6 @@
 {
   "name": "eeaas",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Easter eggs as a service",
   "main": "./src/index.js",
   "scripts": {
