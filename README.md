@@ -72,19 +72,11 @@ export default {
 
 ## Eeaas methods
 
-Eeaas has 3 built-in methods:
-
-`register()`
-
-Used to add easter eggs to the eeaas container.
-
-`enable()`
-
-Used to add the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
-
-`disable()`
-
-Used to remove the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
+   Method    |                                                 Description
+------------ | ------------------------------------------------------------------------------------------------------------
+`register()` | Used to add easter eggs to the eeaas container.
+`enable()`   | Used to add the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
+`disable()`  | Used to remove the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
 
 Example:
 ```javascript
