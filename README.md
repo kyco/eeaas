@@ -72,6 +72,8 @@ export default {
 
 ## Eeaas methods
 
+Eeaas comes with 3 built-in methods. These methods are mainly used to add, enable and disable easter eggs.
+
    Method    |                                                 Description
 ------------ | ------------------------------------------------------------------------------------------------------------
 `register()` | Used to add easter eggs to the eeaas container.
