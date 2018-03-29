@@ -3,6 +3,8 @@
 This utility creates a very basic skelton with which easter eggs can be injected into apps or websites running JavaScript.
 > Use at own risk.
 
+[Demo](https://eeaas.herokuapp.com/)
+
 
 ## Basic installation
 
