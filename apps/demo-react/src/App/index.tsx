@@ -4,14 +4,18 @@ const App = () => {
   const triggerEgg = async () => {
     const egg = eeaas.get('test')
     console.log('egg', egg)
-    egg?.enable()
     egg?.start()
   }
 
   return (
     <div>
-      react-demo
-      <button onClick={triggerEgg}>Trigger easter egg</button>
+      <h3>react-demo</h3>
+      <div>
+        <button onClick={triggerEgg}>Trigger easter egg</button>
+      </div>
+      <div>
+        <input type="text" />
+      </div>
     </div>
   )
 }

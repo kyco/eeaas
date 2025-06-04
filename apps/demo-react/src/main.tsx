@@ -7,8 +7,11 @@ export const eeaas = initializeEeaas()
 
 eeaas.register({
   name: 'test',
-  enabled: false,
-  trigger: { type: 'keys', keystrokes: ['n', 'y', 'a', 'n'] },
+  trigger: {
+    type: 'keys',
+    keystrokes: ['n', 'y', 'a', 'n'],
+    ignoreInputElements: true,
+  },
   onStart() {
     console.info('test started')
   },
