@@ -1,3 +1,5 @@
+import type { KeystrokeCode } from './types_keys'
+
 /**
  * This is the public egg format which users can define.
  */
@@ -5,14 +7,6 @@ export type UserEgg = {
   name: string
   enabled?: boolean
   trigger?: Trigger
-  onStart: () => void
-  onStop: () => void
-}
-
-export type InternalEgg = {
-  name: string
-  enabled: boolean
-  trigger: Trigger
   onStart: () => void
   onStop: () => void
 }
@@ -39,6 +33,6 @@ export type Trigger =
     }
   | {
       type: 'keys'
-      keystrokes: string[]
+      keystrokes: KeystrokeCode[]
       ignoreInputElements?: boolean
     }
