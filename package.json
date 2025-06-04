@@ -1,31 +1,21 @@
 {
-  "name": "eeaas",
-  "version": "1.0.19",
-  "description": "Easter eggs as a service",
-  "main": "./src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kyco/eeaas.git"
-  },
-  "keywords": [
-    "eeaas",
-    "easter eggs as a service",
-    "eggs as a service",
-    "egg service",
-    "egg",
-    "easteregg",
-    "easter egg"
-  ],
-  "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
+  "name": "@eeaas/source",
+  "version": "0.0.0",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kyco/eeaas/issues"
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "21.1.2",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "nx": "21.1.2",
+    "prettier": "^2.6.2",
+    "tslib": "^2.3.0",
+    "typescript": "~5.7.2"
   },
-  "homepage": "https://github.com/kyco/eeaas#readme",
-  "dependencies": {
-    "lodash": "^4.17.5"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }

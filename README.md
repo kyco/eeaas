@@ -1,126 +1,90 @@
-# Easter eggs as a service
+# Eeaas
 
-This utility creates a very basic skeleton with which easter eggs can be injected into apps or websites running JavaScript.
-> Use at own risk.
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-[Demo](https://eeaas.herokuapp.com/)
+✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+
+[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+
+## Finish your CI setup
+
+[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/QxPlhtG4D5)
 
 
-## Basic installation
+## Generate a library
 
-```javascript
-yarn add eeaas
+```sh
+npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
 ```
 
-Once installed you can import the utility and start creating your own easter eggs.
+## Run tasks
 
+To build the library use:
 
-## Installing default eggs
-
-```javascript
-yarn add eeaas-snake
-yarn add eeaas-nyancat
+```sh
+npx nx build pkg1
 ```
 
+To run any task with Nx use:
 
-## Using eeaas
-
-```javascript
-import Eeaas from 'eeaas';
-import Snake from 'eeaas-snake';
-import Nyancat from 'eeaas-nyancat';
-
-// Register the eggs, only registered eggs can be activated
-Eeaas.register(Snake);
-Eeaas.register(Nyancat);
-
-// Enable all keylisteners (start triggers) for all eggs
-Eeaas.enable();
+```sh
+npx nx <target> <project-name>
 ```
 
-That's about it. Once enabled, all eggs will listen until triggered. In this example, if you included snake and nyancat, you can test out the easter eggs by typing "snake" and "nyan" respectively to trigger them (use "esc" to cancel the easter eggs).
+These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
+[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## As a service
+## Versioning and releasing
 
-Alternatively you can do quick and dirty calls to the following endpoints to achieve the same result as above.
+To version and release the library use
 
-URL                                          | Exposes
--------------------------------------------- | -------------------
-https://eeaas.herokuapp.com/eeaas.js         | `window.Eeaas`
-https://eeaas.herokuapp.com/eeaas-snake.js   | `window.EeaasSnake`
-https://eeaas.herokuapp.com/eeaas-nyancat.js | `window.EeaasNyancat`
-
-```html
-<script src="https://eeaas.herokuapp.com/eeaas.js"></script>
-<script src="https://eeaas.herokuapp.com/eeaas-snake.js"></script>
-<script src="https://eeaas.herokuapp.com/eeaas-nyancat.js"></script>
-<script>
-  window.Eeaas.register(window.EeaasSnake);
-  window.Eeaas.register(window.EeaasNyancat);
-  window.Eeaas.enable();
-</script>
+```
+npx nx release
 ```
 
+Pass `--dry-run` to see what would happen without actually releasing the library.
 
-## How does eeaas work?
+[Learn more about Nx release &raquo;](hhttps://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-At its core eeaas provides a key listener and a basic event handler for adding and removing key listeners (or start triggers). Eeaas is not limited to key listeners. Any logic to trigger an easter egg can be used.
+## Keep TypeScript project references up to date
 
-Importing eeaas won't add any easter eggs to your app/website. You'll have to write your own or import the default eggs to get started.
+Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
 
-To make an egg available it has to be registered with eeaas. You can do so by running `Eeaas.register(MyEgg)`, where `MyEgg` refers to an object. Once the egg is registered you can enable the egg by running `Eeaas.enable()`. You can also individually enable or disable eggs by calling the `enable()` or `disable` methods explicitly on the egg itself, e.g. `Eeaas.Eggs.MyEgg.enable()` or `Eeaas.Eggs.MyEgg.disable()`.
+To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
 
-If you provided a `startTrigger` which is a string then typing the keys in the provided `startTrigger` will call the egg's `start` method. The `enable()` and `disable()` methods are safety wrappers which ensure that the eggs are only ever triggerable when the eggs themselves are "enabled".
-
-If an egg is disabled it will be available but won't be triggereable via the `startTrigger`. You can always manually trigger eggs via the code. So even if an egg is disabled, calling `Eeaas.Eggs.MyEgg.start()` will run the egg.
-
-
-## Building your own egg
-
-```javascript
-export default {
-  name: 'MyEgg', // Required, this name is used as the namespace for the easter egg
-
-  startTrigger: 'secretstring', // Required, must be as string, an array of strings or a function
-
-  stopTrigger: 'esc', // Optional, must be a string, an array of strings or a function
-
-  start() { ... }, // Required, contains all logic for the easter egg and attaches necessary elements to the DOM
-
-  stop() { ... } // Optional, contains logic to remove the easter egg functionality and the attached DOM elements
-};
+```sh
+npx nx sync
 ```
 
+You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
 
-## Eeaas methods
-
-Eeaas comes with 3 built-in methods. These methods are mainly used to add, enable and disable easter eggs.
-
-Method       | Description
------------- | ------------------------------------------------------------------------------------------------------------
-`register()` | Used to add easter eggs to the eeaas container.
-`enable()`   | Used to add the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
-`disable()`  | Used to remove the keylisteners (start triggers) for all easter eggs. Can also be used on eggs individually.
-
-Example:
-```javascript
-import Eeaas from 'eeaas';
-import Snake from 'eeaas-snake';
-import Nyancat from 'eeaas-nyancat';
-
-Eeaas.register(Snake);
-Eeaas.register(Nyancat);
-
-// Only enable "Snake"
-Eeaas.Eggs.Snake.enable();
-
-// Enable all eggs
-Eeaas.enable();
-
-// Disable "Snake"
-Eeaas.Eggs.Snake.disable();
-
-// Disable all eggs
-Eeaas.disable();
+```sh
+npx nx sync:check
 ```
+
+[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
+
+
+[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Install Nx Console
+
+Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+
+[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Useful links
+
+Learn more:
+
+- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+And join the Nx community:
+- [Discord](https://go.nx.dev/community)
+- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
+- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
+- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
