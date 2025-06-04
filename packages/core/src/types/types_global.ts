@@ -14,6 +14,7 @@ export type UserEgg = {
 export type PublicEgg = {
   readonly name: string
   readonly enabled: boolean
+  readonly isActivated: boolean
   readonly trigger: Trigger
   enable: () => void
   disable: () => void

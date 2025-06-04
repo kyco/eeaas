@@ -17,6 +17,7 @@ export const initializeEeaas = (): EeaasInstance => {
     const internalEgg: InternalEgg = {
       ...egg,
       enabled: egg.enabled ?? true,
+      isActivated: false,
       trigger: egg.trigger ?? { type: 'manual' },
     }
 
@@ -29,12 +30,15 @@ export const initializeEeaas = (): EeaasInstance => {
         return internalEgg.enabled
       },
 
+      get isActivated() {
+        return internalEgg.isActivated
+      },
+
       get trigger() {
         return internalEgg.trigger
       },
 
       enable() {
-        internalEgg.enabled = true
         if (internalEgg.trigger.type === 'keys') {
           keystrokeListener = new KeystrokeSequenceListener(
             internalEgg.trigger.keystrokes,
@@ -43,14 +47,19 @@ export const initializeEeaas = (): EeaasInstance => {
           )
           keystrokeListener.start()
         }
+        internalEgg.enabled = true
       },
 
       disable() {
-        internalEgg.enabled = false
         if (keystrokeListener) {
           keystrokeListener.stop()
           keystrokeListener = null
         }
+        // TODO: Add flag to allow bypassing the "stop"
+        if (internalEgg.isActivated) {
+          publicEgg.stop()
+        }
+        internalEgg.enabled = false
       },
 
       start() {
@@ -58,7 +67,8 @@ export const initializeEeaas = (): EeaasInstance => {
           console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
-        internalEgg.onStart()
+        internalEgg.onStart() // TODO: Allow async
+        internalEgg.isActivated = true
       },
 
       stop() {
@@ -66,7 +76,8 @@ export const initializeEeaas = (): EeaasInstance => {
           console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
-        internalEgg.onStop()
+        internalEgg.onStop() // TODO: Allow async
+        internalEgg.isActivated = false
       },
     }
 
