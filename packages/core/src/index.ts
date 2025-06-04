@@ -1,5 +1,7 @@
-export const eeaas = {
-  init: () => {
-    console.info('eeaas initialised')
-  },
+export const init = () => {
+  console.info('eeaas initialised')
+}
+
+export default {
+  init,
 }
