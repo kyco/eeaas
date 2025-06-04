@@ -4,6 +4,7 @@ const App = () => {
   const triggerEgg = async () => {
     const egg = eeaas.get('test')
     console.log('egg', egg)
+    egg?.enable()
     egg?.start()
   }
 

@@ -16,8 +16,10 @@ type InternalEgg = {
 }
 
 export type PublicEgg = {
-  name: string
-  enabled: boolean
+  readonly name: string
+  readonly enabled: boolean
+  enable: () => void
+  disable: () => void
   start: () => void
   stop: () => void
 }
@@ -44,8 +46,20 @@ export function initializeEeaas(): EeaasInstance {
     }
 
     const publicEgg: PublicEgg = {
-      name: egg.name,
-      enabled: internalEgg.enabled,
+      name: internalEgg.name,
+
+      get enabled() {
+        return internalEgg.enabled
+      },
+
+      enable() {
+        internalEgg.enabled = true
+      },
+
+      disable() {
+        internalEgg.enabled = false
+      },
+
       start() {
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
@@ -53,6 +67,7 @@ export function initializeEeaas(): EeaasInstance {
         }
         internalEgg.onStart()
       },
+
       stop() {
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not enabled.`)

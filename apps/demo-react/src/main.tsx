@@ -7,6 +7,7 @@ export const eeaas = initializeEeaas()
 
 eeaas.register({
   name: 'test',
+  enabled: false,
   onStart() {
     console.info('test started')
   },
