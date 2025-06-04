@@ -1,9 +1,12 @@
+export type Trigger = { type: 'manual' } | { type: 'keys'; keystrokes: string[] }
+
 /**
  * This is the public egg format which users can define.
  */
 export type UserEgg = {
   name: string
   enabled?: boolean
+  trigger?: Trigger
   onStart: () => void
   onStop: () => void
 }
@@ -11,6 +14,7 @@ export type UserEgg = {
 type InternalEgg = {
   name: string
   enabled: boolean
+  trigger: Trigger
   onStart: () => void
   onStop: () => void
 }
@@ -18,6 +22,7 @@ type InternalEgg = {
 export type PublicEgg = {
   readonly name: string
   readonly enabled: boolean
+  readonly trigger: Trigger
   enable: () => void
   disable: () => void
   start: () => void
@@ -43,6 +48,7 @@ export function initializeEeaas(): EeaasInstance {
     const internalEgg: InternalEgg = {
       ...egg,
       enabled: egg.enabled ?? true, // Enable by default and rather let users decide to not have it enabled when registering/initializing
+      trigger: egg.trigger ?? { type: 'manual' },
     }
 
     const publicEgg: PublicEgg = {
@@ -50,6 +56,10 @@ export function initializeEeaas(): EeaasInstance {
 
       get enabled() {
         return internalEgg.enabled
+      },
+
+      get trigger() {
+        return internalEgg.trigger
       },
 
       enable() {
