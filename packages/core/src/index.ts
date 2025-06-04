@@ -1,39 +1,7 @@
-export type Trigger = { type: 'manual' } | { type: 'keys'; keystrokes: string[] }
+import type { EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
+import { KeystrokeSequenceListener } from './key_listener'
 
-/**
- * This is the public egg format which users can define.
- */
-export type UserEgg = {
-  name: string
-  enabled?: boolean
-  trigger?: Trigger
-  onStart: () => void
-  onStop: () => void
-}
-
-type InternalEgg = {
-  name: string
-  enabled: boolean
-  trigger: Trigger
-  onStart: () => void
-  onStop: () => void
-}
-
-export type PublicEgg = {
-  readonly name: string
-  readonly enabled: boolean
-  readonly trigger: Trigger
-  enable: () => void
-  disable: () => void
-  start: () => void
-  stop: () => void
-}
-
-export type EeaasInstance = {
-  eggs: Record<string, PublicEgg>
-  register: (egg: UserEgg) => void
-  get: (name: keyof EeaasInstance['eggs']) => PublicEgg | undefined
-}
+export type { EeaasInstance, UserEgg, PublicEgg } from './types'
 
 export function initializeEeaas(): EeaasInstance {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -47,9 +15,11 @@ export function initializeEeaas(): EeaasInstance {
 
     const internalEgg: InternalEgg = {
       ...egg,
-      enabled: egg.enabled ?? true, // Enable by default and rather let users decide to not have it enabled when registering/initializing
+      enabled: egg.enabled ?? true,
       trigger: egg.trigger ?? { type: 'manual' },
     }
+
+    let keystrokeListener: KeystrokeSequenceListener | null = null
 
     const publicEgg: PublicEgg = {
       name: internalEgg.name,
@@ -64,10 +34,22 @@ export function initializeEeaas(): EeaasInstance {
 
       enable() {
         internalEgg.enabled = true
+        if (internalEgg.trigger.type === 'keys') {
+          keystrokeListener = new KeystrokeSequenceListener(
+            internalEgg.trigger.keystrokes,
+            () => publicEgg.start(),
+            internalEgg.trigger.ignoreInputElements ?? false,
+          )
+          keystrokeListener.start()
+        }
       },
 
       disable() {
         internalEgg.enabled = false
+        if (keystrokeListener) {
+          keystrokeListener.stop()
+          keystrokeListener = null
+        }
       },
 
       start() {
@@ -89,6 +71,11 @@ export function initializeEeaas(): EeaasInstance {
 
     internalEggs[egg.name] = internalEgg
     publicEggs[egg.name] = publicEgg
+
+    if (internalEgg.enabled && internalEgg.trigger.type === 'keys') {
+      publicEgg.enable()
+    }
+
     console.info(`[eeaas] Registered egg "${egg.name}"`)
   }
 
