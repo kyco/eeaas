@@ -1,1 +1,5 @@
-export * from './lib/core.js'
+export const eeaas = {
+  init: () => {
+    console.info('eeaas initialised')
+  },
+}
