@@ -1,5 +1,6 @@
 import type { EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeSequenceListener } from './key_listener'
+import { CONFIG } from './config'
 
 export const initializeEeaas = (): EeaasInstance => {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -7,7 +8,9 @@ export const initializeEeaas = (): EeaasInstance => {
 
   const register = (egg: UserEgg) => {
     if (internalEggs[egg.name]) {
-      console.warn(`[eeaas] Egg "${egg.name}" already registered!`)
+      if (CONFIG.DEBUG) {
+        console.info(`[eeaas] Skipping registration, egg "${egg.name}" is already registered.`)
+      }
       return
     }
 
