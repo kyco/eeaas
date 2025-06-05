@@ -73,6 +73,7 @@ export const initializeEeaas = (): EeaasInstance => {
           // Do not change the order here. Code in the `onStart` might rely on resources,
           // so only trigger the `onStart` after resources have been loaded.
           if (internalEgg.resources && internalEgg.resources.length) {
+            // TODO: Add logic to ensure the same resources are not loaded multiple times (check ID and also actual paths, show error if IDs clash)
             await loadResources(internalEgg.resources)
           }
           await Promise.resolve(internalEgg.onStart())
