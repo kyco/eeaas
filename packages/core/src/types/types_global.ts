@@ -41,6 +41,7 @@ export type PublicEgg = {
   readonly isActivated: boolean
   readonly trigger: Trigger
   readonly stopTrigger: Trigger
+  readonly loadedResources: LoadedResource[]
   enable: () => void
   disable: () => void
   start: () => Promise<void>

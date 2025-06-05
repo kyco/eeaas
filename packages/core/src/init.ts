@@ -46,6 +46,10 @@ export const initializeEeaas = (): EeaasInstance => {
         return internalEgg.stopTrigger
       },
 
+      get loadedResources() {
+        return internalEgg.loadedResources
+      },
+
       enable() {
         if (internalEgg.trigger.type === 'keys' || internalEgg.stopTrigger.type === 'keys') {
           const patterns: KeystrokePattern[] = []
@@ -99,6 +103,7 @@ export const initializeEeaas = (): EeaasInstance => {
             loadedResources = await loadResources(internalEgg.resources)
           }
           await Promise.resolve(internalEgg.onStart(loadedResources))
+          internalEgg.loadedResources = loadedResources
           internalEgg.isActivated = true
         } catch (error) {
           console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
@@ -106,6 +111,7 @@ export const initializeEeaas = (): EeaasInstance => {
       },
 
       async stop() {
+        // TODO: When triggering the same egg multiple times ensure we correctly remove previous resources here
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not enabled.`)
           return
