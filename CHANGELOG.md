@@ -1,3 +1,14 @@
+## 1.1.1 (2025-06-05)
+
+### 🩹 Fixes
+
+- Publish ([db1b814](https://github.com/kyco/eeaas/commit/db1b814))
+- Rrevert ([f5d8893](https://github.com/kyco/eeaas/commit/f5d8893))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 0.9.3 (2025-06-05)
 
 ### 🚀 Features
