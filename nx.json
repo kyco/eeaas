@@ -91,11 +91,6 @@
   },
   "release": {
     "version": {
-      "currentVersionResolverMetadata": {
-        "registry": "https://registry.npmjs.org",
-        "packageName": "eeaas",
-        "packageRoot": "packages/core"
-      },
       "preVersionCommand": "npx nx run-many -t build"
     },
     "changelog": {
