@@ -1,10 +1,9 @@
 import { Resource } from '../types'
 
-let globalResourceCounter = 0
-
 export const generateResourceId = (type: 'css' | 'script'): string => {
-  globalResourceCounter += 1
-  return `eeaas_${type}__${globalResourceCounter}}`
+  const timestamp = Date.now()
+  const random = Math.random().toString(36).substring(2, 10)
+  return `eeaas_${type}_${timestamp}_${random}`
 }
 
 export const isValidResource = (resource: Resource) => {
