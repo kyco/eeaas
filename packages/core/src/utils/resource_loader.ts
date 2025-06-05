@@ -1,10 +1,6 @@
 import { Resource, LoadedResource } from '../types'
 import { loadRemoteResource } from './remote_resource_loader'
-import { generateResourceId } from './resource_loader_helper'
-
-const isValidResource = (resource: Resource) => {
-  return !!(resource.url && !resource.content) || !!(!resource.url && resource.content)
-}
+import { generateResourceId, isValidResource } from './resource_loader_helper'
 
 const loadCss = async (resource: Resource): Promise<LoadedResource | null> => {
   if (resource.url) {
