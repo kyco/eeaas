@@ -35,8 +35,12 @@ jobs:
           git config user.email "caweidmann.dev@gmail.com"
 
       - name: Publish packages
-        run: npx nx release publish
+        run: npx nx release --skip-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release packages
+        run: npx nx release publish
+        env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
