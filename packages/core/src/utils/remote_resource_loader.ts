@@ -1,5 +1,5 @@
 import type { Resource, LoadedResource } from '../types'
-import { generateResourceId } from './id_generator'
+import { generateResourceId } from './resource_loader_helper'
 
 type RemoteResourceOptions = {
   url: string

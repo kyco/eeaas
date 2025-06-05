@@ -1,7 +1,6 @@
 import type { LoadedResource, KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeListener } from './classes'
-import { CONFIG } from './config'
-import { loadResources, removeResources } from './utils'
+import { loadResources, removeResources, logger } from './utils'
 
 export const initializeEeaas = (): EeaasInstance => {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -9,9 +8,7 @@ export const initializeEeaas = (): EeaasInstance => {
 
   const register = (egg: UserEgg) => {
     if (internalEggs[egg.name]) {
-      if (CONFIG.DEBUG) {
-        console.info(`[eeaas] Skipping registration, egg "${egg.name}" is already registered.`)
-      }
+      logger('info', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
       return
     }
 
@@ -138,7 +135,7 @@ export const initializeEeaas = (): EeaasInstance => {
       publicEgg.enable()
     }
 
-    console.info(`[eeaas] Registered egg "${egg.name}"`)
+    logger('info', 'eeaas', `Registered egg "${egg.name}"`)
   }
 
   const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {

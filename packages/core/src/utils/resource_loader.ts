@@ -1,6 +1,6 @@
 import { Resource, LoadedResource } from '../types'
 import { loadRemoteResource } from './remote_resource_loader'
-import { generateResourceId } from './id_generator'
+import { generateResourceId } from './resource_loader_helper'
 
 const globalLoadedResources = new Set<LoadedResource>()
 
@@ -69,18 +69,16 @@ export const loadResources = async (resources: Resource[]): Promise<LoadedResour
   return loadedResources.filter((resource) => resource !== null)
 }
 
-const removeResource = (resource: LoadedResource) => {
-  const element = document.getElementById(resource.id)
-
-  if (element) {
-    element.remove()
-    globalLoadedResources.delete(resource)
-  }
-}
-
 export const removeResources = (resources: LoadedResource[]) => {
   if (!resources.length) {
     return
   }
-  resources.forEach(removeResource)
+
+  resources.forEach((resource) => {
+    const element = document.getElementById(resource.id)
+    if (element) {
+      element.remove()
+      globalLoadedResources.delete(resource)
+    }
+  })
 }
