@@ -1,3 +1,14 @@
+## 1.7.3 (2025-06-05)
+
+### 🩹 Fixes
+
+- Add dummy test ([8c06354](https://github.com/kyco/eeaas/commit/8c06354))
+- Publish on tags ([33c465a](https://github.com/kyco/eeaas/commit/33c465a))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 1.7.2 (2025-06-05)
 
 This was a version bump only, there were no code changes.
