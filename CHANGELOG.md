@@ -1,3 +1,17 @@
+## 1.6.0 (2025-06-05)
+
+### 🚀 Features
+
+- Add workflow ([47c9643](https://github.com/kyco/eeaas/commit/47c9643))
+
+### 🩹 Fixes
+
+- Publish release to github ([505f223](https://github.com/kyco/eeaas/commit/505f223))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 1.5.0 (2025-06-05)
 
 This was a version bump only, there were no code changes.
