@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/kyco/eeaas.git"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "keywords": [
     "eeaas",
     "easter eggs as a service",

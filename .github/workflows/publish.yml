@@ -12,7 +12,6 @@ jobs:
     permissions:
       contents: read
       id-token: write # needed for provenance data generation
-    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -24,8 +23,8 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
+          node-version: '22.14.0'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm install
