@@ -139,12 +139,16 @@ export const initializeEeaas = (): EeaasInstance => {
     return egg
   }
 
+  const getInstance = () => {
+    return {
+      eggs: publicEggs,
+    }
+  }
+
   return {
     eggs: publicEggs,
     register,
     get,
-    getInstance: () => ({
-      eggs: publicEggs,
-    }),
+    getInstance,
   }
 }
