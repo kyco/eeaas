@@ -39,8 +39,6 @@ export type PublicEgg = {
   readonly name: string
   readonly enabled: boolean
   readonly isActivated: boolean
-  readonly trigger: Trigger
-  readonly stopTrigger: Trigger
   readonly loadedResources: LoadedResource[]
   enable: () => void
   disable: () => void
@@ -52,4 +50,7 @@ export type EeaasInstance = {
   eggs: Record<string, PublicEgg>
   register: (egg: UserEgg) => void
   get: (name: keyof EeaasInstance['eggs']) => PublicEgg | undefined
+  getInstance: () => {
+    eggs: Record<string, PublicEgg>
+  }
 }

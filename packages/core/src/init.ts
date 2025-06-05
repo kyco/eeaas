@@ -35,14 +35,6 @@ export const initializeEeaas = (): EeaasInstance => {
         return internalEgg.isActivated
       },
 
-      get trigger() {
-        return internalEgg.trigger
-      },
-
-      get stopTrigger() {
-        return internalEgg.stopTrigger
-      },
-
       get loadedResources() {
         return internalEgg.loadedResources
       },
@@ -151,5 +143,8 @@ export const initializeEeaas = (): EeaasInstance => {
     eggs: publicEggs,
     register,
     get,
+    getInstance: () => ({
+      eggs: publicEggs,
+    }),
   }
 }
