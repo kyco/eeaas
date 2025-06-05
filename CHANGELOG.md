@@ -1,3 +1,14 @@
+## 1.7.0 (2025-06-05)
+
+### 🩹 Fixes
+
+- Remove conventionalCommits flag ([2d19f8e](https://github.com/kyco/eeaas/commit/2d19f8e))
+- Add github token ([455b03a](https://github.com/kyco/eeaas/commit/455b03a))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 1.6.0 (2025-06-05)
 
 ### 🚀 Features
