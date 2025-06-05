@@ -4,7 +4,8 @@
   "version": "0.9.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyco/eeaas.git"
+    "url": "https://github.com/kyco/eeaas.git",
+    "directory": "packages/core"
   },
   "publishConfig": {
     "provenance": true
@@ -38,8 +39,7 @@
     }
   },
   "files": [
-    "dist",
-    "!**/*.tsbuildinfo"
+    "dist/**"
   ],
   "dependencies": {
     "tslib": "^2.3.0"
