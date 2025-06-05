@@ -5,7 +5,8 @@ export type InternalEgg = {
   enabled: boolean
   isActivated: boolean
   trigger: Trigger
-  resources?: Resource[]
+  stopTrigger: Trigger
+  resources: Resource[]
   onStart: () => void
   onStop: () => void
 }

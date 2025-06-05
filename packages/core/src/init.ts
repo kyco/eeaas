@@ -1,4 +1,4 @@
-import type { EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
+import type { KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeListener } from './classes'
 import { CONFIG } from './config'
 import { loadResources, removeResources } from './utils'
@@ -20,6 +20,8 @@ export const initializeEeaas = (): EeaasInstance => {
       enabled: egg.enabled ?? true,
       isActivated: false,
       trigger: egg.trigger ?? { type: 'manual' },
+      stopTrigger: egg.stopTrigger ?? { type: 'manual' },
+      resources: egg.resources ?? [],
     }
 
     let keystrokeListener: KeystrokeListener | null = null
@@ -39,13 +41,31 @@ export const initializeEeaas = (): EeaasInstance => {
         return internalEgg.trigger
       },
 
+      get stopTrigger() {
+        return internalEgg.stopTrigger
+      },
+
       enable() {
-        if (internalEgg.trigger.type === 'keys') {
-          keystrokeListener = new KeystrokeListener(
-            internalEgg.trigger.keystrokes,
-            () => publicEgg.start(),
-            internalEgg.trigger.ignoreInputElements ?? false,
-          )
+        if (internalEgg.trigger.type === 'keys' || internalEgg.stopTrigger.type === 'keys') {
+          const patterns: KeystrokePattern[] = []
+
+          if (internalEgg.trigger.type === 'keys') {
+            patterns.push({
+              keystrokes: internalEgg.trigger.keystrokes,
+              callback: () => publicEgg.start(),
+              captureOnInputs: internalEgg.trigger.captureOnInputs ?? true,
+            })
+          }
+
+          if (internalEgg.stopTrigger.type === 'keys') {
+            patterns.push({
+              keystrokes: internalEgg.stopTrigger.keystrokes,
+              callback: () => publicEgg.stop(),
+              captureOnInputs: internalEgg.stopTrigger.captureOnInputs ?? true,
+            })
+          }
+
+          keystrokeListener = new KeystrokeListener(patterns)
           keystrokeListener.start()
         }
         internalEgg.enabled = true

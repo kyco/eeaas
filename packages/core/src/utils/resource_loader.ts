@@ -58,7 +58,7 @@ const loadScript = async (resource: Resource): Promise<void> => {
 }
 
 export const loadResources = async (resources: Resource[]): Promise<void> => {
-  if (!resources || !resources.length) {
+  if (!resources.length) {
     return
   }
   const cssResources = resources.filter((resource) => resource.type === 'css')
@@ -82,7 +82,7 @@ const removeResource = (resource: Resource) => {
 }
 
 export const removeResources = (resources: Resource[]) => {
-  if (!resources || !resources.length) {
+  if (!resources.length) {
     return
   }
   resources.forEach(removeResource)

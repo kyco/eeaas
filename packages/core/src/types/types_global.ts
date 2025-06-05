@@ -2,8 +2,14 @@ import type { KeystrokeCode } from './types_keys'
 
 export type Trigger =
   | { type: 'manual' }
-  | { type: 'keys'; keystrokes: KeystrokeCode[]; ignoreInputElements?: boolean }
+  | { type: 'keys'; keystrokes: KeystrokeCode[]; captureOnInputs?: boolean }
   | { type: 'auto' } // TODO: Implement, trigger the start immediately after enabling the easter egg
+
+export type KeystrokePattern = {
+  keystrokes: KeystrokeCode[]
+  callback: () => void
+  captureOnInputs?: boolean
+}
 
 export type ResourceType = 'css' | 'script'
 
@@ -24,6 +30,7 @@ export type UserEgg = {
   name: string
   enabled?: boolean
   trigger?: Trigger
+  stopTrigger?: Trigger
   resources?: Resource[]
   onStart: () => void | Promise<void>
   onStop: () => void | Promise<void>
@@ -34,6 +41,7 @@ export type PublicEgg = {
   readonly enabled: boolean
   readonly isActivated: boolean
   readonly trigger: Trigger
+  readonly stopTrigger: Trigger
   enable: () => void
   disable: () => void
   start: () => Promise<void>
