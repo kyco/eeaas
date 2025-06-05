@@ -2,8 +2,9 @@
 
 Finally a production ready and framework agnostic library to help bring back the magic of easter eggs into every app and website (built with modern JavaScript).
 
-> To get started **[click here](./packages/core/README.md)**.
+**[Start here!](./packages/core/README.md)**
 
+If you want to contribute to the package then read on.
 
 ## Running locally
 
