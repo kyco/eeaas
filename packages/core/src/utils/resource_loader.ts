@@ -2,47 +2,34 @@ import { Resource, LoadedResource } from '../types'
 import { loadRemoteResource } from './remote_resource_loader'
 import { generateResourceId } from './resource_loader_helper'
 
-const globalLoadedResources = new Set<LoadedResource>()
-
 const isValidResource = (resource: Resource) => {
   return !!(resource.url && !resource.content) || !!(!resource.url && resource.content)
 }
 
 const loadCss = async (resource: Resource): Promise<LoadedResource | null> => {
-  let loadedResource: LoadedResource | null = null
-
   if (resource.url) {
-    loadedResource = await loadRemoteResource({ resource, url: resource.url })
-    globalLoadedResources.add(loadedResource)
-    return loadedResource
+    return await loadRemoteResource({ resource, url: resource.url })
   } else if (resource.content) {
     const style = document.createElement('style')
     style.id = generateResourceId('css')
     style.textContent = resource.content
     document.head.appendChild(style)
-    loadedResource = { ...resource, id: style.id, element: style }
-    globalLoadedResources.add(loadedResource)
+    return { ...resource, id: style.id, element: style }
   }
-
-  return loadedResource
+  return null
 }
 
 const loadScript = async (resource: Resource): Promise<LoadedResource | null> => {
-  let loadedResource: LoadedResource | null = null
-
   if (resource.url) {
-    loadedResource = await loadRemoteResource({ resource, url: resource.url })
-    globalLoadedResources.add(loadedResource)
+    return await loadRemoteResource({ resource, url: resource.url })
   } else if (resource.content) {
     const script = document.createElement('script')
     script.id = generateResourceId('script')
     script.textContent = resource.content
     document.body.appendChild(script)
-    loadedResource = { ...resource, id: script.id, element: script }
-    globalLoadedResources.add(loadedResource)
+    return { ...resource, id: script.id, element: script }
   }
-
-  return loadedResource
+  return null
 }
 
 export const loadResources = async (resources: Resource[]): Promise<LoadedResource[]> => {
@@ -78,7 +65,6 @@ export const removeResources = (resources: LoadedResource[]) => {
     const element = document.getElementById(resource.id)
     if (element) {
       element.remove()
-      globalLoadedResources.delete(resource)
     }
   })
 }
