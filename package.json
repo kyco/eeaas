@@ -2,6 +2,7 @@
   "name": "@eeaas/source",
   "description": "Easter eggs as a service",
   "scripts": {},
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kyco/eeaas.git"
