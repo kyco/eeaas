@@ -8,7 +8,7 @@ export const initializeEeaas = (): EeaasInstance => {
 
   const register = (egg: UserEgg) => {
     if (internalEggs[egg.name]) {
-      logger('info', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
+      logger('warn', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
       return
     }
 
@@ -80,6 +80,11 @@ export const initializeEeaas = (): EeaasInstance => {
       async start() {
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
+          return
+        }
+
+        if (internalEgg.isActivated) {
+          await Promise.resolve(internalEgg.onStart(internalEgg.loadedResources))
           return
         }
 
