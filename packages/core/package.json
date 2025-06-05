@@ -1,7 +1,6 @@
 {
   "name": "@eeaas/core",
   "version": "1.7.4",
-  "private": false,
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -18,5 +17,8 @@
   "files": [
     "dist",
     "!**/*.tsbuildinfo"
-  ]
+  ],
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
 }
