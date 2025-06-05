@@ -1,4 +1,4 @@
-export class KeystrokeSequenceListener {
+export class KeystrokeListener {
   private buffer: string[] = []
   private readonly sequence: string[]
   private readonly onMatch: () => void

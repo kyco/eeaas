@@ -1,7 +1,7 @@
 import type { EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
-import { KeystrokeSequenceListener } from './key_listener'
+import { KeystrokeListener } from './classes'
 import { CONFIG } from './config'
-import { loadResources, removeResources } from './resource_loader'
+import { loadResources, removeResources } from './utils'
 
 export const initializeEeaas = (): EeaasInstance => {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -22,7 +22,7 @@ export const initializeEeaas = (): EeaasInstance => {
       trigger: egg.trigger ?? { type: 'manual' },
     }
 
-    let keystrokeListener: KeystrokeSequenceListener | null = null
+    let keystrokeListener: KeystrokeListener | null = null
 
     const publicEgg: PublicEgg = {
       name: internalEgg.name,
@@ -41,7 +41,7 @@ export const initializeEeaas = (): EeaasInstance => {
 
       enable() {
         if (internalEgg.trigger.type === 'keys') {
-          keystrokeListener = new KeystrokeSequenceListener(
+          keystrokeListener = new KeystrokeListener(
             internalEgg.trigger.keystrokes,
             () => publicEgg.start(),
             internalEgg.trigger.ignoreInputElements ?? false,

@@ -1,5 +1,5 @@
-import { Resource } from './types'
-import { loadRemoteResource } from './utils/remote_resource_loader'
+import { Resource } from '../types'
+import { loadRemoteResource } from './remote_resource_loader'
 
 const loadedResources = new Set<string>()
 
