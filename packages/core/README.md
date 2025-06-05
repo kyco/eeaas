@@ -39,7 +39,7 @@ egg.start()
 
 ## Building your own egg
 
-You can create quite complex easter eggs, the basic [structure of an egg]((./src/types/types_global.ts#L28)) is as follows:
+You can create quite complex easter eggs, the basic [structure of an egg](./src/types/types_global.ts#L28) is as follows:
 ```javascript
 const MyEgg = {
   name: string
