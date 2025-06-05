@@ -1,38 +1,42 @@
-import type { ResourceType } from '../types'
+import type { Resource, LoadedResource } from '../types'
+import { generateResourceId } from './id_generator'
 
 type RemoteResourceOptions = {
-  id: string
   url: string
-  type: ResourceType
+  resource: Resource
 }
 
-const createDomElement = ({ id, url, type }: RemoteResourceOptions): HTMLLinkElement | HTMLScriptElement => {
-  if (type === 'css') {
-    return Object.assign(document.createElement('link'), {
+const createDomElement = ({ url, resource }: RemoteResourceOptions): LoadedResource => {
+  const id = generateResourceId(resource.type)
+
+  if (resource.type === 'css') {
+    const element = Object.assign(document.createElement('link'), {
       href: url,
       rel: 'stylesheet',
       id,
     })
+    return { ...resource, id, element }
   }
 
-  return Object.assign(document.createElement('script'), {
+  const element = Object.assign(document.createElement('script'), {
     src: url,
     id,
   })
+  return { ...resource, id, element }
 }
 
-export const loadRemoteResource = ({ id, url, type }: RemoteResourceOptions): Promise<void> => {
+export const loadRemoteResource = ({ url, resource }: RemoteResourceOptions): Promise<LoadedResource> => {
   return new Promise((resolve, reject) => {
-    const element = createDomElement({ id, url, type })
+    const loadedResource = createDomElement({ url, resource })
 
-    element.onload = () => {
-      resolve()
+    loadedResource.element.onload = () => {
+      resolve(loadedResource)
     }
-    element.onerror = () => {
-      element.remove()
-      reject(new Error(`[eeaas] Failed to load resource "${id}" (${type}: ${url})`))
+    loadedResource.element.onerror = () => {
+      loadedResource.element.remove()
+      reject(new Error(`[eeaas] Failed to load resource (${resource.type}: ${resource.url})`))
     }
 
-    document.head.appendChild(element)
+    document.head.appendChild(loadedResource.element)
   })
 }

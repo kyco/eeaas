@@ -1,4 +1,4 @@
-import type { KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
+import type { LoadedResource, KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeListener } from './classes'
 import { CONFIG } from './config'
 import { loadResources, removeResources } from './utils'
@@ -22,6 +22,7 @@ export const initializeEeaas = (): EeaasInstance => {
       trigger: egg.trigger ?? { type: 'manual' },
       stopTrigger: egg.stopTrigger ?? { type: 'manual' },
       resources: egg.resources ?? [],
+      loadedResources: [],
     }
 
     let keystrokeListener: KeystrokeListener | null = null
@@ -90,13 +91,14 @@ export const initializeEeaas = (): EeaasInstance => {
         }
 
         try {
+          let loadedResources: LoadedResource[] = []
           // Do not change the order here. Code in the `onStart` might rely on resources,
           // so only trigger the `onStart` after resources have been loaded.
           if (internalEgg.resources && internalEgg.resources.length) {
             // TODO: Add logic to ensure the same resources are not loaded multiple times (check ID and also actual paths, show error if IDs clash)
-            await loadResources(internalEgg.resources)
+            loadedResources = await loadResources(internalEgg.resources)
           }
-          await Promise.resolve(internalEgg.onStart())
+          await Promise.resolve(internalEgg.onStart(loadedResources))
           internalEgg.isActivated = true
         } catch (error) {
           console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
@@ -112,9 +114,9 @@ export const initializeEeaas = (): EeaasInstance => {
         try {
           // Do not change the order here. Code in the `onStop` might still rely on resources,
           // so only remove resources after running the `onStop` method.
-          await Promise.resolve(internalEgg.onStop())
+          await Promise.resolve(internalEgg.onStop(internalEgg.loadedResources))
           if (internalEgg.resources) {
-            removeResources(internalEgg.resources)
+            removeResources(internalEgg.loadedResources)
           }
           internalEgg.isActivated = false
         } catch (error) {

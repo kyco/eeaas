@@ -1,87 +1,84 @@
-import { Resource } from '../types'
+import { Resource, LoadedResource } from '../types'
 import { loadRemoteResource } from './remote_resource_loader'
+import { generateResourceId } from './id_generator'
 
-const loadedResources = new Set<string>()
+const globalLoadedResources = new Set<LoadedResource>()
 
 const isValidResource = (resource: Resource) => {
-  return (
-    !!(resource.id && resource.url && !resource.path && !resource.content) ||
-    !!(resource.id && !resource.url && resource.path && !resource.content) ||
-    !!(resource.id && !resource.url && !resource.path && resource.content)
-  )
+  return !!(resource.url && !resource.content) || !!(!resource.url && resource.content)
 }
 
-const loadCss = async (resource: Resource): Promise<void> => {
-  if (!isValidResource(resource)) {
-    console.error('[eeaas] Invalid resource! Must have an id and either url, path, or content.')
-    return
-  }
-  if (loadedResources.has(resource.id)) {
-    return
-  }
+const loadCss = async (resource: Resource): Promise<LoadedResource | null> => {
+  let loadedResource: LoadedResource | null = null
 
   if (resource.url) {
-    await loadRemoteResource({ type: 'css', url: resource.url, id: resource.id })
-  } else if (resource.path) {
-    await loadRemoteResource({ type: 'css', url: resource.path, id: resource.id })
+    loadedResource = await loadRemoteResource({ resource, url: resource.url })
+    globalLoadedResources.add(loadedResource)
+    return loadedResource
   } else if (resource.content) {
     const style = document.createElement('style')
-    style.id = resource.id
+    style.id = generateResourceId('css')
     style.textContent = resource.content
     document.head.appendChild(style)
+    loadedResource = { ...resource, id: style.id, element: style }
+    globalLoadedResources.add(loadedResource)
   }
 
-  loadedResources.add(resource.id)
+  return loadedResource
 }
 
-const loadScript = async (resource: Resource): Promise<void> => {
-  if (!isValidResource(resource)) {
-    console.error('[eeaas] Invalid resource! Must have an id and either url, path, or content.')
-    return
-  }
-  if (loadedResources.has(resource.id)) {
-    return
-  }
+const loadScript = async (resource: Resource): Promise<LoadedResource | null> => {
+  let loadedResource: LoadedResource | null = null
 
   if (resource.url) {
-    await loadRemoteResource({ type: 'script', url: resource.url, id: resource.id })
-  } else if (resource.path) {
-    await loadRemoteResource({ type: 'script', url: resource.path, id: resource.id })
+    loadedResource = await loadRemoteResource({ resource, url: resource.url })
+    globalLoadedResources.add(loadedResource)
   } else if (resource.content) {
     const script = document.createElement('script')
-    script.id = resource.id
+    script.id = generateResourceId('script')
     script.textContent = resource.content
     document.body.appendChild(script)
+    loadedResource = { ...resource, id: script.id, element: script }
+    globalLoadedResources.add(loadedResource)
   }
 
-  loadedResources.add(resource.id)
+  return loadedResource
 }
 
-export const loadResources = async (resources: Resource[]): Promise<void> => {
+export const loadResources = async (resources: Resource[]): Promise<LoadedResource[]> => {
   if (!resources.length) {
-    return
+    return []
   }
-  const cssResources = resources.filter((resource) => resource.type === 'css')
-  const scriptResources = resources.filter((resource) => resource.type === 'script')
 
+  const validResources = resources.filter((resource) => {
+    if (!isValidResource(resource)) {
+      console.error('[eeaas] Invalid resource! Must have either url or content.')
+      return false
+    }
+    return true
+  })
+
+  const cssResources = validResources.filter((resource) => resource.type === 'css')
+  const scriptResources = validResources.filter((resource) => resource.type === 'script')
   const promises = [
     ...cssResources.map((resource) => loadCss(resource)),
     ...scriptResources.map((resource) => loadScript(resource)),
   ]
 
-  await Promise.all(promises)
+  const loadedResources = await Promise.all(promises)
+  return loadedResources.filter((resource) => resource !== null)
 }
 
-const removeResource = (resource: Resource) => {
+const removeResource = (resource: LoadedResource) => {
   const element = document.getElementById(resource.id)
 
   if (element) {
     element.remove()
-    loadedResources.delete(resource.id)
+    globalLoadedResources.delete(resource)
   }
 }
 
-export const removeResources = (resources: Resource[]) => {
+export const removeResources = (resources: LoadedResource[]) => {
   if (!resources.length) {
     return
   }

@@ -13,15 +13,14 @@ export type KeystrokePattern = {
 
 export type ResourceType = 'css' | 'script'
 
-type BaseResource = {
-  type: ResourceType
-  id: string
-}
-
 export type Resource =
-  | (BaseResource & { content: string; url?: never; path?: never })
-  | (BaseResource & { content?: never; url: string; path?: never })
-  | (BaseResource & { content?: never; url?: never; path: string })
+  | { type: ResourceType; content: string; url?: never }
+  | { type: ResourceType; content?: never; url: string }
+
+export type LoadedResource = Resource & {
+  id: string
+  element: HTMLStyleElement | HTMLLinkElement | HTMLScriptElement
+}
 
 /**
  * This is the public egg format which users can define.
@@ -32,8 +31,8 @@ export type UserEgg = {
   trigger?: Trigger
   stopTrigger?: Trigger
   resources?: Resource[]
-  onStart: () => void | Promise<void>
-  onStop: () => void | Promise<void>
+  onStart: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
 
 export type PublicEgg = {

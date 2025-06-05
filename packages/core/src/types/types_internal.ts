@@ -1,4 +1,4 @@
-import type { Trigger, Resource } from './types_global'
+import type { Trigger, Resource, LoadedResource } from './types_global'
 
 export type InternalEgg = {
   name: string
@@ -7,6 +7,7 @@ export type InternalEgg = {
   trigger: Trigger
   stopTrigger: Trigger
   resources: Resource[]
-  onStart: () => void
-  onStop: () => void
+  loadedResources: LoadedResource[]
+  onStart: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
