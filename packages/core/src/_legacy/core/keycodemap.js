@@ -88,5 +88,5 @@ export default {
   equal: 187,
   comma: 188,
   slash: 191,
-  backslash: 220
-};
+  backslash: 220,
+}
