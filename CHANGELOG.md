@@ -1,3 +1,13 @@
+## 1.7.4 (2025-06-05)
+
+### 🩹 Fixes
+
+- Update package.json properties fix: Run workflow on merge to main ([83b9428](https://github.com/kyco/eeaas/commit/83b9428))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 1.7.3 (2025-06-05)
 
 ### 🩹 Fixes
