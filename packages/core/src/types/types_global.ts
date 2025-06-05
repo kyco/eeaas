@@ -1,5 +1,22 @@
 import type { KeystrokeCode } from './types_keys'
 
+export type Trigger =
+  | { type: 'manual' }
+  | { type: 'keys'; keystrokes: KeystrokeCode[]; ignoreInputElements?: boolean }
+  | { type: 'auto' } // TODO: Implement, trigger the start immediately after enabling the easter egg
+
+export type ResourceType = 'css' | 'script'
+
+type BaseResource = {
+  type: ResourceType
+  id: string
+}
+
+export type Resource =
+  | (BaseResource & { content: string; url?: never; path?: never })
+  | (BaseResource & { content?: never; url: string; path?: never })
+  | (BaseResource & { content?: never; url?: never; path: string })
+
 /**
  * This is the public egg format which users can define.
  */
@@ -7,8 +24,9 @@ export type UserEgg = {
   name: string
   enabled?: boolean
   trigger?: Trigger
-  onStart: () => void
-  onStop: () => void
+  resources?: Resource[]
+  onStart: () => void | Promise<void>
+  onStop: () => void | Promise<void>
 }
 
 export type PublicEgg = {
@@ -18,8 +36,8 @@ export type PublicEgg = {
   readonly trigger: Trigger
   enable: () => void
   disable: () => void
-  start: () => void
-  stop: () => void
+  start: () => Promise<void>
+  stop: () => Promise<void>
 }
 
 export type EeaasInstance = {
@@ -27,13 +45,3 @@ export type EeaasInstance = {
   register: (egg: UserEgg) => void
   get: (name: keyof EeaasInstance['eggs']) => PublicEgg | undefined
 }
-
-export type Trigger =
-  | {
-      type: 'manual'
-    }
-  | {
-      type: 'keys'
-      keystrokes: KeystrokeCode[]
-      ignoreInputElements?: boolean
-    }

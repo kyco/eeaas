@@ -1,6 +1,7 @@
 import type { EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeSequenceListener } from './key_listener'
 import { CONFIG } from './config'
+import { loadResources, removeResources } from './resource_loader'
 
 export const initializeEeaas = (): EeaasInstance => {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -62,22 +63,42 @@ export const initializeEeaas = (): EeaasInstance => {
         internalEgg.enabled = false
       },
 
-      start() {
+      async start() {
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
-        internalEgg.onStart() // TODO: Allow async
-        internalEgg.isActivated = true
+
+        try {
+          // Do not change the order here. Code in the `onStart` might rely on resources,
+          // so only trigger the `onStart` after resources have been loaded.
+          if (internalEgg.resources && internalEgg.resources.length) {
+            await loadResources(internalEgg.resources)
+          }
+          await Promise.resolve(internalEgg.onStart())
+          internalEgg.isActivated = true
+        } catch (error) {
+          console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
+        }
       },
 
-      stop() {
+      async stop() {
         if (!internalEgg.enabled) {
           console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
-        internalEgg.onStop() // TODO: Allow async
-        internalEgg.isActivated = false
+
+        try {
+          // Do not change the order here. Code in the `onStop` might still rely on resources,
+          // so only remove resources after running the `onStop` method.
+          await Promise.resolve(internalEgg.onStop())
+          if (internalEgg.resources) {
+            removeResources(internalEgg.resources)
+          }
+          internalEgg.isActivated = false
+        } catch (error) {
+          console.error(`[eeaas] Error stopping egg "${internalEgg.name}":`, error)
+        }
       },
     }
 
