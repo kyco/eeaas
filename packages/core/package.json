@@ -1,6 +1,26 @@
 {
   "name": "@eeaas/core",
-  "version": "0.9.0",
+  "description": "Easter eggs as a service",
+  "version": "0.9.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyco/eeaas.git"
+  },
+  "keywords": [
+    "eeaas",
+    "easter eggs as a service",
+    "eggs as a service",
+    "egg service",
+    "egg",
+    "easteregg",
+    "easter egg"
+  ],
+  "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyco/eeaas/issues"
+  },
+  "homepage": "https://github.com/kyco/eeaas#readme",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
