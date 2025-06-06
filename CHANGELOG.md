@@ -1,3 +1,13 @@
+## 2.0.4 (2025-06-06)
+
+### 🚀 Features
+
+- Add to unpkg ([c248c48](https://github.com/kyco/eeaas/commit/c248c48))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.0.3 (2025-06-06)
 
 ### 🚀 Features

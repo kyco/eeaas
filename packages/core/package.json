@@ -1,7 +1,7 @@
 {
   "name": "@eeaas/core",
   "description": "Easter eggs as a service",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/kyco/eeaas.git",
@@ -38,10 +38,14 @@
       "default": "./dist/index.js"
     }
   },
+  "unpkg": "./dist/eeaas.min.js",
   "files": [
     "dist/**"
   ],
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "scripts": {
+    "build": "vite build"
   }
 }

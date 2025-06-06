@@ -2,11 +2,6 @@
 
 A production ready and framework agnostic library to help bring back the magic of easter eggs into every app and website. Built with modern JavaScript.
 
-## Installation
-
-```bash
-npm i @eeaas/core
-```
 
 ## Features
 
@@ -17,147 +12,77 @@ npm i @eeaas/core
 - ⚡ Async loading
 - 🎮 Manual and automatic triggers
 
+
+## Installation
+
+```bash
+npm i @eeaas/core
+```
+
+Once installed you can import the utility and start creating your own easter eggs.
+
+
 ## Basic Usage
-
-### Vanilla JavaScript
-
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-<body>
-  <script type="module">
-    import { initializeEeaas } from '@eeaas/core'
-
-    const eeaas = initializeEeaas()
-
-    // Simple easter egg
-    eeaas.register({
-      name: 'SimpleEgg',
-      trigger: {
-        type: 'keys',
-        keystrokes: ['h', 'e', 'y'],
-      },
-      stopTrigger: {
-        type: 'keys',
-        keystrokes: ['Escape'],
-      },
-      onStart() {
-        alert('You found me!')
-      },
-      onStop() {
-        alert('Goodbye!')
-      }
-    })
-
-    // Easter egg with external resources
-    eeaas.register({
-      name: 'NyanCat',
-      trigger: {
-        type: 'keys',
-        keystrokes: ['n', 'y', 'a', 'n'],
-      },
-      stopTrigger: {
-        type: 'keys',
-        keystrokes: ['Escape'],
-      },
-      resources: [
-        {
-          type: 'css',
-          url: 'https://example.com/nyan-cat.css'
-        },
-        {
-          type: 'script',
-          url: 'https://example.com/nyan-cat.js'
-        },
-        {
-          type: 'css',
-          content: `
-            .nyan-cat {
-              position: fixed;
-              bottom: 0;
-              right: 0;
-            }
-          `
-        }
-      ],
-      onStart(loadedResources) {
-        console.log('Nyan cat activated!', loadedResources)
-      },
-      onStop() {
-        console.log('Nyan cat removed')
-      }
-    })
-  </script>
-</body>
-</html>
-```
-
-### React Example
-
-```tsx
-// App.tsx
-import { initializeEeaas } from '@eeaas/core'
-
-const eeaas = initializeEeaas()
-
-eeaas.register({
-  name: 'ReactEgg',
-  trigger: {
-    type: 'keys',
-    keystrokes: ['r', 'e', 'a', 'c', 't'],
-    captureOnInputs: false
-  },
-  resources: [
-    {
-      type: 'css',
-      content: `
-        .rainbow-mode {
-          animation: rainbow 2s linear infinite;
-        }
-      `
-    }
-  ],
-  onStart() {
-    document.body.classList.add('rainbow-mode')
-  },
-  onStop() {
-    document.body.classList.remove('rainbow-mode')
-  }
-})
-
-function App() {
-  const handleStart = () => {
-    const egg = eeaas.get('ReactEgg')
-    egg?.start()
-  }
-
-  const handleStop = () => {
-    const egg = eeaas.get('ReactEgg')
-    egg?.stop()
-  }
-
-  return (
-    <div>
-      Your React App
-      <button onClick={handleStart}>Activate Easter Egg</button>
-      <button onClick={handleStop}>Deactivate Easter Egg</button>
-    </div>
-  )
-}
-```
-
-## API Reference
-
-### Initialisation
 
 ```typescript
 import { initializeEeaas } from '@eeaas/core'
 
+// Initialise
 const eeaas = initializeEeaas()
+
+// Register eggs, only registered eggs can be activated
+eeaas.register({
+  name: 'MyEgg',
+  onStart() {
+    // Do some magic here!
+    console.log('Easter egg time...')
+  },
+  onStop() {
+    // Cleanup your harmless easter egg logic
+    console.log('So sad...')
+  },
+})
+
+// Trigger your egg, from anywhere in the app
+const egg = eeaas.get('MyEgg')
+egg.start()
 ```
 
-The `initializeEeaas()` function creates a new instance of the easter egg service. This must be called before registering or using any eggs. It returns an instance with the following methods and properties:
+For more details see the [React Example](./examples/react.md) or the [Vanilla JavaScript Example](./examples/javascript.md).
+
+
+## Building your own egg
+
+You can create quite complex easter eggs, the basic [structure of an egg](./src/types/types_global.ts#L28) is as follows:
+```javascript
+const MyEgg = {
+  name: string
+  enabled?: boolean
+  trigger?: Trigger
+  stopTrigger?: Trigger
+  resources?: Resource[]
+  onStart: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
+}
+```
+
+The __Trigger__ allows you to run code when a user enters a sequence of characters instead of solely relying on the `egg.start()` method.
+
+Here's the [list of valid keystrokes](./src/types/types_keys.ts).
+
+Example usage:
+```javascript
+trigger: {
+  type: 'keys',
+  keystrokes: ['n', 'y', 'a', 'n'],
+  captureOnInputs: false,
+}
+```
+
+This will cause the egg to run its logic when the user enters 'nyan' anywhere, except when the user is actively entering data into an input or textarea - this logic can be toggled with the `captureOnInputs` flag.
+
+
+## API Reference
 
 ### Instance Methods
 
@@ -166,6 +91,7 @@ Method | Returns | Description
 `register(egg: UserEgg)` | `void` | Register a new easter egg
 `get(name: string)` | `PublicEgg \| undefined` | Retrieve an egg instance by name
 `getInstance()` | `{ eggs: Record<string, PublicEgg> }` | Get the global eeaas instance
+
 
 ### Egg Methods
 
