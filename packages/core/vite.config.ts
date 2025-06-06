@@ -9,7 +9,7 @@ export default defineConfig(() => ({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'eeaas',
+      name: '_eeaas',
       formats: ['es', 'umd'],
       fileName: (format) => (format === 'umd' ? 'eeaas.min.js' : 'index.js'),
     },

@@ -48,6 +48,16 @@ const egg = eeaas.get('MyEgg')
 egg.start()
 ```
 
+Or without a bundler:
+
+```html
+<script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
+<script>
+  const eeaas = _eeaas.initializeEeaas();
+  // eeaas.register(...)
+</script>
+```
+
 For more details see the [React Example](./examples/react.md) or the [Vanilla JavaScript Example](./examples/javascript.md).
 
 

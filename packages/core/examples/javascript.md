@@ -5,10 +5,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <script type="module">
-    import { initializeEeaas } from '@eeaas/core'
-
-    const eeaas = initializeEeaas()
+  <script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
+  <script>
+    const eeaas = _eeaas.initializeEeaas();
 
     // Simple easter egg
     eeaas.register({
