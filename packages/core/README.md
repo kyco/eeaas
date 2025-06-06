@@ -119,13 +119,13 @@ Property | Type | Required | Default | Description
 
 ```typescript
 type Trigger =
-  | { type: 'manual' }     // Activated via start() method
+  | { type: 'manual' }     // Default, activate via start() method
+  | { type: 'auto' }       // Activates immediately when enabled
   | {
       type: 'keys'         // Activated by keyboard sequence
       keystrokes: string[] // Array of keys to press
       captureOnInputs?: boolean // Listen on input fields, defaults to true)
     }
-  | { type: 'auto' }       // Activates immediately when enabled
 ```
 
 ### Resource Types
