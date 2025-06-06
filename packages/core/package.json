@@ -35,8 +35,5 @@
   "unpkg": "./dist/eeaas.min.js",
   "files": [
     "dist/**"
-  ],
-  "dependencies": {
-    "tslib": "^2.3.0"
-  }
+  ]
 }
