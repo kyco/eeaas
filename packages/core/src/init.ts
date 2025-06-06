@@ -62,6 +62,13 @@ export const initializeEeaas = (): EeaasInstance => {
           keystrokeListener = new KeystrokeListener(patterns)
           keystrokeListener.start()
         }
+
+        if (internalEgg.trigger.type === 'auto') {
+          internalEgg.enabled = true
+          publicEgg.start()
+          return
+        }
+
         internalEgg.enabled = true
       },
 
@@ -128,7 +135,7 @@ export const initializeEeaas = (): EeaasInstance => {
     internalEggs[egg.name] = internalEgg
     publicEggs[egg.name] = publicEgg
 
-    if (internalEgg.enabled && internalEgg.trigger.type === 'keys') {
+    if (internalEgg.enabled) {
       publicEgg.enable()
     }
 
