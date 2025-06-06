@@ -1,3 +1,13 @@
+## 2.2.0 (2025-06-06)
+
+### 🚀 Features
+
+- Trigger build ([21b4199](https://github.com/kyco/eeaas/commit/21b4199))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.1.0 (2025-06-06)
 
 ### 🚀 Features
