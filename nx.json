@@ -66,6 +66,16 @@
     }
   ],
   "targetDefaults": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist"
+      }
+    },
     "test": {
       "dependsOn": [
         "^build"
