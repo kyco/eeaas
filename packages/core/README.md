@@ -142,3 +142,4 @@ type Resource =
 ## Resource Management
 
 Resources are automatically injected and ejected from the DOM when an egg is started/stopped. Resources won't be loaded until `start()` method is called.
+
