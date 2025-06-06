@@ -1,3 +1,13 @@
+## 2.1.2 (2025-06-06)
+
+### 🩹 Fixes
+
+- Update package.json ([f3802e3](https://github.com/kyco/eeaas/commit/f3802e3))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.1.1 (2025-06-06)
 
 ### 🩹 Fixes
