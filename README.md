@@ -1,6 +1,6 @@
 # Easter eggs as a service
 
-Finally a production ready and framework agnostic library to help bring back the magic of easter eggs into every app and website (built with modern JavaScript).
+A production ready and framework agnostic library to help bring back the magic of easter eggs into every app and website. Built with modern JavaScript.
 
 **[Start here!](./packages/core/README.md)**
 
