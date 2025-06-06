@@ -29,6 +29,7 @@
 - Manually reset version ([0f3e201](https://github.com/kyco/eeaas/commit/0f3e201))
 - Publish ([90a4609](https://github.com/kyco/eeaas/commit/90a4609))
 
+
 ### ❤️ Thank You
 
 - Cornelius Weidmann
