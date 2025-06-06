@@ -1,3 +1,13 @@
+## 2.0.3 (2025-06-06)
+
+### 🚀 Features
+
+- Add logic to run the egg automatically when the "auto" trigger is used ([e7727d7](https://github.com/kyco/eeaas/commit/e7727d7))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.0.2 (2025-06-05)
 
 This was a version bump only, there were no code changes.
