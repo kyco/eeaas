@@ -1,3 +1,16 @@
+## 2.0.7 (2025-06-06)
+
+### 🩹 Fixes
+
+- Update readme ([5b14491](https://github.com/kyco/eeaas/commit/5b14491))
+- Reenable workflow ([34ab99e](https://github.com/kyco/eeaas/commit/34ab99e))
+- Use github actions for git commands ([10543df](https://github.com/kyco/eeaas/commit/10543df))
+- Update permission ([c136e35](https://github.com/kyco/eeaas/commit/c136e35))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.0.6 (2025-06-06)
 
 ### 🩹 Fixes
