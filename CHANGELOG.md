@@ -1,3 +1,13 @@
+## 2.0.6 (2025-06-06)
+
+### 🩹 Fixes
+
+- Update readme ([ca496b9](https://github.com/kyco/eeaas/commit/ca496b9))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.0.5 (2025-06-06)
 
 ### 🩹 Fixes
