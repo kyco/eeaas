@@ -1,3 +1,13 @@
+## 2.1.1 (2025-06-06)
+
+### 🩹 Fixes
+
+- Trigger release ([3ad617b](https://github.com/kyco/eeaas/commit/3ad617b))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.1.0 (2025-06-06)
 
 ### 🚀 Features
