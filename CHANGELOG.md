@@ -1,3 +1,16 @@
+## 2.0.5 (2025-06-06)
+
+### 🩹 Fixes
+
+- Use conventional commits ([fb5040b](https://github.com/kyco/eeaas/commit/fb5040b))
+- Only publish ([9ee500c](https://github.com/kyco/eeaas/commit/9ee500c))
+- Disable on push ([09ff84b](https://github.com/kyco/eeaas/commit/09ff84b))
+- Update readme ([c37001b](https://github.com/kyco/eeaas/commit/c37001b))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.0.4 (2025-06-06)
 
 ### 🚀 Features
