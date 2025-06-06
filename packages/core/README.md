@@ -48,7 +48,7 @@ const egg = eeaas.get('MyEgg')
 egg.start()
 ```
 
-Or without a bundler:
+Or without a bundler (under the global namespace **_eeaas**):
 
 ```html
 <script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
