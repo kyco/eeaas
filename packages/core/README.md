@@ -92,7 +92,6 @@ Method | Returns | Description
 `get(name: string)` | `PublicEgg \| undefined` | Retrieve an egg instance by name
 `getInstance()` | `{ eggs: Record<string, PublicEgg> }` | Get the global eeaas instance
 
-
 ### Egg Methods
 
 Method | Returns | Description
@@ -101,7 +100,6 @@ Method | Returns | Description
 `stop()` | `Promise<void>` | Manually deactivate the egg
 `enable()` | `void` | Enable egg triggers
 `disable()` | `void` | Disable egg triggers
-
 
 ### Egg Properties
 
@@ -138,6 +136,7 @@ type Resource =
       url?: string         // Local path or external URL to CSS/JS file
     }
 ```
+
 
 ## Resource Management
 
