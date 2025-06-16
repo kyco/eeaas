@@ -18,15 +18,7 @@ The app will be running on [localhost:4200](http://localhost:4200).
 
 ## Publishing a release
 
-Publishing a new version is a _two step_ process.
-
-To create a new tag and also create a release on the [GitHub releases](https://github.com/kyco/eeaas/releases) page ensure you're on the `develop` branch, then run:
-
-```
-nx release --skip-publish
-```
-
-Now merge `develop` into `main` which will trigger the GitHub action to publish the package to [npm](https://www.npmjs.com/package/@eeaas/core).
+To publish a new version merge `develop` into `main`. This will trigger a GitHub action to publish the package to [npm](https://www.npmjs.com/package/@eeaas/core).
 
 ### Built with Nx
 
