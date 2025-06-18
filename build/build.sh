@@ -75,7 +75,6 @@ deploy_demo_react() {
 
 
   printf "${YELLOW}🌐 Deploying to GitHub Pages...${NC}\n"
-  # npx gh-pages -d "$DIST_DIR"
   npx gh-pages -d "$DIST_DIR" -r https://x-access-token:${GITHUB_TOKEN}@github.com/kyco/eeaas.git
 
   printf "${GREEN}✅ Deployment complete!${NC}\n"
