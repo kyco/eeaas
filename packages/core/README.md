@@ -1,30 +1,29 @@
 # Easter eggs as a service
 
-A production ready and framework agnostic library to help bring back the magic of easter eggs into every app and website. Built with modern JavaScript.
+A zero-dependency library to inject easter eggs into any app or website.
 
+Built with modern JavaScript.
 
-## Features
-
-- 🎯 Framework agnostic
-- 🔑 Keyboard sequence triggers
-- 🎨 Dynamic CSS injection
-- 📜 Dynamic JavaScript injection
-- ⚡ Async loading
-- 🎮 Manual and automatic triggers
-
+[Demo](https://kyco.github.io/eeaas/)
 
 ## Installation
 
+With npm:
 ```bash
 npm i @eeaas/core
 ```
 
-Once installed you can import the utility and start creating your own easter eggs.
+Without a bundler (available as **window._eeaas**):
 
+```html
+<script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
+```
 
 ## Basic Usage
 
+With bundler:
 ```typescript
+/* index.ts */
 import { initializeEeaas } from '@eeaas/core'
 
 // Initialise
@@ -48,17 +47,35 @@ const egg = eeaas.get('MyEgg')
 egg.start()
 ```
 
-Or without a bundler (under the global namespace **_eeaas**):
+Without bundler:
 
 ```html
+<!-- index.html -->
 <script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
 <script>
+  // Initialise
   const eeaas = _eeaas.initializeEeaas();
-  // eeaas.register(...)
+
+  // Register eggs, only registered eggs can be activated
+  eeaas.register({
+    name: 'MyEgg',
+    onStart() {
+      // Do some magic here!
+      console.log('Easter egg time...')
+    },
+    onStop() {
+      // Cleanup your harmless easter egg logic
+      console.log('So sad...')
+    },
+  })
+
+  // Trigger your egg, from anywhere in the app
+  const egg = eeaas.get('MyEgg')
+  egg.start()
 </script>
 ```
 
-For more details see the [React Example](./examples/react.md) or the [Vanilla JavaScript Example](./examples/javascript.md).
+For more details see the [React Example](./examples/react.md) or the [Vanilla JS Example](./examples/javascript.md).
 
 
 ## Building your own egg
