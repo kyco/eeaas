@@ -9,8 +9,23 @@ eeaas.register({
   name: 'test',
   trigger: {
     type: 'keys',
-    keystrokes: ['n', 'y', 'a', 'n'],
+    keystrokes: ['t', 'e', 's', 't'],
   },
+  stopTrigger: {
+    type: 'keys',
+    keystrokes: ['Escape'],
+  },
+  resources: [
+    {
+      type: 'css',
+      content: `
+        body {
+          background-color: #000;
+          color: #fff;
+        }
+      `,
+    },
+  ],
   onStart() {
     console.info('test started')
   },
