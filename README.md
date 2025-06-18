@@ -49,4 +49,4 @@ The app will be running on [localhost:4200/eeaas/](http://localhost:4200/eeaas/)
 
 ## Publishing a release
 
-To publish a new version merge `develop` into `main`. This will trigger a GitHub action to publish the package to [npm](https://www.npmjs.com/package/@eeaas/core).
+Merge `develop` into `main` or push directly on `main`. This will trigger a workflow which will publish the package to the [npm @eeaas/core](https://www.npmjs.com/package/@eeaas/core).
