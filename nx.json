@@ -77,6 +77,11 @@
         "^build"
       ]
     },
+    "serve": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "test": {
       "dependsOn": [
         "^build"
