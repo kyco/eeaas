@@ -13,7 +13,16 @@ const App = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 10px' }}>
-      <h1>Eeaas demo</h1>
+      <h1>Easter eggs as a service</h1>
+      <p>A zero-dependency library to inject easter eggs into any app or website.</p>
+      <p>Built with modern JavaScript.</p>
+
+      <p style={{ marginBottom: '20px' }}>
+        <a href="https://www.npmjs.com/package/@eeaas/core" target="_blank" rel="noopener noreferrer">
+          Docs
+        </a>
+      </p>
+
       <fieldset style={{ paddingBottom: '20px' }}>
         <legend style={{ padding: '0 10px', fontWeight: 'bold' }}>Example 1</legend>
         <p>Type "test" anywhere, press "Esc" to cancel.</p>
@@ -24,7 +33,7 @@ const App = () => {
           </button>
         </div>
         <input type="text" placeholder='Type "test" here' />
-        <blockquote>This egg injects custom CSS into the DOM and removes it once the egg is stopped.</blockquote>
+        <blockquote>This egg injects custom CSS into the DOM.</blockquote>
       </fieldset>
 
       <small style={{ display: 'block', marginTop: '20px' }}>
