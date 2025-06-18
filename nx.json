@@ -74,7 +74,10 @@
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist"
-      }
+      },
+      "dependsOn": [
+        "^build"
+      ]
     },
     "test": {
       "dependsOn": [
@@ -109,5 +112,9 @@
         "createRelease": "github"
       }
     }
+  },
+  "tui": {
+    "enabled": true,
+    "autoExit": true,
   }
 }

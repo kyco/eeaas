@@ -1,5 +1,10 @@
 {
   "name": "@eeaas/demo-react",
+  "description": "Demo page for eeaas (easter eggs as a service)",
   "version": "0.0.1",
-  "private": true
+  "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
+  "homepage": "https://kyco.github.io/eeaas/",
+  "scripts": {
+    "deploy": "sh ../../build/build.sh deploy-demo-react"
+  }
 }

@@ -2,6 +2,7 @@
   "name": "@eeaas/core",
   "description": "Easter eggs as a service",
   "version": "2.3.1",
+  "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
   "repository": {
     "type": "git",
     "url": "https://github.com/kyco/eeaas.git",
@@ -19,7 +20,6 @@
     "easteregg",
     "easter egg"
   ],
-  "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kyco/eeaas/issues"

@@ -10,7 +10,6 @@ eeaas.register({
   trigger: {
     type: 'keys',
     keystrokes: ['n', 'y', 'a', 'n'],
-    ignoreInputElements: true,
   },
   onStart() {
     console.info('test started')
