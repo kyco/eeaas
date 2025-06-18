@@ -1,3 +1,17 @@
+## 2.4.1 (2025-06-18)
+
+### 🩹 Fixes
+
+- Syntax ([0873997](https://github.com/kyco/eeaas/commit/0873997))
+- Empty globals ([21755e9](https://github.com/kyco/eeaas/commit/21755e9))
+- Ensure only activated eggs can be stopped ([9ed37e3](https://github.com/kyco/eeaas/commit/9ed37e3))
+- Update demo site ([e5def48](https://github.com/kyco/eeaas/commit/e5def48))
+- Update wording ([c881a9b](https://github.com/kyco/eeaas/commit/c881a9b))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.4.0 (2025-06-18)
 
 ### 🚀 Features
