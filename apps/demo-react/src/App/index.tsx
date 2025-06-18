@@ -19,7 +19,7 @@ const App = () => {
 
       <p style={{ marginBottom: '20px' }}>
         <a href="https://www.npmjs.com/package/@eeaas/core" target="_blank" rel="noopener noreferrer">
-          Docs
+          Documentation
         </a>
       </p>
 
