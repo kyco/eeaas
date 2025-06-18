@@ -44,9 +44,12 @@ else
 fi
 
 if [ -f "$ENV_FILE" ]; then
-  # shellcheck disable=SC2046
-  export $(grep -v '^#' "$ENV_FILE" | xargs)
-  printf "${GREEN}✅ Loaded variables from %s${NC}\n" "$ENV_FILE"
+  printf "${GREEN}✅ Loading variables from %s${NC}\n" "$ENV_FILE"
+
+  # Export all variables from the env file, but do not override existing ones
+  set -o allexport
+  source <(grep -v '^#' "$ENV_FILE" | sed '/^\s*$/d')
+  set +o allexport
 else
   printf "${RED}⚠️  Warning: %s not found.${NC}\n" "$ENV_FILE"
 fi
