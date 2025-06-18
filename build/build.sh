@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -91,10 +91,9 @@ main() {
 
   if [ -z "$CMD" ]; then
     printf "${RED}❌ No command specified.${NC}\n"
-    printf "${BOLD}Usage:${NC} sh build.sh <command>\n"
+    printf "${BOLD}Usage:${NC} bash build.sh <command>\n"
     printf "${BOLD}Available commands:${NC}\n"
     printf "  > deploy-demo-react\n"
-    printf "  > publish-core\n"
     exit 1
   fi
 

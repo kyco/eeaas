@@ -5,6 +5,6 @@
   "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
   "homepage": "https://kyco.github.io/eeaas/",
   "scripts": {
-    "deploy": "sh ../../build/build.sh deploy-demo-react"
+    "deploy": "bash ../../build/build.sh deploy-demo-react"
   }
 }
