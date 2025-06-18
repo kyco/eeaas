@@ -49,7 +49,7 @@ jobs:
     name: Deploy demo site
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
 
@@ -71,9 +71,6 @@ jobs:
           git config user.email github-actions@github.com
 
       - name: Deploy to GitHub pages
-        # run: npx nx deploy demo-react
-        run: |
-          npx nx build demo-react
-          npx gh-pages -d "apps/demo-react/dist"
+        run: npx nx deploy demo-react
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
