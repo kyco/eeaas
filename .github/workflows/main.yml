@@ -71,6 +71,7 @@ jobs:
           git config user.email github-actions@github.com
 
       - name: Deploy to GitHub pages
-        run: npx nx deploy demo-react
+        # run: npx nx deploy demo-react
+        run: npx gh-pages -d "apps/demo-react/dist"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
