@@ -1,4 +1,4 @@
-name: Publish
+name: Deploy to GitHub pages and publish on npm
 
 on:
   push:
@@ -7,24 +7,24 @@ on:
 
 jobs:
   publish-eeaas:
-    name: Publish
+    name: Publish to npm
+    needs: deploy-eeaas-demo
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write # needed for provenance data generation
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           filter: tree:0
 
-      - name: Install Node
+      - name: Setup environment
         uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '22.16.0'
 
       - name: Install dependencies
         run: npm install
@@ -44,3 +44,26 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+
+  deploy-eeaas-demo:
+    name: Deploy demo site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to GitHub pages
+        run: npx nx deploy demo-react
