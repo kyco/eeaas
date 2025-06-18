@@ -4,12 +4,16 @@ A zero-dependency library to inject easter eggs into any app or website.
 
 Built with modern JavaScript.
 
-[Docs](./packages/core/README.md) / [Demo](https://kyco.github.io/eeaas/)
+[Demo](https://kyco.github.io/eeaas/)
+
+[Documentation](https://www.npmjs.com/package/@eeaas/core)
 
 ---
 
-> [!TIP]
-> If you want to run your own version of the package then read on.
+> [!NOTE]
+> *The instructions below are for the monorepo! For __`@eeaas/core`__ instructions view the [documentation](https://www.npmjs.com/package/@eeaas/core).*
+
+---
 
 ## Installation
 
@@ -41,7 +45,7 @@ nx run demo-react:serve
 nx run demo-react:watch-deps
 ```
 
-The app will be running on [localhost:4200/eeaas](http://localhost:4200/eeaas/).
+The app will be running on [localhost:4200/eeaas/](http://localhost:4200/eeaas/).
 
 ## Publishing a release
 
