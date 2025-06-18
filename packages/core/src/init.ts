@@ -113,8 +113,8 @@ export const initializeEeaas = (): EeaasInstance => {
 
       async stop() {
         // TODO: When triggering the same egg multiple times ensure we correctly remove previous resources here
-        if (!internalEgg.enabled) {
-          console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not enabled.`)
+        if (!internalEgg.isActivated) {
+          console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not activated.`)
           return
         }
 
