@@ -4,7 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/demo-react"
+      "path": "./apps/docs"
     },
     {
       "path": "./packages/core"

@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(() => ({
   root: __dirname,
   base: process.env.VITE_REACT_DEMO_SITE_URL || '/',
-  cacheDir: '../../node_modules/.vite/apps/demo-react',
+  cacheDir: '../../node_modules/.vite/apps/docs',
   server: {
     port: 4200,
     host: 'localhost',

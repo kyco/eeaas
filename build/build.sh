@@ -60,13 +60,13 @@ fi
 # --------------------------------------------------------------------------------------------------
 
 
-deploy_demo_react() {
-  printf "${BLUE}${BOLD}🚀 Deploying: demo-react${NC}\n"
+deploy_docs() {
+  printf "${BLUE}${BOLD}🚀 Deploying: docs${NC}\n"
 
-  printf "${YELLOW}📦 Building demo-react app...${NC}\n"
-  nx build demo-react
+  printf "${YELLOW}📦 Building docs app...${NC}\n"
+  nx build docs
 
-  DIST_DIR="apps/demo-react/dist"
+  DIST_DIR="apps/docs/dist"
 
   if [ ! -d "$DIST_DIR" ]; then
     printf "${RED}❌ Build output not found at %s${NC}\n" "$DIST_DIR"
@@ -93,13 +93,13 @@ main() {
     printf "${RED}❌ No command specified.${NC}\n"
     printf "${BOLD}Usage:${NC} bash build.sh <command>\n"
     printf "${BOLD}Available commands:${NC}\n"
-    printf "  > deploy-demo-react\n"
+    printf "  > deploy-docs\n"
     exit 1
   fi
 
   case "$CMD" in
-    deploy-demo-react)
-      deploy_demo_react
+    deploy-docs)
+      deploy_docs
       ;;
     *)
       printf "${RED}❌ Unknown command: %s${NC}\n" "$CMD"

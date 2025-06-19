@@ -35,14 +35,14 @@ npm i
 
 ## Running locally
 
-The main files are in the [core package](./packages/core/src/). Additionally there is a [demo app](./apps/demo-react/src/) which is used to test all the changes. To run the app, use:
+The main files are in the [core package](./packages/core/src/). Additionally there is a [docs app](./apps/docs/src/) which is used to test all the changes. To run the app, use:
 
 ```sh
 # Run the app
-nx run demo-react:serve
+nx run docs:serve
 
 # Watch for changes (simultaneously, in a separate tab)
-nx run demo-react:watch-deps
+nx run docs:watch-deps
 ```
 
 The app will be running on [localhost:4200/eeaas/](http://localhost:4200/eeaas/).
