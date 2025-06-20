@@ -6,7 +6,7 @@ import DocsPageWrapper from './DocsPageWrapper'
 const GettingStarted = () => {
   return (
     <DocsPageWrapper>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" gutterBottom id="quick-start">
         Quick Start
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
@@ -54,7 +54,7 @@ eeaas.get('MyFirstEgg').start()`}</CodeBlock>
           </a>
         </Typography>
 
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom id="installation">
           Installation
         </Typography>
 

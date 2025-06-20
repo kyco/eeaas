@@ -1,7 +1,7 @@
-import { List, ListItem, ListItemButton, ListItemText, Paper, Typography } from '@mui/material'
-import { Link, useLocation } from 'react-router-dom'
+import { List, ListSubheader, Paper, Typography } from '@mui/material'
 
 import type { NavItem } from '../../types'
+import { SidebarListItem } from './components'
 
 type SidebarProps = {
   title: string
@@ -9,56 +9,31 @@ type SidebarProps = {
 }
 
 const Sidebar = ({ title, navItems = [] }: SidebarProps) => {
-  const location = useLocation()
-
   return (
     <Paper
       sx={{
-        p: 2,
+        py: 1,
+        px: 2,
         position: 'sticky',
         top: 88,
-        height: 'fit-content',
-        display: { xs: 'none', md: 'block' },
       }}
     >
-      <Typography
-        variant="overline"
-        sx={{
-          fontWeight: 600,
-          color: 'text.secondary',
-          mb: 1,
-          display: 'block',
-        }}
+      <List
+        component="nav"
+        dense
+        subheader={
+          <ListSubheader
+            component={Typography}
+            id="nested-list-subheader"
+            sx={{ fontWeight: 600, fontSize: 12 }}
+            variant="overline"
+          >
+            {title}
+          </ListSubheader>
+        }
       >
-        {title}
-      </Typography>
-
-      <List dense>
         {navItems.map((item) => {
-          const isSelected = location.pathname === item.route
-
-          return (
-            <ListItem key={item.route} disablePadding>
-              <ListItemButton
-                component={Link}
-                to={item.route}
-                selected={isSelected}
-                sx={{
-                  borderRadius: 1,
-                  mb: 0.5,
-                  '&.Mui-selected': {
-                    backgroundColor: 'primary.main',
-                    color: 'white',
-                    '&:hover': {
-                      backgroundColor: 'primary.dark',
-                    },
-                  },
-                }}
-              >
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            </ListItem>
-          )
+          return <SidebarListItem key={item.route} navItem={item} />
         })}
       </List>
     </Paper>
