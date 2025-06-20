@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
       { label: 'Egg properties', hash: '#egg-properties' },
     ],
   },
-  { label: 'Code examples', route: ROUTES.DOCS__CODE_EXAMPLES },
+  // { label: 'Code examples', route: ROUTES.DOCS__CODE_EXAMPLES },
 ]
 
 const PageWrapperDocs = ({ children }: { children: ReactNode }) => {
