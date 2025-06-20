@@ -3,5 +3,17 @@
   "semi": false,
   "arrowParens": "always",
   "trailingComma": "all",
-  "singleQuote": true
+  "singleQuote": true,
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "@eeaas",
+    "",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
