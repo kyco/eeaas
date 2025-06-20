@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
-import CodeBlock from '../../components/CodeBlock'
+import { CodeBlock } from '../../components'
 import DocsPageWrapper from './DocsPageWrapper'
 
 const GettingStarted = () => {
@@ -13,9 +13,11 @@ const GettingStarted = () => {
         Install the library and create your first easter egg in just a few lines of code:
       </Typography>
 
-      <CodeBlock language="bash">npm install @eeaas/core</CodeBlock>
+      <CodeBlock language="bash" code={`npm install @eeaas/core`} />
 
-      <CodeBlock language="javascript">{`import { initializeEeaas } from '@eeaas/core'
+      <CodeBlock
+        language="javascript"
+        code={`import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
 eeaas.register({
@@ -28,7 +30,8 @@ eeaas.register({
   }
 })
 
-eeaas.get('MyFirstEgg').start()`}</CodeBlock>
+eeaas.get('MyFirstEgg').start()`}
+      />
 
       <Typography variant="body1" color="text.secondary">
         Choose a section from the sidebar to dive deeper into specific topics and learn how to create amazing easter egg
@@ -61,13 +64,16 @@ eeaas.get('MyFirstEgg').start()`}</CodeBlock>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           With npm:
         </Typography>
-        <CodeBlock language="bash">npm i @eeaas/core</CodeBlock>
+        <CodeBlock language="bash" code={`npm i @eeaas/core`} />
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           Without a bundler (available as <strong>window._eeaas</strong>):
         </Typography>
 
-        <CodeBlock language="html">{`<script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>`}</CodeBlock>
+        <CodeBlock
+          language="html"
+          code={`<script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>`}
+        />
 
         <Typography variant="h2" gutterBottom>
           Basic Usage
@@ -76,7 +82,9 @@ eeaas.get('MyFirstEgg').start()`}</CodeBlock>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           With bundler:
         </Typography>
-        <CodeBlock language="typescript">{`/* index.ts */
+        <CodeBlock
+          language="typescript"
+          code={`/* index.ts */
 import { initializeEeaas } from '@eeaas/core'
 
 // Initialise
@@ -97,13 +105,16 @@ eeaas.register({
 
 // Trigger your egg, from anywhere in the app
 const egg = eeaas.get('MyEgg')
-egg.start()`}</CodeBlock>
+egg.start()`}
+        />
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           Without bundler:
         </Typography>
 
-        <CodeBlock language="html">{`<!-- index.html -->
+        <CodeBlock
+          language="html"
+          code={`<!-- index.html -->
 <script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
 <script>
   // Initialise
@@ -125,7 +136,8 @@ egg.start()`}</CodeBlock>
   // Trigger your egg, from anywhere in the app
   const egg = eeaas.get('MyEgg')
   egg.start()
-</script>`}</CodeBlock>
+</script>`}
+        />
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
           For more details see the <a href="./examples/react.md">React Example</a> or the{' '}
@@ -140,7 +152,9 @@ egg.start()`}</CodeBlock>
           You can create quite complex easter eggs, the basic{' '}
           <a href="./src/types/types_global.ts#L28">structure of an egg</a> is as follows:
         </Typography>
-        <CodeBlock language="javascript">{`const MyEgg = {
+        <CodeBlock
+          language="javascript"
+          code={`const MyEgg = {
   name: string,
   enabled?: boolean,
   trigger?: Trigger,
@@ -148,7 +162,8 @@ egg.start()`}</CodeBlock>
   resources?: Resource[],
   onStart: (loadedResources: LoadedResource[]) => void | Promise<void>,
   onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
-}`}</CodeBlock>
+}`}
+        />
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           The <strong>Trigger</strong> allows you to run code when a user enters a sequence of characters instead of
@@ -162,11 +177,14 @@ egg.start()`}</CodeBlock>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           Example usage:
         </Typography>
-        <CodeBlock language="javascript">{`trigger: {
+        <CodeBlock
+          language="javascript"
+          code={`trigger: {
   type: 'keys',
   keystrokes: ['n', 'y', 'a', 'n'],
   captureOnInputs: false,
-}`}</CodeBlock>
+}`}
+        />
 
         <Typography variant="body1" color="text.secondary">
           This will cause the egg to run its logic when the user enters 'nyan' anywhere, except when the user is

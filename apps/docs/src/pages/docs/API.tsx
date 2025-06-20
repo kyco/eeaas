@@ -247,25 +247,31 @@ const API = () => {
           Trigger Types
         </Typography>
 
-        <CodeBlock language="typescript">{`type Trigger =
+        <CodeBlock
+          language="typescript"
+          code={`type Trigger =
   | { type: 'manual' }     // Default, activate via start() method
   | { type: 'auto' }       // Activates immediately when enabled
   | {
     type: 'keys'           // Activated by keyboard sequence
       keystrokes: string[] // Array of keys to press
       captureOnInputs?: boolean // Listen on input fields, defaults to true)
-    }`}</CodeBlock>
+    }`}
+        />
 
         <Typography variant="h2" id="resource-types" gutterBottom>
           Resource Types
         </Typography>
 
-        <CodeBlock language="typescript">{`type Resource =
+        <CodeBlock
+          language="typescript"
+          code={`type Resource =
   | {
       type: 'css' | 'script'
       content?: string     // Inline CSS/JS
       url?: string         // Local path or external URL to CSS/JS file
-    }`}</CodeBlock>
+    }`}
+        />
 
         <Typography variant="h2" gutterBottom>
           Resource Management

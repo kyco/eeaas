@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
-import CodeBlock from '../../components/CodeBlock'
+import { CodeBlock } from '../../components'
 import DocsPageWrapper from './DocsPageWrapper'
 
 const Examples = () => {
@@ -23,7 +23,9 @@ const Examples = () => {
           Here's how to integrate easter eggs into a React application:
         </Typography>
 
-        <CodeBlock language="typescript">{`import React, { useEffect } from 'react';
+        <CodeBlock
+          language="typescript"
+          code={`import React, { useEffect } from 'react';
 import { initializeEeaas } from '@eeaas/core';
 
 function App() {
@@ -65,7 +67,8 @@ function App() {
   );
 }
 
-export default App;`}</CodeBlock>
+export default App;`}
+        />
 
         <Typography variant="h2" gutterBottom>
           Vanilla JavaScript Example
@@ -148,7 +151,9 @@ export default App;`}</CodeBlock>
           This example shows how to load external resources and create more complex easter eggs:
         </Typography>
 
-        <CodeBlock language="javascript">{`import { initializeEeaas } from '@eeaas/core';
+        <CodeBlock
+          language="javascript"
+          code={`import { initializeEeaas } from '@eeaas/core';
 
 const eeaas = initializeEeaas();
 
@@ -226,7 +231,8 @@ eeaas.register({
 
     console.log('Party mode deactivated');
   }
-});`}</CodeBlock>
+});`}
+        />
 
         <Typography variant="h2" gutterBottom>
           TypeScript Support
@@ -236,7 +242,9 @@ eeaas.register({
           The library includes full TypeScript support. Here's an example with proper typing:
         </Typography>
 
-        <CodeBlock language="typescript">{`import { initializeEeaas, UserEgg, LoadedResource } from '@eeaas/core';
+        <CodeBlock
+          language="typescript"
+          code={`import { initializeEeaas, UserEgg, LoadedResource } from '@eeaas/core';
 
 interface CustomEggData {
   message: string;
@@ -277,7 +285,8 @@ const myEgg: UserEgg = {
   }
 };
 
-eeaas.register(myEgg);`}</CodeBlock>
+eeaas.register(myEgg);`}
+        />
 
         <Typography variant="body1" color="text.secondary">
           These examples demonstrate the flexibility and power of the Easter Eggs as a Service library. You can create
