@@ -1,6 +1,6 @@
-import type { LoadedResource, KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeListener } from './classes'
-import { loadResources, removeResources, logger } from './utils'
+import type { EeaasInstance, InternalEgg, KeystrokePattern, LoadedResource, PublicEgg, UserEgg } from './types'
+import { loadResources, logger, removeResources } from './utils'
 
 export const initializeEeaas = (): EeaasInstance => {
   const internalEggs: Record<string, InternalEgg> = {}
@@ -91,7 +91,9 @@ export const initializeEeaas = (): EeaasInstance => {
         }
 
         if (internalEgg.isActivated) {
-          await Promise.resolve(internalEgg.onStart(internalEgg.loadedResources))
+          if (typeof internalEgg.onStart === 'function') {
+            await internalEgg.onStart(internalEgg.loadedResources)
+          }
           return
         }
 
@@ -103,7 +105,9 @@ export const initializeEeaas = (): EeaasInstance => {
             // TODO: Add logic to ensure the same resources are not loaded multiple times (check ID and also actual paths, show error if IDs clash)
             loadedResources = await loadResources(internalEgg.resources)
           }
-          await Promise.resolve(internalEgg.onStart(loadedResources))
+          if (typeof internalEgg.onStart === 'function') {
+            await internalEgg.onStart(loadedResources)
+          }
           internalEgg.loadedResources = loadedResources
           internalEgg.isActivated = true
         } catch (error) {
@@ -121,7 +125,9 @@ export const initializeEeaas = (): EeaasInstance => {
         try {
           // Do not change the order here. Code in the `onStop` might still rely on resources,
           // so only remove resources after running the `onStop` method.
-          await Promise.resolve(internalEgg.onStop(internalEgg.loadedResources))
+          if (typeof internalEgg.onStop === 'function') {
+            await internalEgg.onStop(internalEgg.loadedResources)
+          }
           if (internalEgg.resources) {
             removeResources(internalEgg.loadedResources)
           }

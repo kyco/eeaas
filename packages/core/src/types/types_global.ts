@@ -31,8 +31,8 @@ export type UserEgg = {
   trigger?: Trigger
   stopTrigger?: Trigger
   resources?: Resource[]
-  onStart: (loadedResources: LoadedResource[]) => void | Promise<void>
-  onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStart?: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop?: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
 
 export type PublicEgg = {
