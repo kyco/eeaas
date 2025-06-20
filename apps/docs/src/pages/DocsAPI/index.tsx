@@ -67,7 +67,7 @@ const API = () => {
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
-            eeaas.get('{`<`}EggName{`>`}').{`<`}method{`>`}
+            eeaas.get({`<`}EggName{`>`}).{`<`}method{`>`}
           </code>
         </Typography>
 
@@ -129,6 +129,11 @@ const API = () => {
 
         <Typography variant="h2" gutterBottom id="egg-properties">
           Egg properties
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          <code>
+            eeaas.get({`<`}EggName{`>`})
+          </code>
         </Typography>
 
         <TableContainer component={Paper} sx={{ mb: 4 }}>

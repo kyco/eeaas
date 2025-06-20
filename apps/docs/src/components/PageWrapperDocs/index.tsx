@@ -1,19 +1,31 @@
 import { Container, Grid } from '@mui/material'
 import type { ReactNode } from 'react'
 
-import { Sidebar } from '..'
-import { ROUTES } from '../../common'
+import { DOCS, ROUTES } from '../../common'
 import type { NavItem } from '../../types'
+import Sidebar from '../Sidebar'
 
 const navItems: NavItem[] = [
   {
     label: 'Getting started',
     route: ROUTES.DOCS__GETTING_STARTED,
     children: [
-      { label: 'Installation', hash: '#installation' },
-      { label: 'Installation (without bundler)', hash: '#installation-no-bundler' },
-      { label: 'Basic usage', hash: '#basic-usage' },
-      { label: 'Building your own egg', hash: '#build-your-own' },
+      {
+        label: DOCS.GETTING_STARTED.INSTALLATION.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.INSTALLATION.ID}`,
+      },
+      {
+        label: DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.ID}`,
+      },
+      {
+        label: DOCS.GETTING_STARTED.BASIC_USAGE.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.BASIC_USAGE.ID}`,
+      },
+      {
+        label: DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.ID}`,
+      },
     ],
   },
   {

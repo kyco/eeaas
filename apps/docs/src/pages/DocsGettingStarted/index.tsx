@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 
+import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
 import code_build_your_own from './codeblocks/build_your_own.md?raw'
 import code_install_no_bundler from './codeblocks/install_no_bundler.md?raw'
@@ -10,8 +11,8 @@ import code_quick_start from './codeblocks/quick_start.md?raw'
 const GettingStarted = () => {
   return (
     <PageWrapperDocs>
-      <Typography variant="h2" gutterBottom id="installation">
-        Installation
+      <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.INSTALLATION.ID}>
+        {DOCS.GETTING_STARTED.INSTALLATION.TITLE}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
         Install and import the library, then create your first easter egg with just a few lines of code:
@@ -20,8 +21,8 @@ const GettingStarted = () => {
       <CodeBlock language="bash" code={code_install.trim()} />
       <CodeBlock language="typescript" code={code_quick_start.trim()} sx={{ mb: 5 }} />
 
-      <Typography variant="h2" gutterBottom id="installation-no-bundler">
-        Installation (without bundler)
+      <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.ID}>
+        {DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.TITLE}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
         Use the library without a bundler using the global{' '}
@@ -34,8 +35,8 @@ const GettingStarted = () => {
       <CodeBlock language="html" code={code_install_no_bundler.trim()} />
       <CodeBlock language="html" code={code_quick_start_no_bundler.trim()} sx={{ mb: 5 }} />
 
-      <Typography variant="h2" gutterBottom id="basic-usage">
-        Basic usage
+      <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.BASIC_USAGE.ID}>
+        {DOCS.GETTING_STARTED.BASIC_USAGE.TITLE}
       </Typography>
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
@@ -62,8 +63,8 @@ const GettingStarted = () => {
         .
       </Typography>
 
-      <Typography variant="h2" gutterBottom id="build-your-own">
-        Building your own egg
+      <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.ID}>
+        {DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.TITLE}
       </Typography>
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
