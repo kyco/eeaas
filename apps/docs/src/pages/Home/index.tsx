@@ -113,8 +113,10 @@ const Home = () => {
                   Safe & Secure
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Designed to be non-intrusive and safe. The core won't interfere with your app's functionality unless
-                  you explicitly force it to.
+                  Designed to be non-intrusive and safe without affecting your app's performance.
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                  All features are opt-in.
                 </Typography>
               </CardContent>
             </Card>
@@ -128,10 +130,10 @@ const Home = () => {
                   Easy Integration
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Simple API that works with any framework or vanilla JavaScript.
+                  Simple API that works with any framework, even stock standard JavaScript and HTML.
                 </Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                  Get started in minutes.
+                  No fancy tools required.
                 </Typography>
               </CardContent>
             </Card>
