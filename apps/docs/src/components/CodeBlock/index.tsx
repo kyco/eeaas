@@ -1,8 +1,8 @@
 import CheckIcon from '@mui/icons-material/Check'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { Box, IconButton, Tooltip, Typography } from '@mui/material'
+import type { SxProps, Theme } from '@mui/material/styles'
 import { useState } from 'react'
-import type { CSSProperties } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
@@ -10,10 +10,10 @@ type CodeBlockProps = {
   code: string
   language: string
   showLineNumbers?: boolean
-  style?: CSSProperties
+  sx?: SxProps<Theme>
 }
 
-const CodeBlock = ({ code, language, showLineNumbers = true, style }: CodeBlockProps) => {
+const CodeBlock = ({ code, language, showLineNumbers = true, sx }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = () => {
@@ -31,8 +31,8 @@ const CodeBlock = ({ code, language, showLineNumbers = true, style }: CodeBlockP
         overflow: 'auto',
         fontSize: 14,
         backgroundColor: '#2d2d2d',
-        mb: 2,
-        ...style,
+        mb: 3,
+        ...sx,
       }}
     >
       <Typography sx={{ color: '#777', fontSize: 12, position: 'absolute', top: 15, right: 50, textAlign: 'right' }}>

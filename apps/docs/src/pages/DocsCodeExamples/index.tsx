@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material'
 
-import { CodeBlock } from '../../components'
-import DocsPageWrapper from './DocsPageWrapper'
+import { CodeBlock, PageWrapperDocs } from '../../components'
 
 const Examples = () => {
   return (
-    <DocsPageWrapper>
+    <PageWrapperDocs>
       <Box>
         <Typography variant="h1" gutterBottom>
           Code Examples
@@ -294,7 +293,7 @@ eeaas.register(myEgg);`}
           eggs.
         </Typography>
       </Box>
-    </DocsPageWrapper>
+    </PageWrapperDocs>
   )
 }
 

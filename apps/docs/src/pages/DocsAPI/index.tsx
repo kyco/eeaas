@@ -1,18 +1,18 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
-import CodeBlock from '../../components/CodeBlock'
-import DocsPageWrapper from './DocsPageWrapper'
+import { CodeBlock, PageWrapperDocs } from '../../components'
 
 const API = () => {
   return (
-    <DocsPageWrapper>
+    <PageWrapperDocs>
       <Box>
-        <Typography variant="h1" gutterBottom>
-          API Reference
+        <Typography variant="h2" gutterBottom id="eeaas-instance">
+          The eeaas instance
         </Typography>
-
-        <Typography variant="h2" gutterBottom>
-          Instance Methods
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          <code>
+            eeaas.{`<`}method{`>`}
+          </code>
         </Typography>
 
         <TableContainer component={Paper} sx={{ mb: 4 }}>
@@ -62,8 +62,13 @@ const API = () => {
           </Table>
         </TableContainer>
 
-        <Typography variant="h2" gutterBottom>
-          Egg Methods
+        <Typography variant="h2" gutterBottom id="egg-instance">
+          Egg instance
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          <code>
+            eeaas.get('{`<`}EggName{`>`}').{`<`}method{`>`}
+          </code>
         </Typography>
 
         <TableContainer component={Paper} sx={{ mb: 4 }}>
@@ -122,8 +127,8 @@ const API = () => {
           </Table>
         </TableContainer>
 
-        <Typography variant="h2" gutterBottom>
-          Egg Properties
+        <Typography variant="h2" gutterBottom id="egg-properties">
+          Egg properties
         </Typography>
 
         <TableContainer component={Paper} sx={{ mb: 4 }}>
@@ -282,7 +287,7 @@ const API = () => {
           be loaded until <code>start()</code> method is called.
         </Typography>
       </Box>
-    </DocsPageWrapper>
+    </PageWrapperDocs>
   )
 }
 
