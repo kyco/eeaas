@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
+import './style.css'
 import './utils/eeaas'
 
 import App from './App'

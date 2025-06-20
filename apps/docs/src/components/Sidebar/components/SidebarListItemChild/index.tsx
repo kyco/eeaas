@@ -1,4 +1,5 @@
 import { ListItem, ListItemButton, ListItemText } from '@mui/material'
+import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import type { NavItem, NavItemChild } from '../../../../types'
@@ -11,6 +12,13 @@ type SidebarListItemProps = {
 const SidebarListItem = ({ parent, navItemChild }: SidebarListItemProps) => {
   const location = useLocation()
   const isSelected = location.hash === navItemChild.hash
+
+  useEffect(() => {
+    if (isSelected) {
+      const element = document.getElementById(navItemChild.hash.replace('#', ''))
+      element?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [navItemChild.hash, isSelected])
 
   return (
     <ListItem disablePadding>
