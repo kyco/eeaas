@@ -1,5 +1,5 @@
 import { ArrowForward, Code, GitHub, Security, Speed } from '@mui/icons-material'
-import { Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 import { MISC } from '../../common'
@@ -11,9 +11,13 @@ const Home = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <Box sx={{ background: '#6366f1', color: 'white', py: { xs: 8, md: 12 }, textAlign: 'center' }}>
-        <Container maxWidth="md">
-          <Typography variant="h1" sx={{ fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, fontWeight: 700, mb: 3 }}>
+      <Box sx={{ background: '#6366f1', color: 'white', py: { xs: 8, md: 6 }, textAlign: 'center' }}>
+        <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Avatar src="/logo-512x512-transparent.png" variant="rounded" sx={{ width: 100, height: 100 }} />
+          <Typography
+            variant="h1"
+            sx={{ fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, fontWeight: 700, mt: 2, mb: 3 }}
+          >
             Easter eggs as a service
           </Typography>
           <Typography variant="h5" sx={{ mb: 2, opacity: 0.9, fontSize: { xs: '1.1rem', sm: '1.25rem' } }}>
@@ -75,12 +79,12 @@ const Home = () => {
           I once nearly got fired for adding easter eggs to a production app.
           <br />
           <br />
-          Unfortunately, the easter eggs never got to see the daylight. This library helps you not only keep the easter
-          egg code out of the production code shipped to your users, it also makes it really easy to add them to any
-          project.
+          {/* Unfortunately, the easter eggs never got to see the light of day. */}
+          This library not only helps you keep the easter egg code out of the production code you ship to your users,
+          but it also makes it really easy to add them to any project.
           <br />
           <br />
-          Easter eggs make apps and websites more fun, so go ahead add them.
+          Easter eggs make apps and websites more fun, so go ahead and add them.
         </Typography>
 
         <Grid container spacing={4}>

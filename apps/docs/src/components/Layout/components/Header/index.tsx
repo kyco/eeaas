@@ -70,7 +70,13 @@ const Header = () => {
           ) : null}
 
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, ml: isMobile ? 0.5 : 0 }}>
-            <Avatar component={Link} to={ROUTES.HOME} src="/logo-512x512.png" sx={{ mr: 2 }} />
+            <Avatar
+              component={Link}
+              to={ROUTES.HOME}
+              src="/logo-512x512-transparent.png"
+              sx={{ mr: 2, border: '1px dashed rgba(0, 0, 0, 0.1)' }}
+              variant="rounded"
+            />
             <Typography
               component={Link}
               to={ROUTES.HOME}
