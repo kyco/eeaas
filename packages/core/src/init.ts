@@ -69,6 +69,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
               keystrokes: internalEgg.trigger.keystrokes,
               callback: () => publicEgg.start(),
               captureOnInputs: internalEgg.trigger.captureOnInputs ?? true,
+              onKeydown: internalEgg.trigger.onKeydown,
             })
           }
 
@@ -77,6 +78,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
               keystrokes: internalEgg.stopTrigger.keystrokes,
               callback: () => publicEgg.stop(),
               captureOnInputs: internalEgg.stopTrigger.captureOnInputs ?? true,
+              onKeydown: internalEgg.stopTrigger.onKeydown,
             })
           }
 
@@ -116,7 +118,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
         }
 
         if (internalEgg.isActivated) {
-          // TODO: Add logic so a egg can be triggered multiple times, e.g. with allowMultipleInstances flag
+          // TODO: Add logic so an egg can be triggered multiple times, e.g. with allowMultipleInstances flag
           if (typeof internalEgg.onStop === 'function') {
             await internalEgg.onStop(internalEgg.loadedResources)
           }

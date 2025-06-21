@@ -3,13 +3,19 @@ import type { KeystrokeCode } from './types_keys'
 
 export type Trigger =
   | { type: 'manual' }
-  | { type: 'keys'; keystrokes: KeystrokeCode[]; captureOnInputs?: boolean }
+  | {
+      type: 'keys'
+      keystrokes: KeystrokeCode[]
+      captureOnInputs?: boolean
+      onKeydown?: (event: KeyboardEvent) => void
+    }
   | { type: 'auto' } // TODO: Implement, trigger the start immediately after enabling the easter egg
 
 export type KeystrokePattern = {
   keystrokes: KeystrokeCode[]
   callback: () => void
   captureOnInputs?: boolean
+  onKeydown?: (event: KeyboardEvent) => void
 }
 
 export type ResourceType = 'css' | 'script'
