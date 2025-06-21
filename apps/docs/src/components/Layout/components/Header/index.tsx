@@ -73,7 +73,7 @@ const Header = () => {
             <Avatar
               component={Link}
               to={ROUTES.HOME}
-              src="/logo-512x512-transparent.png"
+              src={`${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}/logo-512x512-transparent.png`}
               sx={{ mr: 2 }}
               variant="rounded"
             />
