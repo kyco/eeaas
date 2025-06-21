@@ -99,7 +99,7 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
 
       <Box sx={{ backgroundColor: 'grey.50', borderRadius: 2 }}>
         <Alert severity={state.isEnabled ? (state.isActivated ? 'success' : 'info') : 'warning'} sx={{ mb: 2 }}>
-          Status: {state.isEnabled ? (state.isActivated ? 'Active' : 'Listening for keystrokes...') : 'Not isEnabled'}
+          Status: {state.isEnabled ? (state.isActivated ? 'Active' : 'Listening for keystrokes...') : 'Not enabled'}
         </Alert>
 
         <TextField
