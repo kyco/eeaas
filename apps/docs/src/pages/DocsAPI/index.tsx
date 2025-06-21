@@ -240,6 +240,19 @@ const API = () => {
               </TableRow>
               <TableRow>
                 <TableCell>
+                  <code>allowMultipleInstances</code>
+                </TableCell>
+                <TableCell>
+                  <code>boolean</code>
+                </TableCell>
+                <TableCell>No</TableCell>
+                <TableCell>
+                  <code>false</code>
+                </TableCell>
+                <TableCell>Whether the egg's `onStart` can be triggered multiple times</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
                   <code>trigger</code>
                 </TableCell>
                 <TableCell>
