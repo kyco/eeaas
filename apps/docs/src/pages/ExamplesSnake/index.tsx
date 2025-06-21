@@ -8,7 +8,7 @@ import './egg1'
 
 const egg1 = eeaas.get('Snake')
 
-const CssInjection = () => {
+const ExamplesSnake = () => {
   return (
     <PageWrapperExamples>
       <Typography variant="h2" gutterBottom>
@@ -31,4 +31,4 @@ const CssInjection = () => {
   )
 }
 
-export default CssInjection
+export default ExamplesSnake

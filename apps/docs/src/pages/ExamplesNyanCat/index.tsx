@@ -8,7 +8,7 @@ import './egg1'
 
 const egg1 = eeaas.get('Nyancat')
 
-const CssInjection = () => {
+const ExamplesNyanCat = () => {
   return (
     <PageWrapperExamples>
       <Typography variant="h2" gutterBottom>
@@ -32,4 +32,4 @@ const CssInjection = () => {
   )
 }
 
-export default CssInjection
+export default ExamplesNyanCat
