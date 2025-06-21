@@ -4,7 +4,7 @@ A zero-dependency library to inject easter eggs into any app or website.
 
 Built with modern JavaScript.
 
-[Demo](https://kyco.github.io/eeaas/examples/css-injection)
+[Demo](https://kyco.github.io/eeaas/examples/nyancat)
 
 [Documentation](https://kyco.github.io/eeaas/)
 

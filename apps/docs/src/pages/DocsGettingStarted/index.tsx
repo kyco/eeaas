@@ -51,16 +51,12 @@ const GettingStarted = () => {
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
         For more details see the{' '}
-        <a
-          href="https://github.com/kyco/eeaas/blob/main/packages/core/examples/react.md"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.md" target="_blank" rel="noreferrer">
           React Example
         </a>{' '}
         or the{' '}
         <a
-          href="https://github.com/kyco/eeaas/blob/main/packages/core/examples/javascript.md"
+          href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/javascript.md"
           target="_blank"
           rel="noreferrer"
         >

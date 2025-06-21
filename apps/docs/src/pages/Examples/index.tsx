@@ -1,11 +1,16 @@
 import { ArrowForward, Code } from '@mui/icons-material'
 import { Box, Button, Card, Grid, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 
 import { DOCS, ROUTES } from '../../common'
 import { PageWrapperExamples } from '../../components'
+import { ui } from './styled'
 
-const CssInjection = () => {
+const Examples = () => {
+  const theme = useTheme()
+  const sx = ui(theme)
+
   return (
     <PageWrapperExamples>
       <Grid container spacing={4}>
@@ -20,7 +25,7 @@ const CssInjection = () => {
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
+          <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">CSS Injection</Typography>
@@ -42,13 +47,14 @@ const CssInjection = () => {
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
+          <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">Nyancat</Typography>
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-              This easter egg will turn your cursor into nyancat in the night.
+              This easter egg will turn your cursor into nyancat in the night. You can still fully interact with the
+              entire page.
             </Typography>
             <Button
               component={Link}
@@ -64,7 +70,7 @@ const CssInjection = () => {
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
+          <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">Snake</Typography>
@@ -103,4 +109,4 @@ const CssInjection = () => {
   )
 }
 
-export default CssInjection
+export default Examples

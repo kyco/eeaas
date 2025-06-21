@@ -57,7 +57,6 @@ deploy_docs() {
 
   printf "${YELLOW}📦 Building docs app...${NC}\n"
   nx run docs:build
-  nx run docs:gh-pages-404-fix
 
   DIST_DIR="apps/docs/dist"
 
@@ -65,6 +64,9 @@ deploy_docs() {
     printf "${RED}❌ Build output not found at %s${NC}\n" "$DIST_DIR"
     exit 1
   fi
+
+  # Fix for gh-pages deployment (we need 404 to be exactly like index.html)
+  cp $DIST_DIR/index.html $DIST_DIR/404.html
 
   printf "${YELLOW}🌐 Deploying to GitHub Pages...${NC}\n"
   npx gh-pages -d "$DIST_DIR" -r https://x-access-token:${GITHUB_TOKEN}@github.com/kyco/eeaas.git
