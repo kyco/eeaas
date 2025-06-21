@@ -14,7 +14,7 @@ export const initializeEeaas = (): EeaasInstance => {
 
     const internalEgg: InternalEgg = {
       ...egg,
-      enabled: egg.enabled ?? true,
+      enabled: egg.enabled ?? true, // TODO: Refactor to `isEnabled`
       isActivated: false,
       trigger: egg.trigger ?? { type: 'manual' },
       stopTrigger: egg.stopTrigger ?? { type: 'manual' },
@@ -23,6 +23,17 @@ export const initializeEeaas = (): EeaasInstance => {
     }
 
     let keystrokeListener: KeystrokeListener | null = null
+    const pubSubListeners = new Set<() => void>()
+
+    const notifySubscribers = () => {
+      for (const listener of pubSubListeners) {
+        try {
+          listener()
+        } catch (e) {
+          console.error(`[eeaas] Error in listener for egg "${egg.name}":`, e)
+        }
+      }
+    }
 
     const publicEgg: PublicEgg = {
       name: internalEgg.name,
@@ -65,11 +76,13 @@ export const initializeEeaas = (): EeaasInstance => {
 
         if (internalEgg.trigger.type === 'auto') {
           internalEgg.enabled = true
+          notifySubscribers()
           publicEgg.start()
           return
         }
 
         internalEgg.enabled = true
+        notifySubscribers()
       },
 
       disable() {
@@ -81,12 +94,14 @@ export const initializeEeaas = (): EeaasInstance => {
         if (internalEgg.isActivated) {
           publicEgg.stop()
         }
+
         internalEgg.enabled = false
+        notifySubscribers()
       },
 
       async start() {
         if (!internalEgg.enabled) {
-          console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
+          logger('warn', 'eeaas', `Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
 
@@ -110,6 +125,7 @@ export const initializeEeaas = (): EeaasInstance => {
           }
           internalEgg.loadedResources = loadedResources
           internalEgg.isActivated = true
+          notifySubscribers()
         } catch (error) {
           console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
         }
@@ -118,7 +134,6 @@ export const initializeEeaas = (): EeaasInstance => {
       async stop() {
         // TODO: When triggering the same egg multiple times ensure we correctly remove previous resources here
         if (!internalEgg.isActivated) {
-          console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not activated.`)
           return
         }
 
@@ -132,9 +147,19 @@ export const initializeEeaas = (): EeaasInstance => {
             removeResources(internalEgg.loadedResources)
           }
           internalEgg.isActivated = false
+          notifySubscribers()
         } catch (error) {
           console.error(`[eeaas] Error stopping egg "${internalEgg.name}":`, error)
         }
+      },
+
+      subscribe(callback) {
+        pubSubListeners.add(callback)
+        return () => pubSubListeners.delete(callback)
+      },
+
+      unsubscribe(callback) {
+        pubSubListeners.delete(callback)
       },
     }
 
