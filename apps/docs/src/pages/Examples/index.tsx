@@ -8,22 +8,24 @@ import { PageWrapperExamples } from '../../components'
 const CssInjection = () => {
   return (
     <PageWrapperExamples>
-      <Typography variant="h1" gutterBottom>
-        Overview
-      </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-        Explore different types of easter eggs and learn how to implement them in your own project. Each example
-        demonstrates a unique technique with interactive demonstrations and code explanations.
-      </Typography>
+      <Grid container spacing={4}>
+        <Grid size={12}>
+          <Typography variant="h1" gutterBottom>
+            Overview
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Explore different types of easter eggs and learn how to implement them in your own project. Each example
+            demonstrates a unique technique with interactive demonstrations and code explanations.
+          </Typography>
+        </Grid>
 
-      <Grid container spacing={3} sx={{ mb: 6 }}>
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">CSS Injection</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 4 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
               This example demonstrates how to inject custom CSS into the DOM.
             </Typography>
             <Button
@@ -38,15 +40,21 @@ const CssInjection = () => {
             </Button>
           </Card>
         </Grid>
-      </Grid>
 
-      <Typography variant="h2" gutterBottom>
-        {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
-      </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-        The examples are designed to be educational and practical, showing real-world applications of easter egg
-        techniques. To get started head on over to the <Link to={ROUTES.DOCS__GETTING_STARTED}>docs</Link>.
-      </Typography>
+        <Grid size={12}>
+          <Typography variant="h2" gutterBottom>
+            {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            The examples are designed to be educational and practical, showing real-world applications of easter egg
+            techniques. To get started head on over to the{' '}
+            <Link to={ROUTES.DOCS__GETTING_STARTED}>
+              Docs {`>`} {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
+            </Link>{' '}
+            section.
+          </Typography>
+        </Grid>
+      </Grid>
     </PageWrapperExamples>
   )
 }
