@@ -14,6 +14,10 @@ const navItems: NavItem[] = [
     label: 'CSS Injection',
     route: ROUTES.EXAMPLES__CSS_INJECTION,
   },
+  {
+    label: 'Nyancat',
+    route: ROUTES.EXAMPLES__NYANCAT,
+  },
 ]
 
 const PageWrapperDocs = ({ children }: { children: ReactNode }) => {

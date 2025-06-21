@@ -6,6 +6,7 @@ export const ROUTES = {
   DOCS__CODE_EXAMPLES: '/docs/code-examples',
   EXAMPLES: '/examples',
   EXAMPLES__CSS_INJECTION: '/examples/css-injection',
+  EXAMPLES__NYANCAT: '/examples/nyancat',
   EXAMPLES__KONAMI_CODE: '/examples/konami-code',
   EXAMPLES__SECRET_MESSAGE: '/examples/secret-message',
 }
