@@ -1,16 +1,14 @@
-export const MISC = {
-  UNPKG_URL: 'https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js',
-}
+export const MISC = {}
 
 export const DOCS = {
   GETTING_STARTED: {
+    GETTING_STARTED: {
+      TITLE: 'Getting started',
+      ID: 'getting-started',
+    },
     INSTALLATION: {
       TITLE: 'Installation',
       ID: 'installation',
-    },
-    INSTALLATION_NO_BUNDLER: {
-      TITLE: 'Installation (without bundler)',
-      ID: 'installation-no-bundler',
     },
     BASIC_USAGE: {
       TITLE: 'Basic usage',

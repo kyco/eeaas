@@ -9,14 +9,11 @@ const navItems: NavItem[] = [
   {
     label: 'Getting started',
     route: ROUTES.DOCS__GETTING_STARTED,
+    hash: `#${DOCS.GETTING_STARTED.GETTING_STARTED.ID}`,
     children: [
       {
         label: DOCS.GETTING_STARTED.INSTALLATION.TITLE,
         hash: `#${DOCS.GETTING_STARTED.INSTALLATION.ID}`,
-      },
-      {
-        label: DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.TITLE,
-        hash: `#${DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.ID}`,
       },
       {
         label: DOCS.GETTING_STARTED.BASIC_USAGE.TITLE,

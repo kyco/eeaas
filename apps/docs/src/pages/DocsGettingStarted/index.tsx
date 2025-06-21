@@ -3,7 +3,6 @@ import { Typography } from '@mui/material'
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
 import code_build_your_own from './codeblocks/build_your_own.md?raw'
-import code_install_no_bundler from './codeblocks/install_no_bundler.md?raw'
 import code_install from './codeblocks/install.md?raw'
 import code_quick_start_no_bundler from './codeblocks/quick_start_no_bundler.md?raw'
 import code_quick_start from './codeblocks/quick_start.md?raw'
@@ -11,28 +10,35 @@ import code_quick_start from './codeblocks/quick_start.md?raw'
 const GettingStarted = () => {
   return (
     <PageWrapperDocs>
+      <Typography variant="h1" gutterBottom id={DOCS.GETTING_STARTED.GETTING_STARTED.ID}>
+        {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
+      </Typography>
+      <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+        <strong>
+          <code>@eeaas/core</code>
+        </strong>{' '}
+        enables adding JavaScript and CSS to any app without shipping it the production bundle. This makes it perfect
+        for easter eggs, hidden features, or other logic that you want to keep out of the production codebase initially.
+      </Typography>
+
       <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.INSTALLATION.ID}>
         {DOCS.GETTING_STARTED.INSTALLATION.TITLE}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-        Install and import the library, then create your first easter egg with just a few lines of code:
+        With bundler:
       </Typography>
 
       <CodeBlock language="bash" code={code_install.trim()} />
-      <CodeBlock language="typescript" code={code_quick_start.trim()} sx={{ mb: 5 }} />
+      <CodeBlock language="typescript" code={code_quick_start.trim()} />
 
-      <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.ID}>
-        {DOCS.GETTING_STARTED.INSTALLATION_NO_BUNDLER.TITLE}
-      </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-        Use the library without a bundler using the global{' '}
+        Without a bundler, available as{' '}
         <strong>
           <code>window._eeaas</code>
-        </strong>{' '}
-        object:
+        </strong>
+        :
       </Typography>
 
-      <CodeBlock language="html" code={code_install_no_bundler.trim()} />
       <CodeBlock language="html" code={code_quick_start_no_bundler.trim()} sx={{ mb: 5 }} />
 
       <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.BASIC_USAGE.ID}>

@@ -13,4 +13,5 @@ export const ROUTES = {
 export const EXTERNAL_ROUTES = {
   KYCO: 'https://kyco.io',
   GITHUB_EEAAS: 'https://github.com/kyco/eeaas',
+  UNPKG_URL: 'https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js',
 }

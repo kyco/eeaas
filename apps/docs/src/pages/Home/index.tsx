@@ -3,7 +3,7 @@ import { Avatar, Box, Button, Card, Container, Grid, Stack, Typography } from '@
 import { useTheme } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 
-import { EXTERNAL_ROUTES, MISC, ROUTES } from '../../common'
+import { EXTERNAL_ROUTES, ROUTES } from '../../common'
 import { useFileSizeInfo } from '../../hooks/useFileSizeInfo'
 import { ui } from './styled'
 
@@ -12,7 +12,7 @@ const logo = `${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}/logo-512x512-tran
 const Home = () => {
   const theme = useTheme()
   const sx = ui(theme)
-  const { uncompressed, gzipped } = useFileSizeInfo(MISC.UNPKG_URL)
+  const { uncompressed, gzipped } = useFileSizeInfo(EXTERNAL_ROUTES.UNPKG_URL)
 
   return (
     <>
