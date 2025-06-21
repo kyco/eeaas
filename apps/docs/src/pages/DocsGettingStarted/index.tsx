@@ -45,9 +45,9 @@ const GettingStarted = () => {
         {DOCS.GETTING_STARTED.BASIC_USAGE.TITLE}
       </Typography>
 
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+      {/* <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
         TODO: Add basic usage instructions here.
-      </Typography>
+      </Typography> */}
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
         For more details see the{' '}

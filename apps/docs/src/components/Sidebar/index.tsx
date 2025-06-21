@@ -15,7 +15,7 @@ const Sidebar = ({ title, navItems = [] }: SidebarProps) => {
         py: 1,
         px: 2,
         position: 'sticky',
-        top: 88,
+        top: 112,
       }}
     >
       <List
