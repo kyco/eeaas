@@ -11,7 +11,7 @@ Built with modern JavaScript.
 ---
 
 > [!NOTE]
-> *The instructions below are for the monorepo! For __`@eeaas/core`__ please view the documentation above.*
+> *The instructions below are for the monorepo! For __`@eeaas/core`__ please view the [documentation](https://kyco.github.io/eeaas/).*
 
 ---
 
