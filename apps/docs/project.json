@@ -1,0 +1,10 @@
+{
+  "targets": {
+    "gh-pages-404-fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cp apps/docs/dist/index.html apps/docs/dist/404.html"
+      }
+    }
+  }
+}

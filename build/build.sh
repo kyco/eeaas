@@ -2,11 +2,9 @@
 
 set -e
 
-
 # --------------------------------------------------------------------------------------------------
 # COLOURS
 # --------------------------------------------------------------------------------------------------
-
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -15,11 +13,9 @@ BLUE='\033[1;34m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
-
 # --------------------------------------------------------------------------------------------------
 # RESOLVE PATHS
 # --------------------------------------------------------------------------------------------------
-
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -27,11 +23,9 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 # Change to repo root so all commands run relative to it
 cd "$REPO_ROOT"
 
-
 # --------------------------------------------------------------------------------------------------
 # ENV FILE LOADING
 # --------------------------------------------------------------------------------------------------
-
 
 printf "${BLUE}🔧 Loading environment variables...${NC}\n"
 
@@ -54,17 +48,16 @@ else
   printf "${RED}⚠️  Warning: %s not found.${NC}\n" "$ENV_FILE"
 fi
 
-
 # --------------------------------------------------------------------------------------------------
 # METHODS
 # --------------------------------------------------------------------------------------------------
-
 
 deploy_docs() {
   printf "${BLUE}${BOLD}🚀 Deploying: docs${NC}\n"
 
   printf "${YELLOW}📦 Building docs app...${NC}\n"
-  nx build docs
+  nx run docs:build
+  nx run docs:gh-pages-404-fix
 
   DIST_DIR="apps/docs/dist"
 
@@ -73,18 +66,15 @@ deploy_docs() {
     exit 1
   fi
 
-
   printf "${YELLOW}🌐 Deploying to GitHub Pages...${NC}\n"
   npx gh-pages -d "$DIST_DIR" -r https://x-access-token:${GITHUB_TOKEN}@github.com/kyco/eeaas.git
 
   printf "${GREEN}✅ Deployment complete!${NC}\n"
 }
 
-
 # --------------------------------------------------------------------------------------------------
 # MAIN
 # --------------------------------------------------------------------------------------------------
-
 
 main() {
   CMD="$1"
@@ -98,13 +88,13 @@ main() {
   fi
 
   case "$CMD" in
-    deploy-docs)
-      deploy_docs
-      ;;
-    *)
-      printf "${RED}❌ Unknown command: %s${NC}\n" "$CMD"
-      exit 1
-      ;;
+  deploy-docs)
+    deploy_docs
+    ;;
+  *)
+    printf "${RED}❌ Unknown command: %s${NC}\n" "$CMD"
+    exit 1
+    ;;
   esac
 }
 
