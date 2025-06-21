@@ -56,7 +56,8 @@ deploy_docs() {
   printf "${BLUE}${BOLD}🚀 Deploying: docs${NC}\n"
 
   printf "${YELLOW}📦 Building docs app...${NC}\n"
-  nx build docs
+  nx run docs:build
+  nx run docs:gh-pages-404-fix
 
   DIST_DIR="apps/docs/dist"
 
