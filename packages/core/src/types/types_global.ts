@@ -1,3 +1,4 @@
+import type { LogConfig } from './types_internal'
 import type { KeystrokeCode } from './types_keys'
 
 export type Trigger =
@@ -40,7 +41,7 @@ export type UserEgg = {
  */
 export type PublicEgg = {
   readonly name: string
-  readonly enabled: boolean
+  readonly isEnabled: boolean
   readonly isActivated: boolean
   readonly loadedResources: LoadedResource[]
   enable: () => void
@@ -49,6 +50,10 @@ export type PublicEgg = {
   stop: () => Promise<void>
   subscribe: (callback: () => void) => () => void
   unsubscribe: (callback: () => void) => void
+}
+
+export type EeaasInstanceProps = {
+  debug?: LogConfig
 }
 
 export type EeaasInstance = {

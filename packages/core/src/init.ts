@@ -5,13 +5,13 @@ import type {
   InternalEgg,
   KeystrokePattern,
   LoadedResource,
-  LogConfig,
+  EeaasInstanceProps,
   PublicEgg,
   UserEgg,
 } from './types'
 import { loadResources, logger, removeResources } from './utils'
 
-export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): EeaasInstance => {
+export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): EeaasInstance => {
   CONFIG.DEBUG = debug
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
@@ -24,7 +24,7 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
 
     const internalEgg: InternalEgg = {
       ...egg,
-      enabled: egg.enabled ?? true, // TODO: Refactor to `isEnabled`
+      isEnabled: egg.enabled ?? true,
       isActivated: false,
       trigger: egg.trigger ?? { type: 'manual' },
       stopTrigger: egg.stopTrigger ?? { type: 'manual' },
@@ -48,8 +48,8 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
     const publicEgg: PublicEgg = {
       name: internalEgg.name,
 
-      get enabled() {
-        return internalEgg.enabled
+      get isEnabled() {
+        return internalEgg.isEnabled
       },
 
       get isActivated() {
@@ -85,13 +85,13 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
         }
 
         if (internalEgg.trigger.type === 'auto') {
-          internalEgg.enabled = true
+          internalEgg.isEnabled = true
           notifySubscribers()
           publicEgg.start()
           return
         }
 
-        internalEgg.enabled = true
+        internalEgg.isEnabled = true
         notifySubscribers()
       },
 
@@ -105,12 +105,12 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
           publicEgg.stop()
         }
 
-        internalEgg.enabled = false
+        internalEgg.isEnabled = false
         notifySubscribers()
       },
 
       async start() {
-        if (!internalEgg.enabled) {
+        if (!internalEgg.isEnabled) {
           logger('warn', 'eeaas', `Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
@@ -180,7 +180,7 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
     internalEggs[egg.name] = internalEgg
     publicEggs[egg.name] = publicEgg
 
-    if (internalEgg.enabled) {
+    if (internalEgg.isEnabled) {
       publicEgg.enable()
     }
 
