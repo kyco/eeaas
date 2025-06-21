@@ -1,12 +1,16 @@
-import type { LoadedResource, ResourceWithId, Trigger, UserEgg } from './types_global'
+import type { LoadedResource, ResourceWithId, Trigger } from './types_global'
 
-export type InternalEgg = Pick<UserEgg, 'name' | 'onStart' | 'onStop'> & {
+export type InternalEgg = {
+  name: string
   trigger: Trigger
   stopTrigger: Trigger
   isEnabled: boolean
   isActivated: boolean
+  allowMultipleInstances: boolean
   resourcesToLoad: ResourceWithId[]
   loadedResources: LoadedResource[]
+  onStart?: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop?: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
 
 export type LogLevel = 'warn' | 'info' | 'success' | 'error'

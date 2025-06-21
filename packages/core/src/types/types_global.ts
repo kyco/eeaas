@@ -50,6 +50,7 @@ export type LoadedResource = ResourceWithId & {
 export type UserEgg = {
   name: string
   enabled?: boolean
+  allowMultipleInstances?: boolean
   trigger?: Trigger
   stopTrigger?: Trigger
   resources?: Resource[]

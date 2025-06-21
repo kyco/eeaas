@@ -29,6 +29,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
       stopTrigger: userEgg.stopTrigger || { type: 'manual' },
       onStart: userEgg.onStart,
       onStop: userEgg.onStop,
+      allowMultipleInstances: userEgg.allowMultipleInstances ?? false,
       isEnabled: userEgg.enabled ?? true,
       isActivated: false,
       resourcesToLoad: userEgg.resources
@@ -120,8 +121,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
         }
 
         if (internalEgg.isActivated) {
-          // TODO: Add logic so an egg can be triggered multiple times, e.g. with allowMultipleInstances flag
-          if (typeof internalEgg.onStop === 'function') {
+          if (typeof internalEgg.onStop === 'function' && !internalEgg.allowMultipleInstances) {
             await internalEgg.onStop(internalEgg.loadedResources)
           }
           if (typeof internalEgg.onStart === 'function') {
