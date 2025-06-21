@@ -12,4 +12,4 @@ eeaas.register({
   }
 })
 
-eeaas.get('MyFirstEgg').start()
+eeaas.get('MyFirstEgg')?.start()

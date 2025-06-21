@@ -12,5 +12,5 @@
     }
   })
 
-  eeaas.get('MyFirstEgg').start()
+  eeaas.get('MyFirstEgg')?.start()
 </script>
