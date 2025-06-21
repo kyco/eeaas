@@ -11,7 +11,8 @@ import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <BrowserRouter>
+    // `basename` is needed for gh-pages deployment
+    <BrowserRouter basename={import.meta.env.VITE_REACT_DEMO_SITE_BASENAME || '/'}>
       <ScrollToTop />
       <Routes>
         <Route path={ROUTES.HOME} element={<Layout />}>

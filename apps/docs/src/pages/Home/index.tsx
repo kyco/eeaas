@@ -13,7 +13,11 @@ const Home = () => {
       {/* Hero Section */}
       <Box sx={{ background: '#6366f1', color: 'white', py: { xs: 8, md: 6 }, textAlign: 'center' }}>
         <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Avatar src="/logo-512x512-transparent.png" variant="rounded" sx={{ width: 100, height: 100 }} />
+          <Avatar
+            src={`${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}/logo-512x512-transparent.png`}
+            variant="rounded"
+            sx={{ width: 100, height: 100 }}
+          />
           <Typography
             variant="h1"
             sx={{ fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, fontWeight: 700, mt: 2, mb: 3 }}
