@@ -20,6 +20,8 @@ import { ROUTES } from '../../../../common'
 import { useIsMobile } from '../../../../hooks'
 import { getNavItems } from './actions'
 
+const logo = `${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}/logo-512x512-transparent.png`
+
 const Header = () => {
   const location = useLocation()
   const isMobile = useIsMobile()
@@ -70,13 +72,7 @@ const Header = () => {
           ) : null}
 
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, ml: isMobile ? 0.5 : 0 }}>
-            <Avatar
-              component={Link}
-              to={ROUTES.HOME}
-              src={`${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}/logo-512x512-transparent.png`}
-              sx={{ mr: 2 }}
-              variant="rounded"
-            />
+            <Avatar component={Link} to={ROUTES.HOME} src={logo} sx={{ mr: 2 }} variant="rounded" />
             <Typography
               component={Link}
               to={ROUTES.HOME}
