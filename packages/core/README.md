@@ -8,14 +8,6 @@ Built with modern JavaScript.
 
 [Documentation](https://kyco.github.io/eeaas/)
 
----
-
-> [!NOTE]
-> *For more detailed instructions please view the [documentation](https://kyco.github.io/eeaas/).*
-
----
-
-
 ## Quick start
 
 With npm:

@@ -15,7 +15,7 @@ type EasterEggDemoProps = {
 }
 
 const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' }: EasterEggDemoProps) => {
-  const [state, setState] = useState({ enabled: false, isActivated: false })
+  const [state, setState] = useState({ isEnabled: false, isActivated: false })
   const [showCode, setShowCode] = useState(false)
 
   useEffect(() => {
@@ -25,10 +25,10 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
 
     egg.enable()
 
-    setState({ enabled: egg.enabled, isActivated: egg.isActivated })
+    setState({ isEnabled: egg.isEnabled, isActivated: egg.isActivated })
 
     const unsubscribe = egg.subscribe(() => {
-      setState({ enabled: egg.enabled || false, isActivated: egg.isActivated || false })
+      setState({ isEnabled: egg.isEnabled || false, isActivated: egg.isActivated || false })
     })
 
     return () => {
@@ -65,7 +65,7 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
         <Chip
           label={
             <FormControlLabel
-              control={<Switch checked={state.enabled} onChange={handleChange} color="secondary" />}
+              control={<Switch checked={state.isEnabled} onChange={handleChange} color="secondary" />}
               label="Enabled"
             />
           }
@@ -81,7 +81,7 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
           onClick={handleTriggerTest}
           variant="contained"
           startIcon={<PlayArrow />}
-          disabled={!state.enabled}
+          disabled={!state.isEnabled}
           disableElevation
         >
           Trigger
@@ -91,15 +91,15 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
           onClick={handleStopTest}
           variant="outlined"
           startIcon={<Stop />}
-          disabled={!state.enabled || !state.isActivated}
+          disabled={!state.isEnabled || !state.isActivated}
         >
           Stop
         </Button>
       </Stack>
 
       <Box sx={{ backgroundColor: 'grey.50', borderRadius: 2 }}>
-        <Alert severity={state.enabled ? (state.isActivated ? 'success' : 'info') : 'warning'} sx={{ mb: 2 }}>
-          Status: {state.enabled ? (state.isActivated ? 'Active' : 'Listening for keystrokes...') : 'Not enabled'}
+        <Alert severity={state.isEnabled ? (state.isActivated ? 'success' : 'info') : 'warning'} sx={{ mb: 2 }}>
+          Status: {state.isEnabled ? (state.isActivated ? 'Active' : 'Listening for keystrokes...') : 'Not isEnabled'}
         </Alert>
 
         <TextField
