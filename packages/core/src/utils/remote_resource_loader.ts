@@ -1,31 +1,36 @@
-import type { Resource, LoadedResource } from '../types'
-import { generateResourceId } from './resource_loader_helper'
+import type { LoadedResource, ResourceWithId } from '../types'
 
-type RemoteResourceOptions = {
+type LoadRemoteResourceProps = {
   url: string
-  resource: Resource
+  resource: ResourceWithId
 }
 
-const createDomElement = ({ url, resource }: RemoteResourceOptions): LoadedResource => {
-  const id = generateResourceId(resource.type)
-
+const createDomElement = ({ url, resource }: LoadRemoteResourceProps): LoadedResource => {
   if (resource.type === 'css') {
     const element = Object.assign(document.createElement('link'), {
       href: url,
       rel: 'stylesheet',
-      id,
+      id: resource.id,
     })
-    return { ...resource, id, element }
+
+    return {
+      ...resource,
+      element,
+    }
   }
 
   const element = Object.assign(document.createElement('script'), {
     src: url,
-    id,
+    id: resource.id,
   })
-  return { ...resource, id, element }
+
+  return {
+    ...resource,
+    element,
+  }
 }
 
-export const loadRemoteResource = ({ url, resource }: RemoteResourceOptions): Promise<LoadedResource> => {
+export const loadRemoteResource = ({ url, resource }: LoadRemoteResourceProps): Promise<LoadedResource> => {
   return new Promise((resolve, reject) => {
     const loadedResource = createDomElement({ url, resource })
 
