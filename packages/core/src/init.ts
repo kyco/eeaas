@@ -10,25 +10,31 @@ import type {
   UserEgg,
 } from './types'
 import { loadResources, logger, removeResources } from './utils'
+import { generateResourceWithId, isResourceLoaded } from './utils/resource_loader_helper'
 
 export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): EeaasInstance => {
   CONFIG.DEBUG = debug
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
 
-  const register = (egg: UserEgg) => {
-    if (internalEggs[egg.name]) {
-      logger('warn', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
+  const register = (userEgg: UserEgg) => {
+    if (internalEggs[userEgg.name]) {
+      logger('warn', 'eeaas', `Skipping registration, egg "${userEgg.name}" is already registered.`)
       return
     }
 
     const internalEgg: InternalEgg = {
-      ...egg,
-      isEnabled: egg.enabled ?? true,
+      name: userEgg.name,
+      trigger: userEgg.trigger || { type: 'manual' },
+      stopTrigger: userEgg.stopTrigger || { type: 'manual' },
+      onStart: userEgg.onStart,
+      onStop: userEgg.onStop,
+      allowMultipleInstances: userEgg.allowMultipleInstances ?? false,
+      isEnabled: userEgg.enabled ?? true,
       isActivated: false,
-      trigger: egg.trigger ?? { type: 'manual' },
-      stopTrigger: egg.stopTrigger ?? { type: 'manual' },
-      resources: egg.resources ?? [],
+      resourcesToLoad: userEgg.resources
+        ? userEgg.resources.map((resource, index) => generateResourceWithId(userEgg, resource, index))
+        : [],
       loadedResources: [],
     }
 
@@ -39,8 +45,8 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
       for (const listener of pubSubListeners) {
         try {
           listener()
-        } catch (e) {
-          console.error(`[eeaas] Error in listener for egg "${egg.name}":`, e)
+        } catch (err) {
+          console.error(`[eeaas] Error in listener for egg "${userEgg.name}":`, err)
         }
       }
     }
@@ -69,6 +75,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
               keystrokes: internalEgg.trigger.keystrokes,
               callback: () => publicEgg.start(),
               captureOnInputs: internalEgg.trigger.captureOnInputs ?? true,
+              onKeydown: internalEgg.trigger.onKeydown,
             })
           }
 
@@ -77,6 +84,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
               keystrokes: internalEgg.stopTrigger.keystrokes,
               callback: () => publicEgg.stop(),
               captureOnInputs: internalEgg.stopTrigger.captureOnInputs ?? true,
+              onKeydown: internalEgg.stopTrigger.onKeydown,
             })
           }
 
@@ -84,15 +92,12 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           keystrokeListener.start()
         }
 
-        if (internalEgg.trigger.type === 'auto') {
-          internalEgg.isEnabled = true
-          notifySubscribers()
-          publicEgg.start()
-          return
-        }
-
         internalEgg.isEnabled = true
         notifySubscribers()
+
+        if (internalEgg.trigger.type === 'auto') {
+          publicEgg.start()
+        }
       },
 
       disable() {
@@ -116,8 +121,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
         }
 
         if (internalEgg.isActivated) {
-          // TODO: Add logic so a egg can be triggered multiple times, e.g. with allowMultipleInstances flag
-          if (typeof internalEgg.onStop === 'function') {
+          if (typeof internalEgg.onStop === 'function' && !internalEgg.allowMultipleInstances) {
             await internalEgg.onStop(internalEgg.loadedResources)
           }
           if (typeof internalEgg.onStart === 'function') {
@@ -128,11 +132,9 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
 
         try {
           let loadedResources: LoadedResource[] = []
-          // Do not change the order here. Code in the `onStart` might rely on resources,
-          // so only trigger the `onStart` after resources have been loaded.
-          if (internalEgg.resources && internalEgg.resources.length) {
-            // TODO: Add logic to ensure the same resources are not loaded multiple times (check ID and also actual paths, show error if IDs clash)
-            loadedResources = await loadResources(internalEgg.resources)
+          if (internalEgg.resourcesToLoad && internalEgg.resourcesToLoad.length) {
+            const resourcesToLoad = internalEgg.resourcesToLoad.filter((resource) => !isResourceLoaded(resource.id))
+            loadedResources = await loadResources(resourcesToLoad)
           }
           if (typeof internalEgg.onStart === 'function') {
             await internalEgg.onStart(loadedResources)
@@ -146,18 +148,15 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
       },
 
       async stop() {
-        // TODO: When triggering the same egg multiple times ensure we correctly remove previous resources here
         if (!internalEgg.isActivated) {
           return
         }
 
         try {
-          // Do not change the order here. Code in the `onStop` might still rely on resources,
-          // so only remove resources after running the `onStop` method.
           if (typeof internalEgg.onStop === 'function') {
             await internalEgg.onStop(internalEgg.loadedResources)
           }
-          if (internalEgg.resources) {
+          if (internalEgg.resourcesToLoad && internalEgg.resourcesToLoad.length) {
             removeResources(internalEgg.loadedResources)
           }
           internalEgg.isActivated = false
@@ -177,14 +176,14 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
       },
     }
 
-    internalEggs[egg.name] = internalEgg
-    publicEggs[egg.name] = publicEgg
+    internalEggs[userEgg.name] = internalEgg
+    publicEggs[userEgg.name] = publicEgg
 
     if (internalEgg.isEnabled) {
       publicEgg.enable()
     }
 
-    logger('info', 'eeaas', `Registered egg "${egg.name}"`)
+    logger('info', 'eeaas', `Registered egg "${userEgg.name}"`)
   }
 
   const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {

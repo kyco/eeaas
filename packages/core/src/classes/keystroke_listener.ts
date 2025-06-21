@@ -22,7 +22,8 @@ export class KeystrokeListener {
   private handleKeyDown(event: KeyboardEvent): void {
     this.buffer.push(event.key.toLowerCase())
 
-    // (Perf): Trim buffer length to reduce memory usage, we won't need more in the buffer than the longest pattern
+    // We trim the buffer length to reduce memory usage, since we won't need more in
+    // the buffer than the length of chars in the pattern.
     const maxLength = Math.max(...this.patterns.map((pattern) => pattern.keystrokes.length))
     if (this.buffer.length > maxLength) {
       this.buffer = this.buffer.slice(-maxLength)
@@ -32,6 +33,10 @@ export class KeystrokeListener {
     for (const pattern of this.patterns) {
       if (!pattern.captureOnInputs && isInput) {
         continue
+      }
+
+      if (typeof pattern.onKeydown === 'function') {
+        pattern.onKeydown(event)
       }
 
       if (this.checkMatch(pattern.keystrokes)) {

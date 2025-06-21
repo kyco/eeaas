@@ -2,24 +2,45 @@ import type { LogConfig } from './types_internal'
 import type { KeystrokeCode } from './types_keys'
 
 export type Trigger =
-  | { type: 'manual' }
-  | { type: 'keys'; keystrokes: KeystrokeCode[]; captureOnInputs?: boolean }
-  | { type: 'auto' } // TODO: Implement, trigger the start immediately after enabling the easter egg
+  | {
+      type: 'manual'
+    }
+  | {
+      type: 'keys'
+      keystrokes: KeystrokeCode[]
+      captureOnInputs?: boolean
+      onKeydown?: (event: KeyboardEvent) => void
+    }
+  | {
+      type: 'auto'
+    }
 
 export type KeystrokePattern = {
   keystrokes: KeystrokeCode[]
   callback: () => void
   captureOnInputs?: boolean
+  onKeydown?: (event: KeyboardEvent) => void
 }
 
 export type ResourceType = 'css' | 'script'
 
 export type Resource =
-  | { type: ResourceType; content: string; url?: never }
-  | { type: ResourceType; content?: never; url: string }
+  | {
+      type: ResourceType
+      content: string
+      url?: never
+    }
+  | {
+      type: ResourceType
+      content?: never
+      url: string
+    }
 
-export type LoadedResource = Resource & {
+export type ResourceWithId = Resource & {
   id: string
+}
+
+export type LoadedResource = ResourceWithId & {
   element: HTMLStyleElement | HTMLLinkElement | HTMLScriptElement
 }
 
@@ -29,6 +50,7 @@ export type LoadedResource = Resource & {
 export type UserEgg = {
   name: string
   enabled?: boolean
+  allowMultipleInstances?: boolean
   trigger?: Trigger
   stopTrigger?: Trigger
   resources?: Resource[]
