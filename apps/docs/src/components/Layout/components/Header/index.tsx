@@ -74,7 +74,7 @@ const Header = () => {
               component={Link}
               to={ROUTES.HOME}
               src="/logo-512x512-transparent.png"
-              sx={{ mr: 2, border: '1px dashed rgba(0, 0, 0, 0.1)' }}
+              sx={{ mr: 2 }}
               variant="rounded"
             />
             <Typography
