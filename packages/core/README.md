@@ -11,7 +11,7 @@ Built with modern JavaScript.
 ---
 
 > [!NOTE]
-> *For more detailed instructions please view the [usage guide](https://kyco.github.io/eeaas/docs/getting-started#installation) on the official documentation.*
+> *For more detailed instructions please view the [basic usage guide](https://kyco.github.io/eeaas/docs/getting-started#basic-usage).*
 
 ---
 
