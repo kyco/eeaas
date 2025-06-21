@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material'
 
 import { CodeBlock, PageWrapperDocs } from '../../components'
 
-const Examples = () => {
+const CodeExamples = () => {
   return (
     <PageWrapperDocs>
       <Box>
@@ -297,4 +297,4 @@ eeaas.register(myEgg);`}
   )
 }
 
-export default Examples
+export default CodeExamples
