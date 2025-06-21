@@ -14,9 +14,7 @@ const API = () => {
           {DOCS.API_REFERENCE.EEAAS_INSTANCE.TITLE}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-          <code>
-            eeaas.{`<`}method{`>`}
-          </code>
+          <code>eeaas</code>
         </Typography>
 
         <TableContainer component={Paper} sx={{ mb: 4 }}>
@@ -55,12 +53,12 @@ const API = () => {
               </TableRow>
               <TableRow>
                 <TableCell>
-                  <code>getInstance()</code>
+                  <code>getAll()</code>
                 </TableCell>
                 <TableCell>
-                  <code>{`{ eggs: Record<string, PublicEgg> }`}</code>
+                  <code>PublicEgg[]</code>
                 </TableCell>
-                <TableCell>Get the global eeaas instance</TableCell>
+                <TableCell>Retrieve all registered egg instances</TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -71,7 +69,7 @@ const API = () => {
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
-            eeaas.get({`<`}EggName{`>`}).{`<`}method{`>`}
+            eeaas.get({`<`}EggName{`>`})
           </code>
         </Typography>
 
@@ -91,6 +89,42 @@ const API = () => {
               </TableRow>
             </TableHead>
             <TableBody>
+              <TableRow>
+                <TableCell>
+                  <code>name</code>
+                </TableCell>
+                <TableCell>
+                  <code>readonly string</code>
+                </TableCell>
+                <TableCell>Get egg name</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <code>isEnabled</code>
+                </TableCell>
+                <TableCell>
+                  <code>readonly boolean</code>
+                </TableCell>
+                <TableCell>Get the enabled status of the egg</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <code>isActivated</code>
+                </TableCell>
+                <TableCell>
+                  <code>readonly boolean</code>
+                </TableCell>
+                <TableCell>Get the activated status of the egg</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <code>loadedResources</code>
+                </TableCell>
+                <TableCell>
+                  <code>readonly LoadedResource[]</code>
+                </TableCell>
+                <TableCell>Get the resources which have been loaded for the egg</TableCell>
+              </TableRow>
               <TableRow>
                 <TableCell>
                   <code>start()</code>
@@ -127,6 +161,24 @@ const API = () => {
                 </TableCell>
                 <TableCell>Disable egg triggers</TableCell>
               </TableRow>
+              <TableRow>
+                <TableCell>
+                  <code>subscribe()</code>
+                </TableCell>
+                <TableCell>
+                  <code>void</code>
+                </TableCell>
+                <TableCell>Subscribe to egg changes</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <code>unsubsribe()</code>
+                </TableCell>
+                <TableCell>
+                  <code>void</code>
+                </TableCell>
+                <TableCell>Unsubscribe from egg changes</TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
@@ -136,7 +188,7 @@ const API = () => {
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
-            eeaas.get({`<`}EggName{`>`})
+            eeaas.register({`<`}UserEgg{`>`})
           </code>
         </Typography>
 

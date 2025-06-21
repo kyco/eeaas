@@ -36,7 +36,7 @@ export const DOCS = {
       ID: 'egg-instance',
     },
     EGG_PROPERTIES: {
-      TITLE: 'Egg properties',
+      TITLE: 'User egg properties',
       ID: 'egg-properties',
     },
   },
