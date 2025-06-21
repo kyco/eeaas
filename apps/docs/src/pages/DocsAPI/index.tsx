@@ -1,13 +1,17 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
+import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
 
 const API = () => {
   return (
     <PageWrapperDocs>
       <Box>
-        <Typography variant="h2" gutterBottom id="eeaas-instance">
-          The eeaas instance
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.API_REFERENCE.ID}>
+          {DOCS.API_REFERENCE.API_REFERENCE.TITLE}
+        </Typography>
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.EEAAS_INSTANCE.ID}>
+          {DOCS.API_REFERENCE.EEAAS_INSTANCE.TITLE}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
@@ -62,8 +66,8 @@ const API = () => {
           </Table>
         </TableContainer>
 
-        <Typography variant="h2" gutterBottom id="egg-instance">
-          Egg instance
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.EGG_INSTANCE.ID}>
+          {DOCS.API_REFERENCE.EGG_INSTANCE.TITLE}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
@@ -127,8 +131,8 @@ const API = () => {
           </Table>
         </TableContainer>
 
-        <Typography variant="h2" gutterBottom id="egg-properties">
-          Egg properties
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.EGG_PROPERTIES.ID}>
+          {DOCS.API_REFERENCE.EGG_PROPERTIES.TITLE}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           <code>
