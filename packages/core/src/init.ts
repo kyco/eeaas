@@ -2,10 +2,10 @@ import { KeystrokeListener } from './classes'
 import { CONFIG } from './config'
 import type {
   EeaasInstance,
+  EeaasInstanceProps,
   InternalEgg,
   KeystrokePattern,
   LoadedResource,
-  EeaasInstanceProps,
   PublicEgg,
   UserEgg,
 } from './types'
@@ -196,16 +196,13 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
     return egg
   }
 
-  const getInstance = () => {
-    return {
-      eggs: publicEggs,
-    }
+  const getAll = () => {
+    return Object.values(publicEggs)
   }
 
   return {
-    eggs: publicEggs,
     register,
     get,
-    getInstance,
+    getAll,
   }
 }
