@@ -1,3 +1,12 @@
+import { LogConfig } from './types'
+
+let debugLevel: LogConfig = false
+
 export const CONFIG = {
-  DEBUG: false,
+  get DEBUG() {
+    return debugLevel
+  },
+  set DEBUG(value: LogConfig) {
+    debugLevel = value
+  },
 }

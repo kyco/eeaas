@@ -1,8 +1,18 @@
 import { KeystrokeListener } from './classes'
-import type { EeaasInstance, InternalEgg, KeystrokePattern, LoadedResource, PublicEgg, UserEgg } from './types'
+import { CONFIG } from './config'
+import type {
+  EeaasInstance,
+  InternalEgg,
+  KeystrokePattern,
+  LoadedResource,
+  LogConfig,
+  PublicEgg,
+  UserEgg,
+} from './types'
 import { loadResources, logger, removeResources } from './utils'
 
-export const initializeEeaas = (): EeaasInstance => {
+export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): EeaasInstance => {
+  CONFIG.DEBUG = debug
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
 

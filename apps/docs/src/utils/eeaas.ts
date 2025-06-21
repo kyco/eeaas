@@ -1,3 +1,3 @@
 import { initializeEeaas } from '@eeaas/core'
 
-export const eeaas = initializeEeaas()
+export const eeaas = initializeEeaas({ debug: true })

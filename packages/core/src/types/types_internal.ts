@@ -11,3 +11,7 @@ export type InternalEgg = {
   onStart?: (loadedResources: LoadedResource[]) => void | Promise<void>
   onStop?: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
+
+export type LogLevel = 'warn' | 'info' | 'success' | 'error'
+
+export type LogConfig = boolean | LogLevel | LogLevel[]
