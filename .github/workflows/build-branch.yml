@@ -3,7 +3,7 @@ name: build-branch
 on:
   pull_request:
     branches:
-      - 'develop'
+      - 'main'
 
 jobs:
   build-and-test:
