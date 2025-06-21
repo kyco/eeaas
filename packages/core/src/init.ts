@@ -18,7 +18,7 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
 
   const register = (egg: UserEgg) => {
     if (internalEggs[egg.name]) {
-      logger('info', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
+      logger('warn', 'eeaas', `Skipping registration, egg "${egg.name}" is already registered.`)
       return
     }
 
