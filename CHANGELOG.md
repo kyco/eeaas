@@ -1,3 +1,27 @@
+## 2.5.2 (2025-06-21)
+
+### 🩹 Fixes
+
+- Hide TODO ([fd14e89](https://github.com/kyco/eeaas/commit/fd14e89))
+- Ensure multipe triggers of the easter egg rremove old instances ([3c462ee](https://github.com/kyco/eeaas/commit/3c462ee))
+- **core:** Turn log into warn ([8a629b9](https://github.com/kyco/eeaas/commit/8a629b9))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
+## 2.5.1 (2025-06-21)
+
+### 🩹 Fixes
+
+- Basename ([ccbd1b9](https://github.com/kyco/eeaas/commit/ccbd1b9))
+- Add copy fix for gh-pages ([96c3ddf](https://github.com/kyco/eeaas/commit/96c3ddf))
+- Update docs URLs ([3ac9b37](https://github.com/kyco/eeaas/commit/3ac9b37))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.5.0 (2025-06-21)
 
 ### 🚀 Features
