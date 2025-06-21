@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/kyco/eeaas/issues"
   },
-  "homepage": "https://github.com/kyco/eeaas#readme",
+  "homepage": "https://kyco.github.io/eeaas/",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {

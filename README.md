@@ -4,14 +4,14 @@ A zero-dependency library to inject easter eggs into any app or website.
 
 Built with modern JavaScript.
 
-[Demo](https://kyco.github.io/eeaas/)
+[Demo](https://kyco.github.io/eeaas/examples/css-injection)
 
-[Documentation](https://www.npmjs.com/package/@eeaas/core)
+[Documentation](https://kyco.github.io/eeaas/)
 
 ---
 
 > [!NOTE]
-> *The instructions below are for the monorepo! For __`@eeaas/core`__ please view the [documentation](https://www.npmjs.com/package/@eeaas/core) on npm.*
+> *The instructions below are for the monorepo! For __`@eeaas/core`__ please view the documentation above.*
 
 ---
 
