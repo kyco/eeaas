@@ -1,3 +1,19 @@
+## 2.6.0 (2025-06-21)
+
+### 🚀 Features
+
+- **core:** Add logic to allow listening to the keystroke events ([c2291c1](https://github.com/kyco/eeaas/commit/c2291c1))
+
+### 🩹 Fixes
+
+- Allow running multiple instances ([710b9b0](https://github.com/kyco/eeaas/commit/710b9b0))
+- **core:** Resolve TODOs ([7031f12](https://github.com/kyco/eeaas/commit/7031f12))
+- **docs:** Update URLs ([4875143](https://github.com/kyco/eeaas/commit/4875143))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.5.3 (2025-06-21)
 
 ### 🩹 Fixes
