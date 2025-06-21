@@ -1,3 +1,30 @@
+## 2.5.0 (2025-06-21)
+
+### 🚀 Features
+
+- Allow sidebar to have nested children ([d3d1e85](https://github.com/kyco/eeaas/commit/d3d1e85))
+- Add logic to allow users to listen to changes on eggs via pub/sub (useful for frameworks like React, Vue etc.) ([8883713](https://github.com/kyco/eeaas/commit/8883713))
+- Allow users to pass in log level in init method ([136c239](https://github.com/kyco/eeaas/commit/136c239))
+
+### 🩹 Fixes
+
+- Update title ([5e424b5](https://github.com/kyco/eeaas/commit/5e424b5))
+- Update wording ([c0268cb](https://github.com/kyco/eeaas/commit/c0268cb))
+- Scroll to hash ([99abcd6](https://github.com/kyco/eeaas/commit/99abcd6))
+- Update logo ([c890456](https://github.com/kyco/eeaas/commit/c890456))
+- Update docs ([fb3956f](https://github.com/kyco/eeaas/commit/fb3956f))
+- Disable debug ([8514b30](https://github.com/kyco/eeaas/commit/8514b30))
+- Do not require `onStart` and `onStop` to be defined ([5efa5c0](https://github.com/kyco/eeaas/commit/5efa5c0))
+- Remove egg registration, let each component register their own eggs ([205fc9f](https://github.com/kyco/eeaas/commit/205fc9f))
+- Expose `PublicEgg` directly instead of renaming it to `Egg` ([22a337f](https://github.com/kyco/eeaas/commit/22a337f))
+- Use transparent favicon ([945bc96](https://github.com/kyco/eeaas/commit/945bc96))
+- Branch ([2e22230](https://github.com/kyco/eeaas/commit/2e22230))
+- **temp:** Disable code examples section ([04ebfcc](https://github.com/kyco/eeaas/commit/04ebfcc))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.4.1 (2025-06-18)
 
 ### 🩹 Fixes
