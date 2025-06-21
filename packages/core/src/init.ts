@@ -116,6 +116,10 @@ export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): 
         }
 
         if (internalEgg.isActivated) {
+          // TODO: Add logic so a egg can be triggered multiple times, e.g. with allowMultipleInstances flag
+          if (typeof internalEgg.onStop === 'function') {
+            await internalEgg.onStop(internalEgg.loadedResources)
+          }
           if (typeof internalEgg.onStart === 'function') {
             await internalEgg.onStart(internalEgg.loadedResources)
           }
