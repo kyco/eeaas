@@ -41,6 +41,50 @@ const CssInjection = () => {
           </Card>
         </Grid>
 
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Typography variant="h6">Nyancat</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+              This easter egg will turn your cursor into nyancat in the night.
+            </Typography>
+            <Button
+              component={Link}
+              to={ROUTES.EXAMPLES__NYANCAT}
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              disableElevation
+            >
+              View Example
+            </Button>
+          </Card>
+        </Grid>
+
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Typography variant="h6">Snake</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+              This easter egg will launch a snake game.
+            </Typography>
+            <Button
+              component={Link}
+              to={ROUTES.EXAMPLES__SNAKE}
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              disableElevation
+            >
+              View Example
+            </Button>
+          </Card>
+        </Grid>
+
         <Grid size={12}>
           <Typography variant="h2" gutterBottom>
             {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
