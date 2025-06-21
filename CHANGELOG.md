@@ -1,3 +1,15 @@
+## 2.5.3 (2025-06-21)
+
+### 🩹 Fixes
+
+- Simplify build copy-fix ([b1b6027](https://github.com/kyco/eeaas/commit/b1b6027))
+- Move code examples from `core` to `docs` ([4dbbee0](https://github.com/kyco/eeaas/commit/4dbbee0))
+- Remove `getInstance` instance method and remove the `eggs` property feat: Add new `getAll` instance method which returns all eggs ([8726688](https://github.com/kyco/eeaas/commit/8726688))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.5.2 (2025-06-21)
 
 ### 🩹 Fixes
