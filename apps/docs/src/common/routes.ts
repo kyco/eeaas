@@ -12,4 +12,5 @@ export const ROUTES = {
 
 export const EXTERNAL_ROUTES = {
   KYCO: 'https://kyco.io',
+  GITHUB_EEAAS: 'https://github.com/kyco/eeaas',
 }

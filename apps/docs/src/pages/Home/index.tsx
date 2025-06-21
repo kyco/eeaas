@@ -2,7 +2,7 @@ import { ArrowForward, Code, GitHub, Security, Speed } from '@mui/icons-material
 import { Avatar, Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-import { MISC } from '../../common'
+import { EXTERNAL_ROUTES, MISC, ROUTES } from '../../common'
 import { useFileSizeInfo } from '../../hooks/useFileSizeInfo'
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" alignItems="center">
             <Button
               component={Link}
-              to="/examples"
+              to={ROUTES.EXAMPLES__CSS_INJECTION}
               variant="outlined"
               size="large"
               endIcon={<ArrowForward />}
@@ -45,7 +45,7 @@ const Home = () => {
               View Examples
             </Button>
             <Button
-              href="https://github.com/kyco/eeaas"
+              href={EXTERNAL_ROUTES.GITHUB_EEAAS}
               target="_blank"
               rel="noopener noreferrer"
               variant="outlined"
@@ -158,7 +158,7 @@ const Home = () => {
           >
             <Button
               component={Link}
-              to="/examples"
+              to={ROUTES.EXAMPLES__CSS_INJECTION}
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
@@ -166,7 +166,13 @@ const Home = () => {
             >
               Explore Examples
             </Button>
-            <Button component={Link} to="/docs/getting-started" variant="outlined" size="large" startIcon={<Code />}>
+            <Button
+              component={Link}
+              to={ROUTES.DOCS__GETTING_STARTED}
+              variant="outlined"
+              size="large"
+              startIcon={<Code />}
+            >
               Documentation
             </Button>
           </Stack>
