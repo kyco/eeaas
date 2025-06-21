@@ -11,9 +11,10 @@ type EasterEggDemoProps = {
   title: string
   description: string
   code: string
+  language?: string
 }
 
-const EasterEggDemo = ({ egg, title, description, code }: EasterEggDemoProps) => {
+const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' }: EasterEggDemoProps) => {
   const [state, setState] = useState({ enabled: false, isActivated: false })
   const [showCode, setShowCode] = useState(false)
 
@@ -113,7 +114,7 @@ const EasterEggDemo = ({ egg, title, description, code }: EasterEggDemoProps) =>
         {showCode ? 'Hide' : 'Show'} code
       </Button>
 
-      {showCode ? <CodeBlock language="javascript" code={code.trim()} sx={{ mt: 2, mb: 0 }} /> : null}
+      {showCode ? <CodeBlock language={language} code={code.trim()} sx={{ mt: 2, mb: 0 }} /> : null}
     </Card>
   )
 }

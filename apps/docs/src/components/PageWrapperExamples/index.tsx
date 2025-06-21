@@ -18,6 +18,10 @@ const navItems: NavItem[] = [
     label: 'Nyancat',
     route: ROUTES.EXAMPLES__NYANCAT,
   },
+  {
+    label: 'Snake',
+    route: ROUTES.EXAMPLES__SNAKE,
+  },
 ]
 
 const PageWrapperDocs = ({ children }: { children: ReactNode }) => {

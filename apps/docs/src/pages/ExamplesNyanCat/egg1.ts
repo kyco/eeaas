@@ -60,12 +60,14 @@ eeaas.register({
     type: 'keys',
     keystrokes: ['Escape'],
   },
+
   resources: [
     {
       type: 'css',
       content: css,
     },
   ],
+
   onStart() {
     const nyanClass = 'nyan'
     const rainbowClass = 'rainbow'
@@ -183,6 +185,7 @@ eeaas.register({
       intervalIds,
     }
   },
+
   onStop() {
     const wrapper = document.querySelector('[id^=nyancat-wrapper-]') as HTMLElement
     if (!wrapper) return
