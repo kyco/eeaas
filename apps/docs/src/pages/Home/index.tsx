@@ -32,7 +32,7 @@ const Home = () => {
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" alignItems="center">
             <Button
               component={Link}
-              to={ROUTES.EXAMPLES__CSS_INJECTION}
+              to={ROUTES.EXAMPLES}
               variant="outlined"
               size="large"
               endIcon={<ArrowForward />}
@@ -141,7 +141,7 @@ const Home = () => {
           >
             <Button
               component={Link}
-              to={ROUTES.EXAMPLES__CSS_INJECTION}
+              to={ROUTES.EXAMPLES}
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
