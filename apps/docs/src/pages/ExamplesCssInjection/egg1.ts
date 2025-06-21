@@ -1,7 +1,7 @@
 import { eeaas } from '../../utils/eeaas'
 
 eeaas.register({
-  name: 'CssInjection',
+  name: 'CssInjectionInline',
   enabled: false,
   trigger: {
     type: 'keys',

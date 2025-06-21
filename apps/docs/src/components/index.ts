@@ -1,4 +1,5 @@
 export { default as CodeBlock } from './CodeBlock'
+export { default as EasterEggDemo } from './EasterEggDemo'
 export { default as Layout } from './Layout'
 export { default as PageWrapperDocs } from './PageWrapperDocs'
 export { default as PageWrapperExamples } from './PageWrapperExamples'

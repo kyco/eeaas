@@ -7,6 +7,10 @@ import Sidebar from '../Sidebar'
 
 const navItems: NavItem[] = [
   {
+    label: 'Overview',
+    route: ROUTES.EXAMPLES,
+  },
+  {
     label: 'CSS Injection',
     route: ROUTES.EXAMPLES__CSS_INJECTION,
   },

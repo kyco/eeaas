@@ -15,7 +15,7 @@ export const getNavItems = (pathname: string): NavItem[] => {
     },
     {
       label: 'Examples',
-      route: ROUTES.EXAMPLES__CSS_INJECTION,
+      route: ROUTES.EXAMPLES,
       isActive: pathname.startsWith(ROUTES.EXAMPLES),
     },
   ]

@@ -6,6 +6,7 @@ export type NavItemChild = {
 export type NavItem = {
   label: string
   route: string
+  hash?: string
   isActive?: boolean
   children?: NavItemChild[]
 }
