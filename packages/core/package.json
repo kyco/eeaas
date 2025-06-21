@@ -1,7 +1,7 @@
 {
   "name": "@eeaas/core",
   "description": "Easter eggs as a service",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
   "repository": {
     "type": "git",

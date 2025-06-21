@@ -1,3 +1,15 @@
+## 2.5.1 (2025-06-21)
+
+### 🩹 Fixes
+
+- Basename ([ccbd1b9](https://github.com/kyco/eeaas/commit/ccbd1b9))
+- Add copy fix for gh-pages ([96c3ddf](https://github.com/kyco/eeaas/commit/96c3ddf))
+- Update docs URLs ([3ac9b37](https://github.com/kyco/eeaas/commit/3ac9b37))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.5.0 (2025-06-21)
 
 ### 🚀 Features
