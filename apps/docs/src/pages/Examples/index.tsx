@@ -48,7 +48,8 @@ const CssInjection = () => {
               <Typography variant="h6">Nyancat</Typography>
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-              This easter egg will turn your cursor into nyancat in the night.
+              This easter egg will turn your cursor into nyancat in the night. You can still fully interact with the
+              entire page.
             </Typography>
             <Button
               component={Link}

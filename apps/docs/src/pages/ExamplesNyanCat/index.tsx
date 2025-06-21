@@ -15,7 +15,8 @@ const CssInjection = () => {
         Nyancat
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-        This easter egg will turn your cursor into nyancat in the night.
+        This easter egg will turn your cursor into nyancat in the night. You can still fully interact with the entire
+        page.
       </Typography>
 
       {egg1 ? (
