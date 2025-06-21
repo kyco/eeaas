@@ -31,23 +31,25 @@ eeaas.register({
   }
 })
 
-function App() {
-  const handleStart = () => {
-    const egg = eeaas.get('ReactEgg')
-    egg?.start()
-  }
+const handleStart = () => {
+  const egg = eeaas.get('ReactEgg')
+  egg?.start()
+}
 
-  const handleStop = () => {
-    const egg = eeaas.get('ReactEgg')
-    egg?.stop()
-  }
+const handleStop = () => {
+  const egg = eeaas.get('ReactEgg')
+  egg?.stop()
+}
 
+const App = () => {
   return (
     <div>
-      Your React App
+      <h1>Your React App</h1>
       <button onClick={handleStart}>Activate Easter Egg</button>
       <button onClick={handleStop}>Deactivate Easter Egg</button>
     </div>
   )
 }
+
+export default App
 ```

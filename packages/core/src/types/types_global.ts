@@ -23,7 +23,7 @@ export type LoadedResource = Resource & {
 }
 
 /**
- * This is the public egg format which users can define.
+ * This is the egg format which users will use to register eggs.
  */
 export type UserEgg = {
   name: string
@@ -31,10 +31,13 @@ export type UserEgg = {
   trigger?: Trigger
   stopTrigger?: Trigger
   resources?: Resource[]
-  onStart: (loadedResources: LoadedResource[]) => void | Promise<void>
-  onStop: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStart?: (loadedResources: LoadedResource[]) => void | Promise<void>
+  onStop?: (loadedResources: LoadedResource[]) => void | Promise<void>
 }
 
+/**
+ * Once registered this is the egg format which users can access to mange their egg.
+ */
 export type PublicEgg = {
   readonly name: string
   readonly enabled: boolean
@@ -44,6 +47,8 @@ export type PublicEgg = {
   disable: () => void
   start: () => Promise<void>
   stop: () => Promise<void>
+  subscribe: (callback: () => void) => () => void
+  unsubscribe: (callback: () => void) => void
 }
 
 export type EeaasInstance = {

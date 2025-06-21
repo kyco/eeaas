@@ -1,6 +1,7 @@
 import { CONFIG } from '../config'
+import type { LogLevel } from '../types'
 
-const _logMessage = (category: 'warn' | 'info' | 'success' | 'error', group: string, ...message: unknown[]) => {
+const _logMessage = (category: LogLevel, group: string, ...message: unknown[]) => {
   const info = '#2196f3'
   const success = '#26c281'
   const warn = '#ff9800'
@@ -37,8 +38,12 @@ const _logMessage = (category: 'warn' | 'info' | 'success' | 'error', group: str
   )
 }
 
-export const logger = (category: 'warn' | 'info' | 'success' | 'error', group: string, ...message: unknown[]) => {
-  if (!CONFIG.DEBUG) {
+export const logger = (category: LogLevel, group: string, ...message: unknown[]) => {
+  if (
+    (typeof CONFIG.DEBUG === 'boolean' && !CONFIG.DEBUG) ||
+    (Array.isArray(CONFIG.DEBUG) && !CONFIG.DEBUG.includes(category)) ||
+    (typeof CONFIG.DEBUG === 'string' && CONFIG.DEBUG !== category)
+  ) {
     return
   }
   _logMessage(category, group, ...message)

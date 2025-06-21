@@ -1,8 +1,18 @@
-import type { LoadedResource, KeystrokePattern, EeaasInstance, PublicEgg, UserEgg, InternalEgg } from './types'
 import { KeystrokeListener } from './classes'
-import { loadResources, removeResources, logger } from './utils'
+import { CONFIG } from './config'
+import type {
+  EeaasInstance,
+  InternalEgg,
+  KeystrokePattern,
+  LoadedResource,
+  LogConfig,
+  PublicEgg,
+  UserEgg,
+} from './types'
+import { loadResources, logger, removeResources } from './utils'
 
-export const initializeEeaas = (): EeaasInstance => {
+export const initializeEeaas = ({ debug = false }: { debug?: LogConfig } = {}): EeaasInstance => {
+  CONFIG.DEBUG = debug
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
 
@@ -14,7 +24,7 @@ export const initializeEeaas = (): EeaasInstance => {
 
     const internalEgg: InternalEgg = {
       ...egg,
-      enabled: egg.enabled ?? true,
+      enabled: egg.enabled ?? true, // TODO: Refactor to `isEnabled`
       isActivated: false,
       trigger: egg.trigger ?? { type: 'manual' },
       stopTrigger: egg.stopTrigger ?? { type: 'manual' },
@@ -23,6 +33,17 @@ export const initializeEeaas = (): EeaasInstance => {
     }
 
     let keystrokeListener: KeystrokeListener | null = null
+    const pubSubListeners = new Set<() => void>()
+
+    const notifySubscribers = () => {
+      for (const listener of pubSubListeners) {
+        try {
+          listener()
+        } catch (e) {
+          console.error(`[eeaas] Error in listener for egg "${egg.name}":`, e)
+        }
+      }
+    }
 
     const publicEgg: PublicEgg = {
       name: internalEgg.name,
@@ -65,11 +86,13 @@ export const initializeEeaas = (): EeaasInstance => {
 
         if (internalEgg.trigger.type === 'auto') {
           internalEgg.enabled = true
+          notifySubscribers()
           publicEgg.start()
           return
         }
 
         internalEgg.enabled = true
+        notifySubscribers()
       },
 
       disable() {
@@ -81,17 +104,21 @@ export const initializeEeaas = (): EeaasInstance => {
         if (internalEgg.isActivated) {
           publicEgg.stop()
         }
+
         internalEgg.enabled = false
+        notifySubscribers()
       },
 
       async start() {
         if (!internalEgg.enabled) {
-          console.warn(`[eeaas] Failed to start! Egg "${internalEgg.name}" is not enabled.`)
+          logger('warn', 'eeaas', `Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
 
         if (internalEgg.isActivated) {
-          await Promise.resolve(internalEgg.onStart(internalEgg.loadedResources))
+          if (typeof internalEgg.onStart === 'function') {
+            await internalEgg.onStart(internalEgg.loadedResources)
+          }
           return
         }
 
@@ -103,9 +130,12 @@ export const initializeEeaas = (): EeaasInstance => {
             // TODO: Add logic to ensure the same resources are not loaded multiple times (check ID and also actual paths, show error if IDs clash)
             loadedResources = await loadResources(internalEgg.resources)
           }
-          await Promise.resolve(internalEgg.onStart(loadedResources))
+          if (typeof internalEgg.onStart === 'function') {
+            await internalEgg.onStart(loadedResources)
+          }
           internalEgg.loadedResources = loadedResources
           internalEgg.isActivated = true
+          notifySubscribers()
         } catch (error) {
           console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
         }
@@ -114,21 +144,32 @@ export const initializeEeaas = (): EeaasInstance => {
       async stop() {
         // TODO: When triggering the same egg multiple times ensure we correctly remove previous resources here
         if (!internalEgg.isActivated) {
-          console.warn(`[eeaas] Failed to stop! Egg "${internalEgg.name}" is not activated.`)
           return
         }
 
         try {
           // Do not change the order here. Code in the `onStop` might still rely on resources,
           // so only remove resources after running the `onStop` method.
-          await Promise.resolve(internalEgg.onStop(internalEgg.loadedResources))
+          if (typeof internalEgg.onStop === 'function') {
+            await internalEgg.onStop(internalEgg.loadedResources)
+          }
           if (internalEgg.resources) {
             removeResources(internalEgg.loadedResources)
           }
           internalEgg.isActivated = false
+          notifySubscribers()
         } catch (error) {
           console.error(`[eeaas] Error stopping egg "${internalEgg.name}":`, error)
         }
+      },
+
+      subscribe(callback) {
+        pubSubListeners.add(callback)
+        return () => pubSubListeners.delete(callback)
+      },
+
+      unsubscribe(callback) {
+        pubSubListeners.delete(callback)
       },
     }
 

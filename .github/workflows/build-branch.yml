@@ -1,0 +1,50 @@
+name: build-branch
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build-and-test:
+    name: Lint, test and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+
+      - name: Get packages hash
+        run: |
+          npm version v1.0.0 --no-git-tag-version --allow-same-version
+          node_hash=$(sha256sum package-lock.json | awk '{print $1}')
+          echo "node_hash=$node_hash" >> $GITHUB_ENV
+          git reset --hard
+
+      - name: Cache packages
+        uses: actions/cache@v4
+        id: node-cache-v1
+        with:
+          path: node_modules
+          key: node-cache-v1-${{ env.node_hash }}
+
+      - name: Install dependencies
+        if: steps.node-cache-v1.outputs.cache-hit != 'true'
+        run: npm ci --legacy-peer-deps
+
+      - name: Nx - Get SHAs
+        uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: 'develop'
+
+      - name: Nx - Lint
+        run: npx nx run-many -t lint --skip-nx-cache
+
+      - name: Nx - Build
+        run: npx nx run-many -t build --skip-nx-cache
