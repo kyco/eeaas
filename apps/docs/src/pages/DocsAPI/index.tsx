@@ -1,7 +1,32 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import type { ReactNode } from 'react'
 
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
+
+const CustomTableRow = ({
+  col1,
+  col2,
+  col3,
+  col4,
+  col5,
+}: {
+  col1: ReactNode
+  col2: ReactNode
+  col3: ReactNode
+  col4?: ReactNode
+  col5?: ReactNode
+}) => {
+  return (
+    <TableRow>
+      <TableCell>{col1}</TableCell>
+      <TableCell>{col2}</TableCell>
+      <TableCell>{col3}</TableCell>
+      {col4 ? <TableCell>{col4}</TableCell> : null}
+      {col5 ? <TableCell>{col5}</TableCell> : null}
+    </TableRow>
+  )
+}
 
 const API = () => {
   return (
@@ -20,46 +45,28 @@ const API = () => {
         <TableContainer component={Paper} sx={{ mb: 4 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>
-                  <strong>Method</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Returns</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Description</strong>
-                </TableCell>
-              </TableRow>
+              <CustomTableRow
+                col1={<strong>Method</strong>}
+                col2={<strong>Returns</strong>}
+                col3={<strong>Description</strong>}
+              />
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell>
-                  <code>register(egg: UserEgg)</code>
-                </TableCell>
-                <TableCell>
-                  <code>void</code>
-                </TableCell>
-                <TableCell>Register a new easter egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>get(name: string)</code>
-                </TableCell>
-                <TableCell>
-                  <code>PublicEgg | undefined</code>
-                </TableCell>
-                <TableCell>Retrieve an egg instance by name</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>getAll()</code>
-                </TableCell>
-                <TableCell>
-                  <code>PublicEgg[]</code>
-                </TableCell>
-                <TableCell>Retrieve all registered egg instances</TableCell>
-              </TableRow>
+              <CustomTableRow
+                col1={<code>register(egg: UserEgg)</code>}
+                col2={<code>void</code>}
+                col3="Register a new easter egg"
+              />
+              <CustomTableRow
+                col1={<code>get(name: string)</code>}
+                col2={<code>PublicEgg | undefined</code>}
+                col3="Retrieve an egg instance by name"
+              />
+              <CustomTableRow
+                col1={<code>getAll()</code>}
+                col2={<code>PublicEgg[]</code>}
+                col3="Retrieve all registered egg instances"
+              />
             </TableBody>
           </Table>
         </TableContainer>
@@ -76,109 +83,51 @@ const API = () => {
         <TableContainer component={Paper} sx={{ mb: 4 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>
-                  <strong>Method</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Returns</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Description</strong>
-                </TableCell>
-              </TableRow>
+              <CustomTableRow
+                col1={<strong>Method</strong>}
+                col2={<strong>Returns</strong>}
+                col3={<strong>Description</strong>}
+              />
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell>
-                  <code>name</code>
-                </TableCell>
-                <TableCell>
-                  <code>readonly string</code>
-                </TableCell>
-                <TableCell>Get egg name</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>isEnabled</code>
-                </TableCell>
-                <TableCell>
-                  <code>readonly boolean</code>
-                </TableCell>
-                <TableCell>Get the enabled status of the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>isActivated</code>
-                </TableCell>
-                <TableCell>
-                  <code>readonly boolean</code>
-                </TableCell>
-                <TableCell>Get the activated status of the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>loadedResources</code>
-                </TableCell>
-                <TableCell>
-                  <code>readonly LoadedResource[]</code>
-                </TableCell>
-                <TableCell>Get the resources which have been loaded for the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>start()</code>
-                </TableCell>
-                <TableCell>
-                  <code>Promise&lt;void&gt;</code>
-                </TableCell>
-                <TableCell>Manually activate the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>stop()</code>
-                </TableCell>
-                <TableCell>
-                  <code>Promise&lt;void&gt;</code>
-                </TableCell>
-                <TableCell>Manually deactivate the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>enable()</code>
-                </TableCell>
-                <TableCell>
-                  <code>void</code>
-                </TableCell>
-                <TableCell>Enable egg triggers</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>disable()</code>
-                </TableCell>
-                <TableCell>
-                  <code>void</code>
-                </TableCell>
-                <TableCell>Disable egg triggers</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>subscribe()</code>
-                </TableCell>
-                <TableCell>
-                  <code>void</code>
-                </TableCell>
-                <TableCell>Subscribe to egg changes</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>unsubsribe()</code>
-                </TableCell>
-                <TableCell>
-                  <code>void</code>
-                </TableCell>
-                <TableCell>Unsubscribe from egg changes</TableCell>
-              </TableRow>
+              <CustomTableRow col1={<code>name</code>} col2={<code>readonly string</code>} col3="Get egg name" />
+              <CustomTableRow
+                col1={<code>isEnabled</code>}
+                col2={<code>readonly boolean</code>}
+                col3="Get the enabled status of the egg"
+              />
+              <CustomTableRow
+                col1={<code>isActivated</code>}
+                col2={<code>readonly boolean</code>}
+                col3="Get the activated status of the egg"
+              />
+              <CustomTableRow
+                col1={<code>loadedResources</code>}
+                col2={<code>readonly LoadedResource[]</code>}
+                col3="Get the resources which have been loaded for the egg"
+              />
+              <CustomTableRow
+                col1={<code>start()</code>}
+                col2={<code>Promise&lt;void&gt;</code>}
+                col3="Manually activate the egg"
+              />
+              <CustomTableRow
+                col1={<code>stop()</code>}
+                col2={<code>Promise&lt;void&gt;</code>}
+                col3="Manually deactivate the egg"
+              />
+              <CustomTableRow col1={<code>enable()</code>} col2={<code>void</code>} col3="Enable egg triggers" />
+              <CustomTableRow col1={<code>disable()</code>} col2={<code>void</code>} col3="Disable egg triggers" />
+              <CustomTableRow
+                col1={<code>subscribe()</code>}
+                col2={<code>void</code>}
+                col3="Subscribe to egg changes"
+              />
+              <CustomTableRow
+                col1={<code>unsubsribe()</code>}
+                col2={<code>void</code>}
+                col3="Unsubscribe from egg changes"
+              />
             </TableBody>
           </Table>
         </TableContainer>
@@ -195,129 +144,83 @@ const API = () => {
         <TableContainer component={Paper} sx={{ mb: 4 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>
-                  <strong>Property</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Type</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Required</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Default</strong>
-                </TableCell>
-                <TableCell>
-                  <strong>Description</strong>
-                </TableCell>
-              </TableRow>
+              <CustomTableRow
+                col1={<strong>Property</strong>}
+                col2={<strong>Type</strong>}
+                col3={<strong>Required</strong>}
+                col4={<strong>Default</strong>}
+                col5={<strong>Description</strong>}
+              />
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell>
-                  <code>name</code>
-                </TableCell>
-                <TableCell>
-                  <code>string</code>
-                </TableCell>
-                <TableCell>Yes</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Unique identifier for the egg</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>enabled</code>
-                </TableCell>
-                <TableCell>
-                  <code>boolean</code>
-                </TableCell>
-                <TableCell>No</TableCell>
-                <TableCell>
-                  <code>true</code>
-                </TableCell>
-                <TableCell>Whether the egg is initially enabled</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>allowMultipleInstances</code>
-                </TableCell>
-                <TableCell>
-                  <code>boolean</code>
-                </TableCell>
-                <TableCell>No</TableCell>
-                <TableCell>
-                  <code>false</code>
-                </TableCell>
-                <TableCell>Whether the egg's `onStart` can be triggered multiple times</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>trigger</code>
-                </TableCell>
-                <TableCell>
+              <CustomTableRow
+                col1={<code>name</code>}
+                col2={<code>string</code>}
+                col3="Yes"
+                col4="-"
+                col5="Unique identifier for the egg"
+              />
+              <CustomTableRow
+                col1={<code>enabled</code>}
+                col2={<code>boolean</code>}
+                col3="No"
+                col4={<code>true</code>}
+                col5="Whether the egg is initially enabled"
+              />
+              <CustomTableRow
+                col1={<code>allowMultipleInstances</code>}
+                col2={<code>boolean</code>}
+                col3="No"
+                col4={<code>false</code>}
+                col5="Whether the egg's `onStart` can be triggered multiple times"
+              />
+              <CustomTableRow
+                col1={<code>trigger</code>}
+                col2={
                   <a href="#trigger-types">
                     <code>Trigger</code>
                   </a>
-                </TableCell>
-                <TableCell>No</TableCell>
-                <TableCell>
-                  <code>{`{ type: 'manual' }`}</code>
-                </TableCell>
-                <TableCell>How the egg is activated</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>stopTrigger</code>
-                </TableCell>
-                <TableCell>
+                }
+                col3="No"
+                col4={<code>{`{ type: 'manual' }`}</code>}
+                col5="How the egg is activated"
+              />
+              <CustomTableRow
+                col1={<code>stopTrigger</code>}
+                col2={
                   <a href="#trigger-types">
                     <code>Trigger</code>
                   </a>
-                </TableCell>
-                <TableCell>No</TableCell>
-                <TableCell>
-                  <code>{`{ type: 'manual' }`}</code>
-                </TableCell>
-                <TableCell>How the egg is deactivated</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>resources</code>
-                </TableCell>
-                <TableCell>
+                }
+                col3="No"
+                col4={<code>{`{ type: 'manual' }`}</code>}
+                col5="How the egg is deactivated"
+              />
+              <CustomTableRow
+                col1={<code>resources</code>}
+                col2={
                   <a href="#resource-types">
                     <code>Resource[]</code>
                   </a>
-                </TableCell>
-                <TableCell>No</TableCell>
-                <TableCell>
-                  <code>[]</code>
-                </TableCell>
-                <TableCell>External CSS/JS resources to load</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>onStart</code>
-                </TableCell>
-                <TableCell>
-                  <code>(resources: LoadedResource[]) =&gt; void | Promise&lt;void&gt;</code>
-                </TableCell>
-                <TableCell>Yes</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Called when egg is activated</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <code>onStop</code>
-                </TableCell>
-                <TableCell>
-                  <code>(resources: LoadedResource[]) =&gt; void | Promise&lt;void&gt;</code>
-                </TableCell>
-                <TableCell>Yes</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Called when egg is deactivated</TableCell>
-              </TableRow>
+                }
+                col3="No"
+                col4={<code>[]</code>}
+                col5="External CSS/JS resources to load"
+              />
+              <CustomTableRow
+                col1={<code>onStart</code>}
+                col2={<code>(resources: LoadedResource[]) =&gt; void | Promise&lt;void&gt;</code>}
+                col3="No"
+                col4={<code>undefined</code>}
+                col5="Called when egg is activated"
+              />
+              <CustomTableRow
+                col1={<code>onStop</code>}
+                col2={<code>(resources: LoadedResource[]) =&gt; void | Promise&lt;void&gt;</code>}
+                col3="No"
+                col4={<code>undefined</code>}
+                col5="Called when egg is deactivated"
+              />
             </TableBody>
           </Table>
         </TableContainer>
