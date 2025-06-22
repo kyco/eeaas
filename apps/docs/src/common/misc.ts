@@ -17,9 +17,9 @@ export const DOCS = {
       TITLE: 'Basic usage',
       ID: 'basic-usage',
     },
-    BUILDING_YOUR_OWN: {
-      TITLE: 'Building your own egg',
-      ID: 'build-your-own',
+    TRIGGERS: {
+      TITLE: 'Triggers',
+      ID: 'triggers',
     },
   },
   API_REFERENCE: {
@@ -57,8 +57,8 @@ export const docsNavItems: NavItem[] = [
         hash: `#${DOCS.GETTING_STARTED.BASIC_USAGE.ID}`,
       },
       {
-        label: DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.TITLE,
-        hash: `#${DOCS.GETTING_STARTED.BUILDING_YOUR_OWN.ID}`,
+        label: DOCS.GETTING_STARTED.TRIGGERS.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.TRIGGERS.ID}`,
       },
     ],
   },
