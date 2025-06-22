@@ -69,9 +69,8 @@ const Home = () => {
               I once nearly got fired for adding easter eggs to a production app.
               <br />
               <br />
-              {/* Unfortunately, the easter eggs never got to see the light of day. */}
               This library not only helps you keep the easter egg code out of the production code you ship to your
-              users, but it also makes it really easy to add them to any project.
+              users, but it also makes it really easy to add easter eggs to any project.
               <br />
               <br />
               Easter eggs make apps and websites more fun, so go ahead and add them.
