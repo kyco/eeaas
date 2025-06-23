@@ -52,6 +52,24 @@ export const DOCS = {
       ID: 'resource-types',
     },
   },
+  CODE_EXAMPLES: {
+    CODE_EXAMPLES: {
+      TITLE: 'Code Examples',
+      ID: 'code-examples',
+    },
+    VANILLA_JS: {
+      TITLE: 'Vanilla JS Example',
+      ID: 'vanilla-js-example',
+    },
+    REACT: {
+      TITLE: 'React Example',
+      ID: 'react-example',
+    },
+    TYPESCRIPT: {
+      TITLE: 'React TypeScript Example',
+      ID: 'typescript-example',
+    },
+  },
 }
 
 export const docsNavItems: NavItem[] = [
@@ -105,7 +123,25 @@ export const docsNavItems: NavItem[] = [
       },
     ],
   },
-  // { label: 'Code examples', route: ROUTES.DOCS__CODE_EXAMPLES },
+  {
+    label: DOCS.CODE_EXAMPLES.CODE_EXAMPLES.TITLE,
+    route: ROUTES.DOCS__CODE_EXAMPLES,
+    hash: `#${DOCS.CODE_EXAMPLES.CODE_EXAMPLES.ID}`,
+    children: [
+      {
+        label: DOCS.CODE_EXAMPLES.REACT.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.REACT.ID}`,
+      },
+      {
+        label: DOCS.CODE_EXAMPLES.TYPESCRIPT.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.TYPESCRIPT.ID}`,
+      },
+      {
+        label: DOCS.CODE_EXAMPLES.VANILLA_JS.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.VANILLA_JS.ID}`,
+      },
+    ],
+  },
 ]
 
 export const EXAMPLES = {
