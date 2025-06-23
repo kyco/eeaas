@@ -1,5 +1,5 @@
 import { Box, Chip, Typography } from '@mui/material'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
 import type { KeystrokeCode } from '@eeaas/core'
@@ -33,12 +33,11 @@ export const keystrokes: KeystrokeCode[] = [
   'a',
 ]
 
-let isRegistered = false
-
 const ExamplesKonami = () => {
   const [userSequence, setUserSequence] = useState<string[]>([])
+  const isRegistered = useRef(false)
 
-  if (!isRegistered) {
+  if (!isRegistered.current) {
     eeaas.register({
       name: 'Konami',
       enabled: false,
@@ -76,7 +75,7 @@ const ExamplesKonami = () => {
         window.cleanupKonami()
       },
     })
-    isRegistered = true
+    isRegistered.current = true
   }
 
   const egg1 = eeaas.get('Konami')
