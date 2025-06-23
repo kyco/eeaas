@@ -1,3 +1,21 @@
+## 2.6.1 (2025-06-23)
+
+### 🩹 Fixes
+
+- **core:** Export resource and trigger types ([137e08e](https://github.com/kyco/eeaas/commit/137e08e))
+- **core:** Always show errors regardless of log level ([9f013d0](https://github.com/kyco/eeaas/commit/9f013d0))
+- **docs:** Update "Getting Started" section ([afa01a1](https://github.com/kyco/eeaas/commit/afa01a1))
+- **docs:** Update CTA ([3dd66c3](https://github.com/kyco/eeaas/commit/3dd66c3))
+- **docs:** Update code examples ([24beb65](https://github.com/kyco/eeaas/commit/24beb65))
+- **docs:** Update links ([33f2ae9](https://github.com/kyco/eeaas/commit/33f2ae9))
+- **docs:** Add "recommended workflow" section ([f11253a](https://github.com/kyco/eeaas/commit/f11253a))
+- **docs:** Add OG tags ([3c94293](https://github.com/kyco/eeaas/commit/3c94293))
+- **docs:** Update OG tags ([6e43acb](https://github.com/kyco/eeaas/commit/6e43acb))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.0 (2025-06-21)
 
 ### 🚀 Features
