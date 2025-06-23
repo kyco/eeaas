@@ -28,7 +28,7 @@ export const DOCS = {
   },
   API_REFERENCE: {
     API_REFERENCE: {
-      TITLE: 'API RReference',
+      TITLE: 'API Reference',
       ID: 'api-reference',
     },
     EEAAS_INSTANCE: {
