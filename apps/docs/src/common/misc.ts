@@ -6,7 +6,7 @@ export const MISC = {}
 export const DOCS = {
   GETTING_STARTED: {
     GETTING_STARTED: {
-      TITLE: 'Getting started',
+      TITLE: 'Getting Started',
       ID: 'getting-started',
     },
     INSTALLATION: {
@@ -14,11 +14,11 @@ export const DOCS = {
       ID: 'installation',
     },
     BASIC_USAGE: {
-      TITLE: 'Basic usage',
+      TITLE: 'Basic Usage',
       ID: 'basic-usage',
     },
     RECOMMENED_WORKFLOW: {
-      TITLE: 'Recommended workflow',
+      TITLE: 'Recommended Workflow',
       ID: 'recommended-workflow',
     },
     TRIGGERS: {
@@ -28,27 +28,27 @@ export const DOCS = {
   },
   API_REFERENCE: {
     API_REFERENCE: {
-      TITLE: 'API reference',
+      TITLE: 'API RReference',
       ID: 'api-reference',
     },
     EEAAS_INSTANCE: {
-      TITLE: 'Eeaas instance',
+      TITLE: 'Eeaas Instance',
       ID: 'eeaas-instance',
     },
     EGG_INSTANCE: {
-      TITLE: 'Egg instance',
+      TITLE: 'Egg Instance',
       ID: 'egg-instance',
     },
     EGG_PROPERTIES: {
-      TITLE: 'Egg properties',
+      TITLE: 'Egg Properties',
       ID: 'egg-properties',
     },
     TRIGGER_TYPES: {
-      TITLE: 'Trigger types',
+      TITLE: 'Trigger Types',
       ID: 'trigger-types',
     },
     RESOURCE_TYPES: {
-      TITLE: 'Resource types',
+      TITLE: 'Resource Types',
       ID: 'resource-types',
     },
   },

@@ -145,16 +145,16 @@ const GettingStarted = () => {
         <Typography component="ul" variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           <li>manually, e.g. by clicking a button (default behaviour)</li>
           <li>via a keystroke combination</li>
-          <li>or automatically, as soon as the egg get registered.</li>
+          <li>or automatically, as soon as the egg gets registered.</li>
         </Typography>
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Manual trigger
+          Manual Trigger
         </Typography>
         <CodeBlock language="typescript" code={trigger_manual.trim()} />
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Keystroke trigger
+          Keystroke Trigger
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           Here's the{' '}
@@ -175,7 +175,7 @@ const GettingStarted = () => {
         <CodeBlock language="typescript" code={trigger_keystroke.trim()} />
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Automatic trigger
+          Automatic Trigger
         </Typography>
         <CodeBlock language="typescript" code={trigger_automatic.trim()} />
       </Box>
