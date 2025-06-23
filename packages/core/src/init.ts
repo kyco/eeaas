@@ -46,7 +46,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
         try {
           listener()
         } catch (err) {
-          console.error(`[eeaas] Error in listener for egg "${userEgg.name}":`, err)
+          logger('error', 'eeaas', `Error in listener for egg "${userEgg.name}":`, err)
         }
       }
     }
@@ -143,7 +143,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           internalEgg.isActivated = true
           notifySubscribers()
         } catch (error) {
-          console.error(`[eeaas] Error starting egg "${internalEgg.name}":`, error)
+          logger('error', 'eeaas', `Error starting egg "${internalEgg.name}":`, error)
         }
       },
 
@@ -162,7 +162,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           internalEgg.isActivated = false
           notifySubscribers()
         } catch (error) {
-          console.error(`[eeaas] Error stopping egg "${internalEgg.name}":`, error)
+          logger('error', 'eeaas', `Error stopping egg "${internalEgg.name}":`, error)
         }
       },
 
@@ -189,7 +189,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
   const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {
     const egg = publicEggs[name]
     if (!egg) {
-      console.warn(`[eeaas] Egg "${name}" not found!`)
+      logger('warn', 'eeaas', `Egg "${name}" not found!`)
       return undefined
     }
     return egg
