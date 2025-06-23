@@ -1,4 +1,5 @@
 import { LoadedResource, ResourceWithId } from '../types'
+import { logger } from './logger'
 import { loadRemoteResource } from './remote_resource_loader'
 import { isValidResource } from './resource_loader_helper'
 
@@ -35,7 +36,7 @@ export const loadResources = async (resources: ResourceWithId[]): Promise<Loaded
 
   const validResources = resources.filter((resource) => {
     if (!isValidResource(resource)) {
-      console.error('[eeaas] Invalid resource! Must have either url or content.')
+      logger('error', 'eeaas', 'Invalid resource! Must have either url or content.')
       return false
     }
     return true

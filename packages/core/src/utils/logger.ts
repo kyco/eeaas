@@ -31,6 +31,14 @@ const _logMessage = (category: LogLevel, group: string, ...message: unknown[]) =
     )
   }
 
+  if (category === 'warn') {
+    return console.warn(
+      `%c${group}`,
+      `color: white; background-color: ${color}; padding: 2px 5px; border-radius: 2px`,
+      ...message,
+    )
+  }
+
   console.info(
     `%c${group}`,
     `color: white; background-color: ${color}; padding: 2px 5px; border-radius: 2px`,
@@ -39,7 +47,9 @@ const _logMessage = (category: LogLevel, group: string, ...message: unknown[]) =
 }
 
 export const logger = (category: LogLevel, group: string, ...message: unknown[]) => {
-  if (
+  if (category === 'error') {
+    _logMessage(category, group, ...message)
+  } else if (
     (typeof CONFIG.DEBUG === 'boolean' && !CONFIG.DEBUG) ||
     (Array.isArray(CONFIG.DEBUG) && !CONFIG.DEBUG.includes(category)) ||
     (typeof CONFIG.DEBUG === 'string' && CONFIG.DEBUG !== category)
