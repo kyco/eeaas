@@ -1,15 +1,16 @@
 import { Typography } from '@mui/material'
 
 import { EasterEggDemo, PageWrapperExamples } from '../../components'
-import { eeaas } from '../../utils/eeaas'
+import { eeaas as eeaas1 } from './egg1'
 import egg1_code from './egg1?raw'
+import { eeaas as eeaas2 } from './egg2'
 import egg2_code from './egg2?raw'
+import { eeaas as eeaas3 } from './egg3'
+import egg3_code from './egg3?raw'
 
-import './egg1'
-import './egg2'
-
-const egg1 = eeaas.get('CssInjectionInline')
-const egg2 = eeaas.get('CssInjectionPath')
+const egg1 = eeaas1.get('CssInjectionInline')
+const egg2 = eeaas2.get('CssInjectionPath')
+const egg3 = eeaas3.get('CssInjectionUrl')
 
 const CssInjection = () => {
   return (
@@ -36,6 +37,15 @@ const CssInjection = () => {
           title="Example 2: Local path"
           description='Type "test2" to trigger, press "Esc" to cancel. Or use the buttons below.'
           code={egg2_code.trim()}
+        />
+      ) : null}
+
+      {egg3 ? (
+        <EasterEggDemo
+          egg={egg3}
+          title="Example 3: URL import"
+          description='Type "test3" to trigger, press "Esc" to cancel. Or use the buttons below.'
+          code={egg3_code.trim()}
         />
       ) : null}
     </PageWrapperExamples>

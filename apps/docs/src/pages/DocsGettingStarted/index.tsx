@@ -102,7 +102,7 @@ const GettingStarted = () => {
             </strong>{' '}
             property. To ensure the triggers only activate at specific places in the app you can use the{' '}
             <strong>
-              <code>enabled: false</code>
+              <code>enabled</code>
             </strong>{' '}
             property when registering the egg. This will force you to manually enable the egg before it can be
             activated.

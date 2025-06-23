@@ -2,12 +2,14 @@ import { initializeEeaas } from '@eeaas/core'
 
 export const eeaas = initializeEeaas()
 
+const cssUrl = `https://kyco.github.io/eeaas/example-url.css`
+
 eeaas.register({
-  name: 'CssInjectionInline',
+  name: 'CssInjectionUrl',
   enabled: false,
   trigger: {
     type: 'keys',
-    keystrokes: ['t', 'e', 's', 't'],
+    keystrokes: ['t', 'e', 's', 't', '3'],
   },
   stopTrigger: {
     type: 'keys',
@@ -16,12 +18,7 @@ eeaas.register({
   resources: [
     {
       type: 'css',
-      content: `
-        body {
-          background-color: #4ecdc4;
-          color: #fff;
-        }
-      `,
+      url: cssUrl,
     },
   ],
 })
