@@ -17,6 +17,10 @@ export const DOCS = {
       TITLE: 'Basic usage',
       ID: 'basic-usage',
     },
+    RECOMMENED_WORKFLOW: {
+      TITLE: 'Recommended workflow',
+      ID: 'recommended-workflow',
+    },
     TRIGGERS: {
       TITLE: 'Triggers',
       ID: 'triggers',
@@ -63,6 +67,10 @@ export const docsNavItems: NavItem[] = [
       {
         label: DOCS.GETTING_STARTED.BASIC_USAGE.TITLE,
         hash: `#${DOCS.GETTING_STARTED.BASIC_USAGE.ID}`,
+      },
+      {
+        label: DOCS.GETTING_STARTED.RECOMMENED_WORKFLOW.TITLE,
+        hash: `#${DOCS.GETTING_STARTED.RECOMMENED_WORKFLOW.ID}`,
       },
       {
         label: DOCS.GETTING_STARTED.TRIGGERS.TITLE,

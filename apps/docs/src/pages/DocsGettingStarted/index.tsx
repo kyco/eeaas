@@ -1,3 +1,4 @@
+import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
 
 import { DOCS } from '../../common'
@@ -67,6 +68,7 @@ const GettingStarted = () => {
             rel="noreferrer"
           >
             React Example
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>{' '}
           or the{' '}
           <a
@@ -75,8 +77,60 @@ const GettingStarted = () => {
             rel="noreferrer"
           >
             Vanilla JS Example
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>
           .
+        </Typography>
+      </Box>
+
+      <Box sx={{ pb: 3 }}>
+        <Typography variant="h2" gutterBottom id={DOCS.GETTING_STARTED.RECOMMENED_WORKFLOW.ID}>
+          {DOCS.GETTING_STARTED.RECOMMENED_WORKFLOW.TITLE}
+        </Typography>
+        <Typography component="ol" variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+          <li>
+            Create CSS and JS files for your easter eggs and add them to your{' '}
+            <strong>
+              <code>public</code>
+            </strong>{' '}
+            folder. This way they won't get shipped to your users.
+          </li>
+          <li>
+            Register your easter eggs by referencing the CSS and JS files in the egg's{' '}
+            <strong>
+              <code>resources</code>
+            </strong>{' '}
+            property. To ensure the triggers only activate at specific places in the app you can use the{' '}
+            <strong>
+              <code>enabled: false</code>
+            </strong>{' '}
+            property when registering the egg. This will force you to manually enable the egg before it can be
+            activated.
+          </li>
+          <li>
+            Once your egg is enabled (either via the{' '}
+            <strong>
+              <code>.enable()</code>
+            </strong>{' '}
+            method or the{' '}
+            <strong>
+              <code>enabled</code>
+            </strong>{' '}
+            property) call the{' '}
+            <strong>
+              <code>.start()</code>
+            </strong>{' '}
+            method. This will then trigger the easter egg and start injecting the resources into the DOM.
+          </li>
+          <li>
+            Once the easter egg has run its course call the{' '}
+            <strong>
+              <code>.stop()</code>
+            </strong>{' '}
+            method and clean up any logic that should not be there anymore. By default the CSS and JS resources which
+            were injected into the DOM will be removed from the DOM. However, any JavaScript that gets executed will
+            remain in memory and you would have to manually clean it up.
+          </li>
         </Typography>
       </Box>
 
@@ -110,6 +164,7 @@ const GettingStarted = () => {
             rel="noreferrer"
           >
             list of valid keystrokes
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>{' '}
           which can be added in the{' '}
           <strong>
