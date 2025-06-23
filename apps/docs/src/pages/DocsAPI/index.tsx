@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
+import resource_types from './codeblocks/resource_types.ts?raw'
+import trigger_types from './codeblocks/trigger_types.ts?raw'
 
 const CustomTableRow = ({
   col1,
@@ -31,7 +33,7 @@ const CustomTableRow = ({
 const API = () => {
   return (
     <PageWrapperDocs>
-      <Box>
+      <Box sx={{ pb: 3 }}>
         <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.API_REFERENCE.ID}>
           {DOCS.API_REFERENCE.API_REFERENCE.TITLE}
         </Typography>
@@ -70,7 +72,9 @@ const API = () => {
             </TableBody>
           </Table>
         </TableContainer>
+      </Box>
 
+      <Box sx={{ pb: 3 }}>
         <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.EGG_INSTANCE.ID}>
           {DOCS.API_REFERENCE.EGG_INSTANCE.TITLE}
         </Typography>
@@ -131,7 +135,9 @@ const API = () => {
             </TableBody>
           </Table>
         </TableContainer>
+      </Box>
 
+      <Box sx={{ pb: 3 }}>
         <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.EGG_PROPERTIES.ID}>
           {DOCS.API_REFERENCE.EGG_PROPERTIES.TITLE}
         </Typography>
@@ -224,46 +230,28 @@ const API = () => {
             </TableBody>
           </Table>
         </TableContainer>
+      </Box>
 
-        <Typography variant="h2" id="trigger-types" gutterBottom>
-          Trigger Types
+      <Box sx={{ pb: 3 }}>
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.TRIGGER_TYPES.ID}>
+          {DOCS.API_REFERENCE.TRIGGER_TYPES.TITLE}
         </Typography>
+        <CodeBlock language="typescript" code={trigger_types.trim()} />
+      </Box>
 
-        <CodeBlock
-          language="typescript"
-          code={`type Trigger =
-  | { type: 'manual' }     // Default, activate via start() method
-  | { type: 'auto' }       // Activates immediately when enabled
-  | {
-    type: 'keys'           // Activated by keyboard sequence
-      keystrokes: string[] // Array of keys to press
-      captureOnInputs?: boolean // Listen on input fields, defaults to true)
-      onKeydown?: (event: KeyboardEvent) => void // Callback to listen to the keystroke events
-    }`}
-        />
-
-        <Typography variant="h2" id="resource-types" gutterBottom>
-          Resource Types
+      <Box sx={{ pb: 3 }}>
+        <Typography variant="h2" gutterBottom id={DOCS.API_REFERENCE.RESOURCE_TYPES.ID}>
+          {DOCS.API_REFERENCE.RESOURCE_TYPES.TITLE}
         </Typography>
-
-        <CodeBlock
-          language="typescript"
-          code={`type Resource =
-  | {
-      type: 'css' | 'script'
-      content?: string     // Inline CSS/JS
-      url?: string         // Local path or external URL to CSS/JS file
-    }`}
-        />
-
-        <Typography variant="h2" gutterBottom>
-          Resource Management
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          Resources are automatically injected and ejected from the DOM when an egg is activated or deactivated
+          respectively. Resources won't be loaded until{' '}
+          <strong>
+            <code>egg.start()</code>
+          </strong>{' '}
+          method is called.
         </Typography>
-
-        <Typography variant="body1" color="text.secondary">
-          Resources are automatically injected and ejected from the DOM when an egg is started/stopped. Resources won't
-          be loaded until <code>start()</code> method is called.
-        </Typography>
+        <CodeBlock language="typescript" code={resource_types.trim()} />
       </Box>
     </PageWrapperDocs>
   )

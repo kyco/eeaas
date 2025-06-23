@@ -28,7 +28,7 @@ export const DOCS = {
       ID: 'api-reference',
     },
     EEAAS_INSTANCE: {
-      TITLE: 'The eeaas instance',
+      TITLE: 'Eeaas instance',
       ID: 'eeaas-instance',
     },
     EGG_INSTANCE: {
@@ -36,8 +36,16 @@ export const DOCS = {
       ID: 'egg-instance',
     },
     EGG_PROPERTIES: {
-      TITLE: 'User egg properties',
+      TITLE: 'Egg properties',
       ID: 'egg-properties',
+    },
+    TRIGGER_TYPES: {
+      TITLE: 'Trigger types',
+      ID: 'trigger-types',
+    },
+    RESOURCE_TYPES: {
+      TITLE: 'Resource types',
+      ID: 'resource-types',
     },
   },
 }
@@ -78,6 +86,14 @@ export const docsNavItems: NavItem[] = [
       {
         label: DOCS.API_REFERENCE.EGG_PROPERTIES.TITLE,
         hash: `#${DOCS.API_REFERENCE.EGG_PROPERTIES.ID}`,
+      },
+      {
+        label: DOCS.API_REFERENCE.TRIGGER_TYPES.TITLE,
+        hash: `#${DOCS.API_REFERENCE.TRIGGER_TYPES.ID}`,
+      },
+      {
+        label: DOCS.API_REFERENCE.RESOURCE_TYPES.TITLE,
+        hash: `#${DOCS.API_REFERENCE.RESOURCE_TYPES.ID}`,
       },
     ],
   },
