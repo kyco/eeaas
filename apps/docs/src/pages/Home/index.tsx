@@ -1,4 +1,4 @@
-import { ArrowForward, Code, GitHub, Security, Speed } from '@mui/icons-material'
+import { ArrowForward, Code, PlayCircleOutline, Security, Speed } from '@mui/icons-material'
 import { Avatar, Box, Button, Card, Container, Grid, Stack, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
@@ -41,15 +41,14 @@ const Home = () => {
               View Examples
             </Button>
             <Button
-              href={EXTERNAL_ROUTES.GITHUB_EEAAS}
-              target="_blank"
-              rel="noopener noreferrer"
+              component={Link}
+              to={ROUTES.DOCS__GETTING_STARTED}
               variant="outlined"
               size="large"
-              startIcon={<GitHub />}
+              startIcon={<PlayCircleOutline />}
               sx={sx.cta}
             >
-              View on GitHub
+              Get Started
             </Button>
           </Stack>
         </Container>
