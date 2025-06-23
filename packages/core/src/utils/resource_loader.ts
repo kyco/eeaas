@@ -1,5 +1,5 @@
-import { LoadedResource, ResourceWithId } from '../types'
-import { logger } from './logger'
+import { Logger } from '../classes/logger'
+import type { LoadedResource, ResourceWithId } from '../types'
 import { loadRemoteResource } from './remote_resource_loader'
 import { isValidResource } from './resource_loader_helper'
 
@@ -29,14 +29,14 @@ const loadScript = async (resource: ResourceWithId): Promise<LoadedResource | nu
   return null
 }
 
-export const loadResources = async (resources: ResourceWithId[]): Promise<LoadedResource[]> => {
+export const loadResources = async (logger: Logger, resources: ResourceWithId[]): Promise<LoadedResource[]> => {
   if (!resources.length) {
     return []
   }
 
   const validResources = resources.filter((resource) => {
     if (!isValidResource(resource)) {
-      logger('error', 'eeaas', 'Invalid resource! Must have either url or content.')
+      logger.error('eeaas', 'Invalid resource! Must have either url or content.')
       return false
     }
     return true
