@@ -1,6 +1,8 @@
-import { eeaas } from '../../utils/eeaas'
+import { initializeEeaas } from '@eeaas/core'
 
-const pathToCssFile = `${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}egg2.css`
+export const eeaas = initializeEeaas()
+
+const pathToCssFile = `/eeaas/example-inline.css`
 
 eeaas.register({
   name: 'CssInjectionPath',
