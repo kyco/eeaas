@@ -16,6 +16,9 @@ const Sidebar = ({ title, navItems = [] }: SidebarProps) => {
         px: 2,
         position: 'sticky',
         top: 112,
+        maxHeight: 'calc(100vh - 112px - 16px)',
+        overflowY: 'auto',
+        overflowX: 'hidden',
       }}
     >
       <List
