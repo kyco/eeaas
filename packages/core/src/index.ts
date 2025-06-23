@@ -1,3 +1,3 @@
-export type { EeaasInstance, UserEgg, PublicEgg, KeystrokeCode } from './types'
+export type { EeaasInstance, UserEgg, PublicEgg, KeystrokeCode, Resource, Trigger } from './types'
 
 export { initializeEeaas } from './init'
