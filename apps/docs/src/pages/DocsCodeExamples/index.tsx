@@ -2,10 +2,10 @@ import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
 
 import react from '../../../examples/react.jsx?raw'
+import typescript from '../../../examples/typescript.tsx?raw'
+import vanilla_js from '../../../examples/vanilla_js.html?raw'
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
-import typescript from './codeblocks/typescript.tsx?raw'
-import vanilla_js from './codeblocks/vanilla_js.html?raw'
 
 const CodeExamples = () => {
   return (
@@ -48,7 +48,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/examples/react-typescript/README.md"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/typescript.tsx"
             target="_blank"
             rel="noreferrer"
           >
@@ -66,7 +66,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/examples/vanilla-js/README.md"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/vanilla-js.html"
             target="_blank"
             rel="noreferrer"
           >
