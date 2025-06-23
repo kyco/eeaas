@@ -4,7 +4,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import './style.css'
-import './utils/eeaas'
 
 import App from './App'
 import { theme } from './theme'

@@ -7,6 +7,7 @@ import DocsExamples from './pages/DocsCodeExamples'
 import DocsGettingStarted from './pages/DocsGettingStarted'
 import Examples from './pages/Examples'
 import ExamplesCssInjection from './pages/ExamplesCssInjection'
+import ExamplesJavaScriptInjection from './pages/ExamplesJavaScriptInjection'
 import ExamplesNyanCat from './pages/ExamplesNyanCat'
 import ExamplesSnake from './pages/ExamplesSnake'
 import Home from './pages/Home'
@@ -26,6 +27,7 @@ function App() {
           <Route path={ROUTES.DOCS__CODE_EXAMPLES} element={<DocsExamples />} />
           <Route path={ROUTES.EXAMPLES} element={<Examples />} />
           <Route path={ROUTES.EXAMPLES__CSS_INJECTION} element={<ExamplesCssInjection />} />
+          <Route path={ROUTES.EXAMPLES__JAVASCRIPT_INJECTION} element={<ExamplesJavaScriptInjection />} />
           <Route path={ROUTES.EXAMPLES__NYANCAT} element={<ExamplesNyanCat />} />
           <Route path={ROUTES.EXAMPLES__SNAKE} element={<ExamplesSnake />} />
           <Route path="*" element={<NotFound />} />
