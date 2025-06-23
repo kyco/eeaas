@@ -6,7 +6,7 @@ export const MISC = {}
 export const DOCS = {
   GETTING_STARTED: {
     GETTING_STARTED: {
-      TITLE: 'Getting started',
+      TITLE: 'Getting Started',
       ID: 'getting-started',
     },
     INSTALLATION: {
@@ -14,11 +14,11 @@ export const DOCS = {
       ID: 'installation',
     },
     BASIC_USAGE: {
-      TITLE: 'Basic usage',
+      TITLE: 'Basic Usage',
       ID: 'basic-usage',
     },
     RECOMMENED_WORKFLOW: {
-      TITLE: 'Recommended workflow',
+      TITLE: 'Recommended Workflow',
       ID: 'recommended-workflow',
     },
     TRIGGERS: {
@@ -28,28 +28,46 @@ export const DOCS = {
   },
   API_REFERENCE: {
     API_REFERENCE: {
-      TITLE: 'API reference',
+      TITLE: 'API Reference',
       ID: 'api-reference',
     },
     EEAAS_INSTANCE: {
-      TITLE: 'Eeaas instance',
+      TITLE: 'Eeaas Instance',
       ID: 'eeaas-instance',
     },
     EGG_INSTANCE: {
-      TITLE: 'Egg instance',
+      TITLE: 'Egg Instance',
       ID: 'egg-instance',
     },
     EGG_PROPERTIES: {
-      TITLE: 'Egg properties',
+      TITLE: 'Egg Properties',
       ID: 'egg-properties',
     },
     TRIGGER_TYPES: {
-      TITLE: 'Trigger types',
+      TITLE: 'Trigger Types',
       ID: 'trigger-types',
     },
     RESOURCE_TYPES: {
-      TITLE: 'Resource types',
+      TITLE: 'Resource Types',
       ID: 'resource-types',
+    },
+  },
+  CODE_EXAMPLES: {
+    CODE_EXAMPLES: {
+      TITLE: 'Code Examples',
+      ID: 'code-examples',
+    },
+    VANILLA_JS: {
+      TITLE: 'Vanilla JS Example',
+      ID: 'vanilla-js-example',
+    },
+    REACT: {
+      TITLE: 'React Example',
+      ID: 'react-example',
+    },
+    TYPESCRIPT: {
+      TITLE: 'React TypeScript Example',
+      ID: 'typescript-example',
     },
   },
 }
@@ -105,5 +123,69 @@ export const docsNavItems: NavItem[] = [
       },
     ],
   },
-  // { label: 'Code examples', route: ROUTES.DOCS__CODE_EXAMPLES },
+  {
+    label: DOCS.CODE_EXAMPLES.CODE_EXAMPLES.TITLE,
+    route: ROUTES.DOCS__CODE_EXAMPLES,
+    hash: `#${DOCS.CODE_EXAMPLES.CODE_EXAMPLES.ID}`,
+    children: [
+      {
+        label: DOCS.CODE_EXAMPLES.REACT.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.REACT.ID}`,
+      },
+      {
+        label: DOCS.CODE_EXAMPLES.TYPESCRIPT.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.TYPESCRIPT.ID}`,
+      },
+      {
+        label: DOCS.CODE_EXAMPLES.VANILLA_JS.TITLE,
+        hash: `#${DOCS.CODE_EXAMPLES.VANILLA_JS.ID}`,
+      },
+    ],
+  },
+]
+
+export const EXAMPLES = {
+  OVERVIEW: {
+    TITLE: 'Overview',
+    DESCRIPTION: `Explore different types of easter eggs and learn how to implement them in your own project. Each example demonstrates a unique technique with interactive demonstrations and code explanations.`,
+  },
+  NYANCAT: {
+    TITLE: 'Nyancat',
+    DESCRIPTION: `Turn your cursor into nyancat. You can still fully interact with the entire page.`,
+  },
+  SNAKE: {
+    TITLE: 'Snake',
+    DESCRIPTION: `Launch a full screen snake game.`,
+  },
+  CSS_INJECTION: {
+    TITLE: 'CSS Injection',
+    DESCRIPTION: `These examples demonstrate how to inject CSS into the DOM.`,
+  },
+  JAVASCRIPT_INJECTION: {
+    TITLE: 'JavaScript Injection',
+    DESCRIPTION: `These examples demonstrate how to inject JS into the DOM.`,
+  },
+}
+
+export const examplesNavItems: NavItem[] = [
+  {
+    label: EXAMPLES.OVERVIEW.TITLE,
+    route: ROUTES.EXAMPLES,
+  },
+  {
+    label: EXAMPLES.NYANCAT.TITLE,
+    route: ROUTES.EXAMPLES__NYANCAT,
+  },
+  {
+    label: EXAMPLES.SNAKE.TITLE,
+    route: ROUTES.EXAMPLES__SNAKE,
+  },
+  {
+    label: EXAMPLES.CSS_INJECTION.TITLE,
+    route: ROUTES.EXAMPLES__CSS_INJECTION,
+  },
+  {
+    label: EXAMPLES.JAVASCRIPT_INJECTION.TITLE,
+    route: ROUTES.EXAMPLES__JAVASCRIPT_INJECTION,
+  },
 ]

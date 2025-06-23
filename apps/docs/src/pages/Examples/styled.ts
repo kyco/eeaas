@@ -9,5 +9,11 @@ export const ui = (theme: Theme) => {
       p: 2,
       justifyContent: 'space-between',
     },
+
+    description: {
+      fontStyle: 'italic',
+      mb: 3,
+      flexGrow: 1,
+    },
   }
 }

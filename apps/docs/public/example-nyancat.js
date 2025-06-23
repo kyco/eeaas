@@ -1,15 +1,6 @@
 ;(() => {
   const instanceId = 'nyancat-wrapper-instance'
 
-  const cleanupNyanCat = () => {
-    const wrapper = document.getElementById(instanceId)
-    if (wrapper && wrapper.__nyancatData) {
-      document.removeEventListener('mousemove', wrapper.__nyancatData.onMouseMove)
-      wrapper.__nyancatData.intervalIds.forEach(clearInterval)
-      wrapper.remove()
-    }
-  }
-
   const launchNyanCat = () => {
     const nyanClass = 'nyan'
     const rainbowClass = 'rainbow'
@@ -49,7 +40,9 @@
 
     rainbowEls = wrapper.querySelectorAll(`.${rainbowClass}`)
 
-    const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+    const getRandomInt = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
 
     const createStar = () => {
       const size = getRandomInt(3, 14)
@@ -72,12 +65,16 @@
       )
 
       setTimeout(() => {
-        if (wrapper.contains(star)) wrapper.removeChild(star)
+        if (wrapper.contains(star)) {
+          wrapper.removeChild(star)
+        }
       }, lifespan * 1000)
     }
 
     const moveNyan = () => {
-      if (!nyanEl) return
+      if (!nyanEl) {
+        return
+      }
       const halfWidth = nyanEl.getBoundingClientRect().width / 2
       const halfHeight = nyanEl.getBoundingClientRect().height / 2
       posX += (mouseX - posX - halfWidth) / 50
@@ -87,7 +84,9 @@
     }
 
     const emitRainbow = () => {
-      if (!nyanEl) return
+      if (!nyanEl) {
+        return
+      }
       const count = Math.floor(nyanEl.offsetLeft / 9) + 2
       if (trail.length >= count) {
         trail.pop()
@@ -117,7 +116,9 @@
         isAnimated = !isAnimated
       }, 500),
       setInterval(() => {
-        if (nyanEl) nyanEl.style.backgroundPosition = `${34 * frame}px`
+        if (nyanEl) {
+          nyanEl.style.backgroundPosition = `${34 * frame}px`
+        }
         frame++
       }, 100),
     ]
@@ -125,6 +126,15 @@
     wrapper.__nyancatData = {
       onMouseMove,
       intervalIds,
+    }
+  }
+
+  const cleanupNyanCat = () => {
+    const wrapper = document.getElementById(instanceId)
+    if (wrapper && wrapper.__nyancatData) {
+      document.removeEventListener('mousemove', wrapper.__nyancatData.onMouseMove)
+      wrapper.__nyancatData.intervalIds.forEach(clearInterval)
+      wrapper.remove()
     }
   }
 

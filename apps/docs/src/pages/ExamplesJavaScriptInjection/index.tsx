@@ -9,18 +9,18 @@ import egg2_code from './egg2?raw'
 import { eeaas as eeaas3 } from './egg3'
 import egg3_code from './egg3?raw'
 
-const egg1 = eeaas1.get('CssInjectionInline')
-const egg2 = eeaas2.get('CssInjectionPath')
-const egg3 = eeaas3.get('CssInjectionUrl')
+const egg1 = eeaas1.get('JavaScriptInjectionInline')
+const egg2 = eeaas2.get('JavaScriptInjectionPath')
+const egg3 = eeaas3.get('JavaScriptInjectionUrl')
 
-const CssInjection = () => {
+const JavaScriptInjection = () => {
   return (
     <PageWrapperExamples>
       <Typography variant="h2" gutterBottom>
-        {EXAMPLES.CSS_INJECTION.TITLE}
+        {EXAMPLES.JAVASCRIPT_INJECTION.TITLE}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-        {EXAMPLES.CSS_INJECTION.DESCRIPTION}
+        {EXAMPLES.JAVASCRIPT_INJECTION.DESCRIPTION}
       </Typography>
 
       {egg1 ? (
@@ -53,4 +53,4 @@ const CssInjection = () => {
   )
 }
 
-export default CssInjection
+export default JavaScriptInjection

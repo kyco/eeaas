@@ -1,7 +1,8 @@
 import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-import { DOCS } from '../../common'
+import { DOCS, ROUTES } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
 import code_install_no_bundler from './codeblocks/install_no_bundler.md?raw'
 import code_install from './codeblocks/install.md?raw'
@@ -22,9 +23,8 @@ const GettingStarted = () => {
           <strong>
             <code>@eeaas/core</code>
           </strong>{' '}
-          enables adding JavaScript and CSS to any app without shipping it the production bundle. This makes it perfect
-          for easter eggs, hidden features, and other logic that you want to keep out of the production codebase
-          initially.
+          lets you inject JavaScript and CSS into any app without bundling it into your production build. It's ideal for
+          easter eggs, hidden features or experimental logic.
         </Typography>
       </Box>
 
@@ -61,24 +61,24 @@ const GettingStarted = () => {
         <CodeBlock language="html" code={code_quick_start_no_bundler.trim()} sx={{ mb: 5 }} />
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-          For more details see the{' '}
-          <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.md"
-            target="_blank"
-            rel="noreferrer"
+          For more details view the{' '}
+          <Link
+            to={{
+              pathname: ROUTES.DOCS__CODE_EXAMPLES,
+              hash: DOCS.CODE_EXAMPLES.REACT.ID,
+            }}
           >
             React Example
-            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
-          </a>{' '}
+          </Link>{' '}
           or the{' '}
-          <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/javascript.md"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to={{
+              pathname: ROUTES.DOCS__CODE_EXAMPLES,
+              hash: DOCS.CODE_EXAMPLES.VANILLA_JS.ID,
+            }}
           >
             Vanilla JS Example
-            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
-          </a>
+          </Link>
           .
         </Typography>
       </Box>
@@ -145,16 +145,16 @@ const GettingStarted = () => {
         <Typography component="ul" variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           <li>manually, e.g. by clicking a button (default behaviour)</li>
           <li>via a keystroke combination</li>
-          <li>or automatically, as soon as the egg get registered.</li>
+          <li>or automatically, as soon as the egg gets registered.</li>
         </Typography>
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Manual trigger
+          Manual Trigger
         </Typography>
         <CodeBlock language="typescript" code={trigger_manual.trim()} />
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Keystroke trigger
+          Keystroke Trigger
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
           Here's the{' '}
@@ -175,7 +175,7 @@ const GettingStarted = () => {
         <CodeBlock language="typescript" code={trigger_keystroke.trim()} />
 
         <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 'bold', fontSize: 20, mb: 2 }}>
-          Automatic trigger
+          Automatic Trigger
         </Typography>
         <CodeBlock language="typescript" code={trigger_automatic.trim()} />
       </Box>

@@ -3,7 +3,7 @@ import { Box, Button, Card, Grid, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 
-import { DOCS, ROUTES } from '../../common'
+import { EXAMPLES, ROUTES } from '../../common'
 import { PageWrapperExamples } from '../../components'
 import { ui } from './styled'
 
@@ -16,11 +16,10 @@ const Examples = () => {
       <Grid container spacing={4}>
         <Grid size={12}>
           <Typography variant="h1" gutterBottom>
-            Overview
+            {EXAMPLES.OVERVIEW.TITLE}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Explore different types of easter eggs and learn how to implement them in your own project. Each example
-            demonstrates a unique technique with interactive demonstrations and code explanations.
+            {EXAMPLES.OVERVIEW.DESCRIPTION}
           </Typography>
         </Grid>
 
@@ -28,33 +27,10 @@ const Examples = () => {
           <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
-              <Typography variant="h6">CSS Injection</Typography>
+              <Typography variant="h6">{EXAMPLES.NYANCAT.TITLE}</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-              This example demonstrates how to inject custom CSS into the DOM.
-            </Typography>
-            <Button
-              component={Link}
-              to={ROUTES.EXAMPLES__CSS_INJECTION}
-              variant="contained"
-              endIcon={<ArrowForward />}
-              fullWidth
-              disableElevation
-            >
-              View Example
-            </Button>
-          </Card>
-        </Grid>
-
-        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-          <Card sx={sx.card}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-              <Code sx={{ mr: 1, color: 'primary.main' }} />
-              <Typography variant="h6">Nyancat</Typography>
-            </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-              This easter egg will turn your cursor into nyancat in the night. You can still fully interact with the
-              entire page.
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.NYANCAT.DESCRIPTION}
             </Typography>
             <Button
               component={Link}
@@ -73,10 +49,10 @@ const Examples = () => {
           <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
-              <Typography variant="h6">Snake</Typography>
+              <Typography variant="h6">{EXAMPLES.SNAKE.TITLE}</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-              This easter egg will launch a snake game.
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.SNAKE.DESCRIPTION}
             </Typography>
             <Button
               component={Link}
@@ -91,18 +67,48 @@ const Examples = () => {
           </Card>
         </Grid>
 
-        <Grid size={12}>
-          <Typography variant="h2" gutterBottom>
-            {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            The examples are designed to be educational and practical, showing real-world applications of easter egg
-            techniques. To get started head on over to the{' '}
-            <Link to={ROUTES.DOCS__GETTING_STARTED}>
-              Docs {`>`} {DOCS.GETTING_STARTED.GETTING_STARTED.TITLE}
-            </Link>{' '}
-            section.
-          </Typography>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card sx={sx.card}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Typography variant="h6">{EXAMPLES.CSS_INJECTION.TITLE}</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.CSS_INJECTION.DESCRIPTION}
+            </Typography>
+            <Button
+              component={Link}
+              to={ROUTES.EXAMPLES__CSS_INJECTION}
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              disableElevation
+            >
+              View Example
+            </Button>
+          </Card>
+        </Grid>
+
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card sx={sx.card}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Typography variant="h6">{EXAMPLES.JAVASCRIPT_INJECTION.TITLE}</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.JAVASCRIPT_INJECTION.DESCRIPTION}
+            </Typography>
+            <Button
+              component={Link}
+              to={ROUTES.EXAMPLES__JAVASCRIPT_INJECTION}
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              disableElevation
+            >
+              View Example
+            </Button>
+          </Card>
         </Grid>
       </Grid>
     </PageWrapperExamples>
