@@ -7,9 +7,10 @@ import type { NavItem, NavItemChild } from '../../../../types'
 type SidebarListItemProps = {
   parent: NavItem
   navItemChild: NavItemChild
+  parentIsSelected?: boolean
 }
 
-const SidebarListItem = ({ parent, navItemChild }: SidebarListItemProps) => {
+const SidebarListItem = ({ parent, navItemChild, parentIsSelected }: SidebarListItemProps) => {
   const location = useLocation()
   const isSelected = location.hash === navItemChild.hash
 
@@ -35,10 +36,22 @@ const SidebarListItem = ({ parent, navItemChild }: SidebarListItemProps) => {
           mb: 0.5,
           '&::before': {
             content: '"•"',
+            color: parentIsSelected ? 'text.primary' : 'text.secondary',
           },
         }}
       >
-        <ListItemText primary={navItemChild.label} slotProps={{ primary: { sx: { pl: 1, fontSize: 13 } } }} />
+        <ListItemText
+          primary={navItemChild.label}
+          slotProps={{
+            primary: {
+              sx: {
+                pl: 1,
+                fontSize: 13,
+                color: parentIsSelected ? 'text.primary' : 'text.secondary',
+              },
+            },
+          }}
+        />
       </ListItemButton>
     </ListItem>
   )

@@ -55,7 +55,12 @@ const SidebarListItem = ({ navItem }: SidebarListItemProps) => {
         <Collapse in={isMobile ? isSelected : true} timeout="auto" unmountOnExit>
           <List component="div" disablePadding sx={{ mb: 0.5 }}>
             {navItem.children.map((child) => (
-              <SidebarListItemChild key={child.hash} parent={navItem} navItemChild={child} />
+              <SidebarListItemChild
+                key={child.hash}
+                parent={navItem}
+                parentIsSelected={isSelected}
+                navItemChild={child}
+              />
             ))}
           </List>
         </Collapse>
