@@ -1,7 +1,8 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
-import { DOCS } from '../../common'
+import { DOCS, ROUTES } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
 import resource_types from './codeblocks/resource_types.ts?raw'
 import trigger_types from './codeblocks/trigger_types.ts?raw'
@@ -183,9 +184,14 @@ const API = () => {
               <CustomTableRow
                 col1={<code>trigger</code>}
                 col2={
-                  <a href="#trigger-types">
+                  <Link
+                    to={{
+                      pathname: ROUTES.DOCS__API_REFERENCE,
+                      hash: `#${DOCS.API_REFERENCE.TRIGGER_TYPES.ID}`,
+                    }}
+                  >
                     <code>Trigger</code>
-                  </a>
+                  </Link>
                 }
                 col3="No"
                 col4={<code>{`{ type: 'manual' }`}</code>}
@@ -194,9 +200,14 @@ const API = () => {
               <CustomTableRow
                 col1={<code>stopTrigger</code>}
                 col2={
-                  <a href="#trigger-types">
+                  <Link
+                    to={{
+                      pathname: ROUTES.DOCS__API_REFERENCE,
+                      hash: `#${DOCS.API_REFERENCE.TRIGGER_TYPES.ID}`,
+                    }}
+                  >
                     <code>Trigger</code>
-                  </a>
+                  </Link>
                 }
                 col3="No"
                 col4={<code>{`{ type: 'manual' }`}</code>}
@@ -205,9 +216,14 @@ const API = () => {
               <CustomTableRow
                 col1={<code>resources</code>}
                 col2={
-                  <a href="#resource-types">
+                  <Link
+                    to={{
+                      pathname: ROUTES.DOCS__API_REFERENCE,
+                      hash: `#${DOCS.API_REFERENCE.RESOURCE_TYPES.ID}`,
+                    }}
+                  >
                     <code>Resource[]</code>
-                  </a>
+                  </Link>
                 }
                 col3="No"
                 col4={<code>[]</code>}
