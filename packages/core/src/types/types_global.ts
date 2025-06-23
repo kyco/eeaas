@@ -1,5 +1,5 @@
-import type { LogConfig } from './types_internal'
 import type { KeystrokeCode } from './types_keys'
+import type { DebugSetting } from './types_logger'
 
 export type Trigger =
   | {
@@ -75,7 +75,7 @@ export type PublicEgg = {
 }
 
 export type EeaasInstanceProps = {
-  debug?: LogConfig
+  debug?: DebugSetting
 }
 
 export type EeaasInstance = {

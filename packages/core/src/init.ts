@@ -1,5 +1,5 @@
 import { KeystrokeListener } from './classes'
-import { CONFIG } from './config'
+import { Logger } from './classes/logger'
 import type {
   EeaasInstance,
   EeaasInstanceProps,
@@ -9,17 +9,17 @@ import type {
   PublicEgg,
   UserEgg,
 } from './types'
-import { loadResources, logger, removeResources } from './utils'
+import { loadResources, removeResources } from './utils'
 import { generateResourceWithId, isResourceLoaded } from './utils/resource_loader_helper'
 
 export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): EeaasInstance => {
-  CONFIG.DEBUG = debug
+  const logger = new Logger(debug)
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
 
   const register = (userEgg: UserEgg) => {
     if (internalEggs[userEgg.name]) {
-      logger('warn', 'eeaas', `Egg "${userEgg.name}" is already registered, re-registering...`)
+      logger.warn('eeaas', `Egg "${userEgg.name}" is already registered, re-registering...`)
       publicEggs[userEgg.name].disable()
     }
 
@@ -46,7 +46,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
         try {
           listener()
         } catch (err) {
-          logger('error', 'eeaas', `Error in listener for egg "${userEgg.name}":`, err)
+          logger.error('eeaas', `Error in listener for egg "${userEgg.name}":`, err)
         }
       }
     }
@@ -116,7 +116,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
 
       async start() {
         if (!internalEgg.isEnabled) {
-          logger('warn', 'eeaas', `Failed to start! Egg "${internalEgg.name}" is not enabled.`)
+          logger.warn('eeaas', `Failed to start! Egg "${internalEgg.name}" is not enabled.`)
           return
         }
 
@@ -134,7 +134,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           let loadedResources: LoadedResource[] = []
           if (internalEgg.resourcesToLoad && internalEgg.resourcesToLoad.length) {
             const resourcesToLoad = internalEgg.resourcesToLoad.filter((resource) => !isResourceLoaded(resource.id))
-            loadedResources = await loadResources(resourcesToLoad)
+            loadedResources = await loadResources(logger, resourcesToLoad)
           }
           if (typeof internalEgg.onStart === 'function') {
             await internalEgg.onStart(loadedResources)
@@ -143,7 +143,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           internalEgg.isActivated = true
           notifySubscribers()
         } catch (error) {
-          logger('error', 'eeaas', `Error starting egg "${internalEgg.name}":`, error)
+          logger.error('eeaas', `Error starting egg "${internalEgg.name}":`, error)
         }
       },
 
@@ -163,7 +163,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           internalEgg.isActivated = false
           notifySubscribers()
         } catch (error) {
-          logger('error', 'eeaas', `Error stopping egg "${internalEgg.name}":`, error)
+          logger.error('eeaas', `Error stopping egg "${internalEgg.name}":`, error)
         }
       },
 
@@ -184,13 +184,13 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
       publicEgg.enable()
     }
 
-    logger('info', 'eeaas', `Registered egg "${userEgg.name}"`)
+    logger.info('eeaas', `Registered egg "${userEgg.name}"`)
   }
 
   const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {
     const egg = publicEggs[name]
     if (!egg) {
-      logger('warn', 'eeaas', `Egg "${name}" not found!`)
+      logger.warn('eeaas', `Egg "${name}" not found!`)
       return undefined
     }
     return egg
