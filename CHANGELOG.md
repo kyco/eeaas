@@ -1,3 +1,31 @@
+## 2.6.2 (2025-06-23)
+
+### 🚀 Features
+
+- **docs:** Add JS examples ([4ad95c4](https://github.com/kyco/eeaas/commit/4ad95c4))
+- **docs:** Add code examples ([e9c5501](https://github.com/kyco/eeaas/commit/e9c5501))
+- **docs:** Add konami example ([bc4c394](https://github.com/kyco/eeaas/commit/bc4c394))
+- **examples:** Add react example ([e7f6253](https://github.com/kyco/eeaas/commit/e7f6253))
+- **examples:** Add react typescript example ([fdc8e5b](https://github.com/kyco/eeaas/commit/fdc8e5b))
+- **examples:** Add vanilla js example ([556213e](https://github.com/kyco/eeaas/commit/556213e))
+
+### 🩹 Fixes
+
+- **core:** When a duplicate egg is found re-register it ([2104bb5](https://github.com/kyco/eeaas/commit/2104bb5))
+- **core:** Ensure loadedResources array gets reset when resources get removed ([4c8cb02](https://github.com/kyco/eeaas/commit/4c8cb02))
+- **docs:** Add URRL example ([c2a4b66](https://github.com/kyco/eeaas/commit/c2a4b66))
+- **docs:** Update casing ([b2f9095](https://github.com/kyco/eeaas/commit/b2f9095))
+- **docs:** Typo ([ad0eabf](https://github.com/kyco/eeaas/commit/ad0eabf))
+- **docs:** Update links ([0a8b9f3](https://github.com/kyco/eeaas/commit/0a8b9f3))
+- **docs:** Add READMEs ([98fd66e](https://github.com/kyco/eeaas/commit/98fd66e))
+- **docs:** Update links ([6a89e8d](https://github.com/kyco/eeaas/commit/6a89e8d))
+- **docs:** Link ([35e9d20](https://github.com/kyco/eeaas/commit/35e9d20))
+- **docs:** Use ref ([8ddc07c](https://github.com/kyco/eeaas/commit/8ddc07c))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.1 (2025-06-23)
 
 ### 🩹 Fixes
