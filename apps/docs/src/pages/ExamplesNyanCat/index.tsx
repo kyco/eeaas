@@ -1,12 +1,10 @@
 import { Typography } from '@mui/material'
 
 import { EasterEggDemo, PageWrapperExamples } from '../../components'
-import { eeaas } from '../../utils/eeaas'
+import { eeaas as eeaas1 } from './egg1'
 import egg1_code from './egg1?raw'
 
-import './egg1'
-
-const egg1 = eeaas.get('Nyancat')
+const egg1 = eeaas1.get('Nyancat')
 
 const ExamplesNyanCat = () => {
   return (
