@@ -1,4 +1,4 @@
-# Eeaas docs
+# Easter eggs as a service docs
 
 This app contains the documentation which is hosted on GitHub Pages.
 
