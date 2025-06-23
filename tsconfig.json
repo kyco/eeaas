@@ -11,6 +11,9 @@
     },
     {
       "path": "./examples/react"
+    },
+    {
+      "path": "./examples/react-typescript"
     }
   ]
 }

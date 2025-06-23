@@ -1,4 +1,4 @@
-# React Example
+# React TypeScript Example
 
 View example code [here](./src/app.tsx).
 
