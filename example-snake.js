@@ -3,16 +3,6 @@
   const canvasId = 'snake-game-canvas'
   const scoreId = 'snake-game-score'
 
-  const cleanupSnake = () => {
-    const wrapper = document.getElementById(wrapperId)
-    if (wrapper && wrapper.__snakeData) {
-      document.removeEventListener('keydown', wrapper.__snakeData.handleKeyDown)
-      clearInterval(wrapper.__snakeData.gameInterval)
-      wrapper.remove()
-    }
-    document.body.style.overflow = ''
-  }
-
   const launchSnake = () => {
     document.body.style.overflow = 'hidden'
 
@@ -123,6 +113,16 @@
       handleKeyDown,
       gameInterval,
     }
+  }
+
+  const cleanupSnake = () => {
+    const wrapper = document.getElementById(wrapperId)
+    if (wrapper && wrapper.__snakeData) {
+      document.removeEventListener('keydown', wrapper.__snakeData.handleKeyDown)
+      clearInterval(wrapper.__snakeData.gameInterval)
+      wrapper.remove()
+    }
+    document.body.style.overflow = ''
   }
 
   window.launchSnake = launchSnake
