@@ -1,3 +1,4 @@
+import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
 
 import { DOCS } from '../../common'
@@ -17,9 +18,8 @@ const CodeExamples = () => {
           <strong>
             <code>@eeaas/core</code>
           </strong>{' '}
-          enables adding JavaScript and CSS to any app without shipping it the production bundle. This makes it perfect
-          for easter eggs, hidden features, and other logic that you want to keep out of the production codebase
-          initially.
+          lets you inject JavaScript and CSS into any app without bundling it into your production build. It's ideal for
+          easter eggs, hidden features or experimental logic.
         </Typography>
       </Box>
 
@@ -27,6 +27,17 @@ const CodeExamples = () => {
         <Typography variant="h2" gutterBottom id={DOCS.CODE_EXAMPLES.REACT.ID}>
           {DOCS.CODE_EXAMPLES.REACT.TITLE}
         </Typography>
+        {/* <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          View the full code on GitHub:{' '}
+          <a
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            React Example
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
+          </a>
+        </Typography> */}
         <CodeBlock language="jsx" code={react.trim()} />
       </Box>
 
