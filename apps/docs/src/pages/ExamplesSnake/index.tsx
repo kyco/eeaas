@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 
+import { EXAMPLES } from '../../common'
 import { EasterEggDemo, PageWrapperExamples } from '../../components'
 import { eeaas as eeaas1 } from './egg1'
 import egg1_code from './egg1?raw'
@@ -10,10 +11,10 @@ const ExamplesSnake = () => {
   return (
     <PageWrapperExamples>
       <Typography variant="h2" gutterBottom>
-        Snake
+        {EXAMPLES.SNAKE.TITLE}
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-        This easter egg will launch a snake game.
+        {EXAMPLES.SNAKE.DESCRIPTION}
       </Typography>
 
       {egg1 ? (

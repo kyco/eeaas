@@ -107,3 +107,49 @@ export const docsNavItems: NavItem[] = [
   },
   // { label: 'Code examples', route: ROUTES.DOCS__CODE_EXAMPLES },
 ]
+
+export const EXAMPLES = {
+  OVERVIEW: {
+    TITLE: 'Overview',
+    DESCRIPTION: `Explore different types of easter eggs and learn how to implement them in your own project. Each example demonstrates a unique technique with interactive demonstrations and code explanations.`,
+  },
+  NYANCAT: {
+    TITLE: 'Nyancat',
+    DESCRIPTION: `Turn your cursor into nyancat. You can still fully interact with the entire page.`,
+  },
+  SNAKE: {
+    TITLE: 'Snake',
+    DESCRIPTION: `Launch a full screen snake game.`,
+  },
+  CSS_INJECTION: {
+    TITLE: 'CSS Injection',
+    DESCRIPTION: `These examples demonstrate how to inject CSS into the DOM.`,
+  },
+  JAVASCRIPT_INJECTION: {
+    TITLE: 'JavaScript Injection',
+    DESCRIPTION: `These examples demonstrate how to inject JS into the DOM.`,
+  },
+}
+
+export const examplesNavItems: NavItem[] = [
+  {
+    label: EXAMPLES.OVERVIEW.TITLE,
+    route: ROUTES.EXAMPLES,
+  },
+  {
+    label: EXAMPLES.NYANCAT.TITLE,
+    route: ROUTES.EXAMPLES__NYANCAT,
+  },
+  {
+    label: EXAMPLES.SNAKE.TITLE,
+    route: ROUTES.EXAMPLES__SNAKE,
+  },
+  {
+    label: EXAMPLES.CSS_INJECTION.TITLE,
+    route: ROUTES.EXAMPLES__CSS_INJECTION,
+  },
+  {
+    label: EXAMPLES.JAVASCRIPT_INJECTION.TITLE,
+    route: ROUTES.EXAMPLES__JAVASCRIPT_INJECTION,
+  },
+]

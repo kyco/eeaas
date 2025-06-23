@@ -288,7 +288,7 @@ eeaas.register(myEgg);`}
         />
 
         <Typography variant="body1" color="text.secondary">
-          These examples demonstrate the flexibility and power of the Easter Eggs as a Service library. You can create
+          These examples demonstrate the flexibility and power of the Easter eggs as a service library. You can create
           simple text-based triggers, complex visual effects, or even load external resources to enhance your easter
           eggs.
         </Typography>
