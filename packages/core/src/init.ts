@@ -159,6 +159,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
           if (internalEgg.resourcesToLoad && internalEgg.resourcesToLoad.length) {
             removeResources(internalEgg.loadedResources)
           }
+          internalEgg.loadedResources = []
           internalEgg.isActivated = false
           notifySubscribers()
         } catch (error) {
