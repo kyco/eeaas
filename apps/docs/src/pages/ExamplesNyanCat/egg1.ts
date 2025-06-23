@@ -1,6 +1,6 @@
 import { initializeEeaas } from '@eeaas/core'
 
-export const eeaas = initializeEeaas({ debug: true })
+export const eeaas = initializeEeaas()
 
 /**
  * The JS file exposes two methods on the window object which can

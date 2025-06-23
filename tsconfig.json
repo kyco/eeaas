@@ -8,15 +8,6 @@
     },
     {
       "path": "./packages/core"
-    },
-    {
-      "path": "./examples/react"
-    },
-    {
-      "path": "./examples/react-typescript"
-    },
-    {
-      "path": "./examples/vanilla-js"
     }
   ]
 }

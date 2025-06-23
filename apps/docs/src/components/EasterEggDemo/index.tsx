@@ -1,5 +1,6 @@
 import { AutoAwesome, PlayArrow, Stop } from '@mui/icons-material'
 import { Alert, Box, Button, Card, Chip, FormControlLabel, Stack, Switch, TextField, Typography } from '@mui/material'
+import type { ReactNode } from 'react'
 import React, { useEffect, useState } from 'react'
 
 import type { PublicEgg } from '@eeaas/core'
@@ -9,7 +10,7 @@ import CodeBlock from '../CodeBlock'
 type EasterEggDemoProps = {
   egg: PublicEgg
   title: string
-  description: string
+  description: ReactNode
   code: string
   language?: string
 }
@@ -72,9 +73,14 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
           sx={{ py: 2.5, borderRadius: 2, backgroundColor: '#fff' }}
         />
       </Box>
-      <Typography variant="body1" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-        {description}
-      </Typography>
+
+      {typeof description === 'string' ? (
+        <Typography variant="body1" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+          {description}
+        </Typography>
+      ) : (
+        <Box>{description}</Box>
+      )}
 
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 3 }}>
         <Button

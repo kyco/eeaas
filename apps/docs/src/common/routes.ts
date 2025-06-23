@@ -7,6 +7,7 @@ export const ROUTES = {
   EXAMPLES: '/examples',
   EXAMPLES__CSS_INJECTION: '/examples/css-injection',
   EXAMPLES__JAVASCRIPT_INJECTION: '/examples/javascript-injection',
+  EXAMPLES__KONAMI: '/examples/konami',
   EXAMPLES__NYANCAT: '/examples/nyancat',
   EXAMPLES__SNAKE: '/examples/snake',
   EXAMPLES__KONAMI_CODE: '/examples/konami-code',

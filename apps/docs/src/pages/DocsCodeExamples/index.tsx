@@ -66,7 +66,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/vanilla-js.html"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/vanilla_js.html"
             target="_blank"
             rel="noreferrer"
           >

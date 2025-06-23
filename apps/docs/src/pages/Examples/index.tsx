@@ -71,6 +71,28 @@ const Examples = () => {
           <Card sx={sx.card}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Typography variant="h6">{EXAMPLES.KONAMI.TITLE}</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.KONAMI.DESCRIPTION}
+            </Typography>
+            <Button
+              component={Link}
+              to={ROUTES.EXAMPLES__KONAMI}
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              disableElevation
+            >
+              View Example
+            </Button>
+          </Card>
+        </Grid>
+
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card sx={sx.card}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">{EXAMPLES.CSS_INJECTION.TITLE}</Typography>
             </Box>
             <Typography variant="body2" color="text.secondary" sx={sx.description}>

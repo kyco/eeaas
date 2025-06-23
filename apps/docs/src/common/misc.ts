@@ -165,6 +165,10 @@ export const EXAMPLES = {
     TITLE: 'JavaScript Injection',
     DESCRIPTION: `These examples demonstrate how to inject JS into the DOM.`,
   },
+  KONAMI: {
+    TITLE: 'Konami',
+    DESCRIPTION: `Shows keystrokes on the screen.`,
+  },
 }
 
 export const examplesNavItems: NavItem[] = [
@@ -179,6 +183,10 @@ export const examplesNavItems: NavItem[] = [
   {
     label: EXAMPLES.SNAKE.TITLE,
     route: ROUTES.EXAMPLES__SNAKE,
+  },
+  {
+    label: EXAMPLES.KONAMI.TITLE,
+    route: ROUTES.EXAMPLES__KONAMI,
   },
   {
     label: EXAMPLES.CSS_INJECTION.TITLE,
