@@ -1,3 +1,13 @@
+## 2.6.3 (2025-06-23)
+
+### 🩹 Fixes
+
+- **core:** Refactor logger logic into class so that the debug flag is unique per instance ([d0a209c](https://github.com/kyco/eeaas/commit/d0a209c))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.2 (2025-06-23)
 
 ### 🚀 Features
