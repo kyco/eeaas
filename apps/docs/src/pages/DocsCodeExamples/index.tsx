@@ -27,17 +27,13 @@ const CodeExamples = () => {
         <Typography variant="h2" gutterBottom id={DOCS.CODE_EXAMPLES.REACT.ID}>
           {DOCS.CODE_EXAMPLES.REACT.TITLE}
         </Typography>
-        {/* <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-          View the full code on GitHub:{' '}
-          <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.md"
-            target="_blank"
-            rel="noreferrer"
-          >
-            React Example
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          View on GitHub:{' '}
+          <a href="https://github.com/kyco/eeaas/blob/main/examples/react/README.md" target="_blank" rel="noreferrer">
+            {DOCS.CODE_EXAMPLES.REACT.TITLE}
             <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>
-        </Typography> */}
+        </Typography>
         <CodeBlock language="jsx" code={react.trim()} />
       </Box>
 
@@ -45,12 +41,34 @@ const CodeExamples = () => {
         <Typography variant="h2" gutterBottom id={DOCS.CODE_EXAMPLES.TYPESCRIPT.ID}>
           {DOCS.CODE_EXAMPLES.TYPESCRIPT.TITLE}
         </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          View on GitHub:{' '}
+          <a
+            href="https://github.com/kyco/eeaas/blob/main/examples/react-typescript/README.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {DOCS.CODE_EXAMPLES.TYPESCRIPT.TITLE}
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
+          </a>{' '}
+        </Typography>
         <CodeBlock language="tsx" code={typescript.trim()} />
       </Box>
 
       <Box sx={{ pb: 3 }}>
         <Typography variant="h2" gutterBottom id={DOCS.CODE_EXAMPLES.VANILLA_JS.ID}>
           {DOCS.CODE_EXAMPLES.VANILLA_JS.TITLE}
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          View on GitHub:{' '}
+          <a
+            href="https://github.com/kyco/eeaas/blob/main/examples/vanilla-js/README.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {DOCS.CODE_EXAMPLES.VANILLA_JS.TITLE}
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
+          </a>
         </Typography>
         <CodeBlock language="html" code={vanilla_js.trim()} />
       </Box>
