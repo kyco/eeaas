@@ -29,7 +29,7 @@ const Examples = () => {
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">{EXAMPLES.NYANCAT.TITLE}</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
               {EXAMPLES.NYANCAT.DESCRIPTION}
             </Typography>
             <Button
@@ -51,11 +51,9 @@ const Examples = () => {
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">{EXAMPLES.SNAKE.TITLE}</Typography>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-                {EXAMPLES.SNAKE.DESCRIPTION}
-              </Typography>
-            </Box>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
+              {EXAMPLES.SNAKE.DESCRIPTION}
+            </Typography>
             <Button
               component={Link}
               to={ROUTES.EXAMPLES__SNAKE}
@@ -75,7 +73,7 @@ const Examples = () => {
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">{EXAMPLES.CSS_INJECTION.TITLE}</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
               {EXAMPLES.CSS_INJECTION.DESCRIPTION}
             </Typography>
             <Button
@@ -97,7 +95,7 @@ const Examples = () => {
               <Code sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6">{EXAMPLES.JAVASCRIPT_INJECTION.TITLE}</Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
+            <Typography variant="body2" color="text.secondary" sx={sx.description}>
               {EXAMPLES.JAVASCRIPT_INJECTION.DESCRIPTION}
             </Typography>
             <Button
