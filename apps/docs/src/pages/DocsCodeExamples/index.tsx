@@ -1,9 +1,9 @@
 import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
 
+import react from '../../../examples/react.jsx?raw'
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
-import react from './codeblocks/react.jsx?raw'
 import typescript from './codeblocks/typescript.tsx?raw'
 import vanilla_js from './codeblocks/vanilla_js.html?raw'
 
@@ -29,7 +29,11 @@ const CodeExamples = () => {
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
-          <a href="https://github.com/kyco/eeaas/blob/main/examples/react/README.md" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.jsx"
+            target="_blank"
+            rel="noreferrer"
+          >
             {DOCS.CODE_EXAMPLES.REACT.TITLE}
             <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>
