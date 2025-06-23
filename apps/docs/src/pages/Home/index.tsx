@@ -1,6 +1,7 @@
 import { ArrowForward, Code, PlayCircleOutline, Security, Speed } from '@mui/icons-material'
 import { Avatar, Box, Button, Card, Container, Grid, Stack, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { EXTERNAL_ROUTES, ROUTES } from '../../common'
@@ -13,12 +14,26 @@ const Home = () => {
   const theme = useTheme()
   const sx = ui(theme)
   const { uncompressed, gzipped } = useFileSizeInfo(EXTERNAL_ROUTES.UNPKG_URL)
+  const [clickCount, setClickCount] = useState(0)
+
+  const handleAvatarClick = () => {
+    setClickCount((prev) => prev + 1)
+  }
+
+  const handleReset = () => {
+    setClickCount(0)
+  }
 
   return (
     <>
-      <Box sx={sx.hero}>
+      <Box sx={sx.hero(clickCount >= 7, clickCount % 2 === 0)} className="animated-gradient">
         <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Avatar src={logo} variant="rounded" sx={{ width: 100, height: 100 }} />
+          <Avatar
+            src={logo}
+            variant={clickCount >= 5 ? 'circular' : 'rounded'}
+            sx={sx.avatar(clickCount >= 5, clickCount)}
+            onClick={handleAvatarClick}
+          />
           <Typography variant="h1" sx={sx.heading}>
             Easter eggs as a service
           </Typography>
@@ -51,6 +66,12 @@ const Home = () => {
               Get Started
             </Button>
           </Stack>
+
+          {clickCount >= 20 ? (
+            <Button variant="contained" disableElevation size="large" sx={sx.resetButton} onClick={handleReset}>
+              Reset
+            </Button>
+          ) : null}
         </Container>
       </Box>
 

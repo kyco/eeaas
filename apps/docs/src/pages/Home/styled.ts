@@ -2,11 +2,45 @@ import type { Theme } from '@mui/material/styles'
 
 export const ui = (theme: Theme) => {
   return {
-    hero: {
-      background: '#6366f1',
-      color: 'white',
-      py: { xs: 8, md: 6 },
-      textAlign: 'center',
+    hero(secretRevealed = false, isEven = false) {
+      return {
+        position: 'relative',
+        background: secretRevealed
+          ? isEven
+            ? `linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)`
+            : `linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)`
+          : '#6366f1',
+        color: 'white',
+        py: { xs: 8, md: 6 },
+        textAlign: 'center',
+        overflow: 'hidden',
+        transition: 'background 0.5s ease',
+      }
+    },
+
+    avatar(secretRevealed = false, clickCount = 0) {
+      return {
+        width: 100,
+        height: 100,
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        transform: clickCount > 0 ? `scale(${Math.pow(1.2, clickCount)})` : 'scale(1)',
+        backgroundColor: secretRevealed ? '#77dd77' : 'transparent',
+        border: 3,
+        borderColor: secretRevealed ? '#fff' : 'transparent',
+        '&:hover': {
+          transform: `scale(${Math.pow(1.2, clickCount)})`,
+        },
+        zIndex: 1,
+      }
+    },
+
+    resetButton: {
+      position: 'absolute',
+      bottom: 42,
+      zIndex: 2,
+      border: '5px solid #fff',
+      borderRadius: 100,
     },
 
     heading: {
