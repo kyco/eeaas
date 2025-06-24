@@ -1,3 +1,4 @@
+import { OpenInNew } from '@mui/icons-material'
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
@@ -253,6 +254,18 @@ const API = () => {
           {DOCS.API_REFERENCE.TRIGGER_TYPES.TITLE}
         </Typography>
         <CodeBlock language="typescript" code={trigger_types.trim()} />
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+          View{' '}
+          <a
+            href="https://github.com/kyco/eeaas/blob/main/packages/core/src/types/types_keys.ts"
+            target="_blank"
+            rel="noreferrer"
+          >
+            list of valid keystrokes
+            <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
+          </a>
+          .
+        </Typography>
       </Box>
 
       <Box sx={{ pb: 3 }}>
