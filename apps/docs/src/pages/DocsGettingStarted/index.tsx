@@ -129,7 +129,7 @@ const GettingStarted = () => {
             </strong>{' '}
             method and clean up any logic that should not be there anymore. By default the CSS and JS resources which
             were injected into the DOM will be removed from the DOM. However, any JavaScript that gets executed will
-            remain in memory and you would have to manually clean it up.
+            remain in memory and you will have to manually clean it up.
           </li>
         </Typography>
       </Box>

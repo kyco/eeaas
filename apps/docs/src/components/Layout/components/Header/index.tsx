@@ -71,15 +71,13 @@ const Header = () => {
             </IconButton>
           ) : null}
 
-          <Button sx={{ display: 'flex', alignItems: 'center', ml: isMobile ? 0.5 : 0 }}>
-            <Avatar component={Link} to={ROUTES.HOME} src={logo} sx={{ mr: 2 }} variant="rounded" />
-            <Typography
-              component={Link}
-              to={ROUTES.HOME}
-              sx={{ textDecoration: 'none', color: 'text.primary', fontWeight: 'bold' }}
-            >
-              Easter eggs as a service
-            </Typography>
+          <Button
+            component={Link}
+            to={ROUTES.HOME}
+            sx={{ display: 'flex', alignItems: 'center', ml: isMobile ? 0.5 : 0 }}
+          >
+            <Avatar src={logo} sx={{ mr: 2 }} variant="rounded" />
+            <Typography sx={{ color: 'text.primary', fontWeight: 'bold' }}>Easter eggs as a service</Typography>
           </Button>
 
           <Box sx={{ flexGrow: 1 }} />
