@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 import { DOCS, ROUTES } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
-import resource_types from './codeblocks/resource_types.ts?raw'
-import trigger_types from './codeblocks/trigger_types.ts?raw'
+import resource_types from './codeblocks/resource_types.md?raw'
+import trigger_types from './codeblocks/trigger_types.md?raw'
 
 const CustomTableRow = ({
   col1,

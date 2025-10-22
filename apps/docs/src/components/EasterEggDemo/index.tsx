@@ -26,6 +26,7 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
 
     egg.enable()
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setState({ isEnabled: egg.isEnabled, isActivated: egg.isActivated })
 
     const unsubscribe = egg.subscribe(() => {

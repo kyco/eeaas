@@ -37,6 +37,7 @@ const ExamplesKonami = () => {
   const [userSequence, setUserSequence] = useState<string[]>([])
   const isRegistered = useRef(false)
 
+  // eslint-disable-next-line react-hooks/refs
   if (!isRegistered.current) {
     eeaas.register({
       name: 'Konami',
