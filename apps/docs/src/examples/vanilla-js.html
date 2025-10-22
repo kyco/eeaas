@@ -1,3 +1,4 @@
+<!-- vanilla-js.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
   <script>
     const eeaas = _eeaas.initializeEeaas();
 
-    eeaas.register({
-      name: 'MyFirstEgg',
+    const egg = eeaas.register({
+      name: 'VanillaJS',
       onStart() {
         console.log('Easter egg activated!')
       },
@@ -20,7 +21,7 @@
       }
     })
 
-    eeaas.get('MyFirstEgg')?.start()
+    egg.start()
   </script>
 </body>
 </html>

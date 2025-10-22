@@ -66,8 +66,8 @@ export const DOCS = {
       ID: 'react-example',
     },
     TYPESCRIPT: {
-      TITLE: 'TypeScript Example',
-      ID: 'typescript-example',
+      TITLE: 'TypeScript React Example',
+      ID: 'typescript-react-example',
     },
   },
 }

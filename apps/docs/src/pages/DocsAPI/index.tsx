@@ -58,7 +58,7 @@ const API = () => {
             <TableBody>
               <CustomTableRow
                 col1={<code>register(egg: UserEgg)</code>}
-                col2={<code>void</code>}
+                col2={<code>PublicEgg</code>}
                 col3="Register a new easter egg"
               />
               <CustomTableRow

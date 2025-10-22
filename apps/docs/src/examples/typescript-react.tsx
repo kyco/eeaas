@@ -1,9 +1,8 @@
+// typescript-react.tsx
 import { useEffect } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
 import type { Trigger, UserEgg } from '@eeaas/core'
-
-const eeaas = initializeEeaas()
 
 const trigger: Trigger = {
   type: 'keys',
@@ -19,7 +18,7 @@ const stopTrigger: Trigger = {
 }
 
 const myEgg: UserEgg = {
-  name: 'MyFirstEgg',
+  name: 'TypeScript (React)',
   trigger,
   stopTrigger,
   onStart() {
@@ -30,27 +29,25 @@ const myEgg: UserEgg = {
   },
 }
 
-eeaas.register(myEgg)
+const eeaas = initializeEeaas()
+const egg = eeaas.register(myEgg)
 
-function App() {
-  const start = () => {
-    eeaas.get('MyFirstEgg')?.start()
-  }
-  const stop = () => {
-    eeaas.get('MyFirstEgg')?.stop()
-  }
+const App = () => {
+  const { start, stop } = egg
+  const keystrokesOn = trigger.keystrokes.join('+')
+  const keystrokesOff = stopTrigger.keystrokes.join('+')
 
   useEffect(() => {
     return () => {
       stop()
     }
-  }, [])
+  }, [stop])
 
   return (
     <div className="App">
       <h1>My React App</h1>
-      <p>Type "test" to trigger the easter egg!</p>
-      <p>Press "Escape" to stop the easter egg!</p>
+      <p>Type "{keystrokesOn}" to trigger the easter egg!</p>
+      <p>Press "{keystrokesOff}" to stop the easter egg!</p>
       <button onClick={start}>Trigger</button>
       <button onClick={stop}>Stop</button>
     </div>

@@ -1,11 +1,12 @@
+// react.jsx
 import { useEffect } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
 
-eeaas.register({
-  name: 'MyFirstEgg',
+const egg = eeaas.register({
+  name: 'React',
   onStart() {
     console.log('Easter egg activated!')
   },
@@ -14,19 +15,14 @@ eeaas.register({
   },
 })
 
-function App() {
-  const start = () => {
-    eeaas.get('MyFirstEgg')?.start()
-  }
-  const stop = () => {
-    eeaas.get('MyFirstEgg')?.stop()
-  }
+const App = () => {
+  const { start, stop } = egg
 
   useEffect(() => {
     return () => {
       stop()
     }
-  }, [])
+  }, [stop])
 
   return (
     <div className="App">
