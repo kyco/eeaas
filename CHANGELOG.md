@@ -1,3 +1,22 @@
+## 2.6.4 (2025-10-22)
+
+### 🩹 Fixes
+
+- Lint ([f0f2d6e](https://github.com/kyco/eeaas/commit/f0f2d6e))
+- Lint ([1806cff](https://github.com/kyco/eeaas/commit/1806cff))
+- **core:** Return egg instance when registering an egg ([05355e1](https://github.com/kyco/eeaas/commit/05355e1))
+- **docs:** Refactor logo and title into a combined button ([9922585](https://github.com/kyco/eeaas/commit/9922585))
+- **docs:** Add easter egg ([05b7e76](https://github.com/kyco/eeaas/commit/05b7e76))
+- **docs:** Typo ([5e000cb](https://github.com/kyco/eeaas/commit/5e000cb))
+- **docs:** Update links ([0e12c50](https://github.com/kyco/eeaas/commit/0e12c50))
+- **docs:** Move link to button ([c47f0c9](https://github.com/kyco/eeaas/commit/c47f0c9))
+- **docs:** Typo ([2ad8d54](https://github.com/kyco/eeaas/commit/2ad8d54))
+- **docs:** Simplify example ([d5307b1](https://github.com/kyco/eeaas/commit/d5307b1))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.3 (2025-06-23)
 
 ### 🩹 Fixes
