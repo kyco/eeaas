@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig(() => ({
   root: __dirname,
-  base: process.env.VITE_REACT_DEMO_SITE_BASENAME || '/', // needed for gh-pages deployment
+  base: process.env.VITE_DOCS_BASENAME || '/', // needed for gh-pages deployment
   cacheDir: '../../node_modules/.vite/apps/docs',
   server: {
     port: 4200,

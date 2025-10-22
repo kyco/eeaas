@@ -8,7 +8,7 @@ import { EXTERNAL_ROUTES, ROUTES } from '../../common'
 import { useFileSizeInfo } from '../../hooks/useFileSizeInfo'
 import { ui } from './styled'
 
-const logo = `${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}logo-512x512-transparent.png`
+const logo = `${import.meta.env.VITE_DOCS_BASENAME}logo-512x512-transparent.png`
 
 const Home = () => {
   const theme = useTheme()
