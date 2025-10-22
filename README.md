@@ -41,10 +41,10 @@ To run the app, use:
 
 ```sh
 # Run the app
-nx run docs:serve
+npx nx run docs:serve
 
 # Watch for changes in core package (simultaneously, in a separate tab)
-nx run docs:watch-deps
+npx nx run docs:watch-deps
 ```
 
 The app will be running on: http://localhost:4200/eeaas/
