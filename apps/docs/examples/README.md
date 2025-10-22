@@ -1,4 +1,4 @@
-# Easter eggs as a service examples
+# Examples
 
 - [React](./react.jsx)
 - [TypeScript](./typescript.tsx)
