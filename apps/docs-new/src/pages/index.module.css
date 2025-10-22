@@ -17,7 +17,15 @@
 }
 
 .buttons {
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+}
+
+.heroImgage {
+  width: 94px;
+  height: 94px;
+  margin-bottom: 1rem;
 }
