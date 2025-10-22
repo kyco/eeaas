@@ -17,6 +17,9 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
   const logger = new Logger(debug)
   const internalEggs: Record<EggName, InternalEgg> = {}
   const publicEggs: Record<EggName, PublicEgg> = {}
+  if (debug) {
+    logger.force('eeaas', 'Debug mode enabled')
+  }
 
   const register = (userEgg: UserEgg): PublicEgg => {
     if (internalEggs[userEgg.name]) {

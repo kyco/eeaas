@@ -1,8 +1,8 @@
 import type { DebugSetting, LogLevel } from '../types'
 
 const COLORS: Record<LogLevel, string> = {
+  force: '#2196f3',
   info: '#2196f3',
-  success: '#26c281',
   warn: '#ff9800',
   error: '#d32f2f',
 }
@@ -28,7 +28,7 @@ export class Logger {
   }
 
   private log(level: LogLevel, group: string, ...message: unknown[]): void {
-    if (!this.shouldLog(level) && level !== 'error') {
+    if (!this.shouldLog(level) && level !== 'error' && level !== 'force') {
       return
     }
 
@@ -40,12 +40,12 @@ export class Logger {
     logFn(`%c${group}`, style, ...message)
   }
 
-  info(group: string, ...message: unknown[]) {
-    this.log('info', group, ...message)
+  force(group: string, ...message: unknown[]) {
+    this.log('force', group, ...message)
   }
 
-  success(group: string, ...message: unknown[]) {
-    this.log('success', group, ...message)
+  info(group: string, ...message: unknown[]) {
+    this.log('info', group, ...message)
   }
 
   warn(group: string, ...message: unknown[]) {
