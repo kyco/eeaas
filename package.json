@@ -6,7 +6,7 @@
   },
   "private": true,
   "dependencies": {
-    "@docusaurus/core": "3.4.0",
+    "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.4.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
