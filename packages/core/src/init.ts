@@ -3,6 +3,7 @@ import { Logger } from './classes/logger'
 import type {
   EeaasInstance,
   EeaasInstanceProps,
+  EggName,
   InternalEgg,
   KeystrokePattern,
   LoadedResource,
@@ -14,8 +15,11 @@ import { generateResourceWithId, isResourceLoaded } from './utils/resource_loade
 
 export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): EeaasInstance => {
   const logger = new Logger(debug)
-  const internalEggs: Record<string, InternalEgg> = {}
-  const publicEggs: Record<string, PublicEgg> = {}
+  const internalEggs: Record<EggName, InternalEgg> = {}
+  const publicEggs: Record<EggName, PublicEgg> = {}
+  if (debug) {
+    logger.force('eeaas', 'Debug mode enabled')
+  }
 
   const register = (userEgg: UserEgg): PublicEgg => {
     if (internalEggs[userEgg.name]) {
@@ -189,7 +193,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
     return publicEgg
   }
 
-  const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {
+  const get = (name: EggName): PublicEgg | undefined => {
     const egg = publicEggs[name]
     if (!egg) {
       logger.warn('eeaas', `Egg "${name}" not found!`)

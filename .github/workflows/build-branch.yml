@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.node-cache-v1.outputs.cache-hit != 'true'
-        run: npm ci --legacy-peer-deps
+        run: npm ci
 
       - name: Nx - Get SHAs
         uses: nrwl/nx-set-shas@v4
@@ -45,6 +45,12 @@ jobs:
 
       - name: Nx - Lint
         run: npx nx run-many -t lint --skip-nx-cache
+
+      - name: Nx - Typecheck
+        run: npx nx run-many -t typecheck --skip-nx-cache
+
+      - name: Nx - Test
+        run: npx nx run-many -t test --skip-nx-cache
 
       - name: Nx - Build
         run: npx nx run-many -t build --skip-nx-cache
