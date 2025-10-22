@@ -1,3 +1,15 @@
+## 2.6.5 (2025-10-22)
+
+### 🩹 Fixes
+
+- Sync ([53038cc](https://github.com/kyco/eeaas/commit/53038cc))
+- **core:** Add type for "egg name" ([1d65c7a](https://github.com/kyco/eeaas/commit/1d65c7a))
+- **core:** Update logger ([8752ecd](https://github.com/kyco/eeaas/commit/8752ecd))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.4 (2025-10-22)
 
 ### 🩹 Fixes
