@@ -51,4 +51,4 @@ The app will be running on: http://localhost:4200/eeaas/
 
 ## Publishing a release
 
-Merge `develop` into `main` or push directly on `main`. This will trigger a workflow which will always deploy the demo website and, if there are changes in the core package, will publish the package to the npm under the name [@eeaas/core](https://www.npmjs.com/package/@eeaas/core).
+Merge `develop` into `main` or push directly on `main`. This will trigger a workflow which will always deploy the docs website and, if there are changes in the core package, will publish the package to the npm under the name [@eeaas/core](https://www.npmjs.com/package/@eeaas/core).
