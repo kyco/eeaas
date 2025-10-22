@@ -35,18 +35,20 @@ npm i
 
 ## Running locally
 
-The main files are in the [core package](./packages/core/src/). Additionally there is a [docs app](./apps/docs/src/) which is used to test all the changes. To run the app, use:
+The main files are in the [core](./packages/core/src/) package. Additionally there is a [docs](./apps/docs/src/) website which can be used to test all the changes.
+
+To run the app, use:
 
 ```sh
 # Run the app
-nx run docs:serve
+npx nx run docs:serve
 
-# Watch for changes (simultaneously, in a separate tab)
-nx run docs:watch-deps
+# Watch for changes in core package (simultaneously, in a separate tab)
+npx nx run docs:watch-deps
 ```
 
-The app will be running on [localhost:4200/eeaas/](http://localhost:4200/eeaas/).
+The app will be running on: http://localhost:4200/eeaas/
 
 ## Publishing a release
 
-Merge `develop` into `main` or push directly on `main`. This will trigger a workflow which will publish the package to the [npm @eeaas/core](https://www.npmjs.com/package/@eeaas/core).
+Merge `develop` into `main` or push directly on `main`. This will trigger a workflow which will always deploy the demo website and, if there are changes in the core package, will publish the package to the npm under the name [@eeaas/core](https://www.npmjs.com/package/@eeaas/core).

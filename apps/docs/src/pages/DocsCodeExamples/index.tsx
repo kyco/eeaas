@@ -1,11 +1,11 @@
 import { OpenInNew } from '@mui/icons-material'
 import { Box, Typography } from '@mui/material'
 
-import react from '../../../examples/react.jsx?raw'
-import typescript from '../../../examples/typescript.tsx?raw'
-import vanilla_js from '../../../examples/vanilla_js.html?raw'
 import { DOCS } from '../../common'
 import { CodeBlock, PageWrapperDocs } from '../../components'
+import codeReact from '../../examples/react.jsx?raw'
+import codeTypescriptReact from '../../examples/typescript-react.tsx?raw'
+import codeVanillaJs from '../../examples/vanilla-js.html?raw'
 
 const CodeExamples = () => {
   return (
@@ -30,7 +30,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/react.jsx"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/react.jsx"
             target="_blank"
             rel="noreferrer"
           >
@@ -38,7 +38,7 @@ const CodeExamples = () => {
             <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>
         </Typography>
-        <CodeBlock language="jsx" code={react.trim()} />
+        <CodeBlock language="jsx" code={codeReact.trim()} />
       </Box>
 
       <Box sx={{ pb: 3 }}>
@@ -48,7 +48,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/typescript.tsx"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/typescript-react.tsx"
             target="_blank"
             rel="noreferrer"
           >
@@ -56,7 +56,7 @@ const CodeExamples = () => {
             <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>{' '}
         </Typography>
-        <CodeBlock language="tsx" code={typescript.trim()} />
+        <CodeBlock language="tsx" code={codeTypescriptReact.trim()} />
       </Box>
 
       <Box sx={{ pb: 3 }}>
@@ -66,7 +66,7 @@ const CodeExamples = () => {
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           View on GitHub:{' '}
           <a
-            href="https://github.com/kyco/eeaas/blob/main/apps/docs/examples/vanilla_js.html"
+            href="https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/vanilla_js.html"
             target="_blank"
             rel="noreferrer"
           >
@@ -74,7 +74,7 @@ const CodeExamples = () => {
             <OpenInNew sx={{ ml: 0.5, fontSize: 15 }} />
           </a>
         </Typography>
-        <CodeBlock language="html" code={vanilla_js.trim()} />
+        <CodeBlock language="html" code={codeVanillaJs.trim()} />
       </Box>
     </PageWrapperDocs>
   )

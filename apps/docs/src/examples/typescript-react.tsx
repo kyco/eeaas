@@ -1,9 +1,8 @@
+// typescript-react.tsx
 import { useEffect } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
 import type { Trigger, UserEgg } from '@eeaas/core'
-
-const eeaas = initializeEeaas()
 
 const trigger: Trigger = {
   type: 'keys',
@@ -19,7 +18,7 @@ const stopTrigger: Trigger = {
 }
 
 const myEgg: UserEgg = {
-  name: 'MyFirstEgg',
+  name: 'TypeScript React',
   trigger,
   stopTrigger,
   onStart() {
@@ -30,21 +29,17 @@ const myEgg: UserEgg = {
   },
 }
 
-eeaas.register(myEgg)
+const eeaas = initializeEeaas()
+const egg = eeaas.register(myEgg)
 
-function App() {
-  const start = () => {
-    eeaas.get('MyFirstEgg')?.start()
-  }
-  const stop = () => {
-    eeaas.get('MyFirstEgg')?.stop()
-  }
+const App = () => {
+  const { start, stop } = egg
 
   useEffect(() => {
     return () => {
       stop()
     }
-  }, [])
+  }, [stop])
 
   return (
     <div className="App">

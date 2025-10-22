@@ -17,7 +17,7 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
   const internalEggs: Record<string, InternalEgg> = {}
   const publicEggs: Record<string, PublicEgg> = {}
 
-  const register = (userEgg: UserEgg) => {
+  const register = (userEgg: UserEgg): PublicEgg => {
     if (internalEggs[userEgg.name]) {
       logger.warn('eeaas', `Egg "${userEgg.name}" is already registered, re-registering...`)
       publicEggs[userEgg.name].disable()
@@ -185,6 +185,8 @@ export const initializeEeaas = ({ debug = false }: EeaasInstanceProps = {}): Eea
     }
 
     logger.info('eeaas', `Registered egg "${userEgg.name}"`)
+
+    return publicEgg
   }
 
   const get = (name: keyof typeof publicEggs): PublicEgg | undefined => {
