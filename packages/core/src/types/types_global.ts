@@ -79,7 +79,7 @@ export type EeaasInstanceProps = {
 }
 
 export type EeaasInstance = {
-  register: (egg: UserEgg) => void
+  register: (egg: UserEgg) => PublicEgg
   get: (name: string) => PublicEgg | undefined
   getAll: () => PublicEgg[]
 }
