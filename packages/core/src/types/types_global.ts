@@ -1,6 +1,8 @@
 import type { KeystrokeCode } from './types_keys'
 import type { DebugSetting } from './types_logger'
 
+export type EggName = string
+
 export type Trigger =
   | {
       type: 'manual'

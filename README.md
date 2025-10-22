@@ -35,16 +35,16 @@ npm i
 
 ## Running locally
 
-The main files are in the [core](./packages/core/src/) package. Additionally there is a [docs](./apps/docs/src/) website which can be used to test all the changes.
+The main files are in the [core](./packages/core/src/) package. Additionally there is a [test-app](./apps/test-app/src/) which can be used to test all the changes.
 
 To run the app, use:
 
 ```sh
 # Run the app
-npx nx run docs:serve
+npx nx run test-app:serve
 
 # Watch for changes in core package (simultaneously, in a separate tab)
-npx nx run docs:watch-deps
+npx nx run test-app:watch-deps
 ```
 
 The app will be running on: http://localhost:4200/eeaas/
