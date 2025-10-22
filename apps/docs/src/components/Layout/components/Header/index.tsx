@@ -20,7 +20,7 @@ import { ROUTES } from '../../../../common'
 import { useIsMobile } from '../../../../hooks'
 import { getNavItems } from './actions'
 
-const logo = `${import.meta.env.VITE_REACT_DEMO_SITE_BASENAME}logo-512x512-transparent.png`
+const logo = `${import.meta.env.VITE_DOCS_BASENAME}logo-512x512-transparent.png`
 
 const Header = () => {
   const location = useLocation()
