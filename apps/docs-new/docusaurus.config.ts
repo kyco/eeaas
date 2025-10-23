@@ -56,6 +56,12 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'examplesSidebar',
+          position: 'left',
+          label: 'Examples',
+        },
+        {
           href: 'https://github.com/kyco/eeaas',
           label: 'GitHub',
           position: 'right',
