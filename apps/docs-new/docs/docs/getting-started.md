@@ -24,7 +24,7 @@ Without a bundler, available as **`window._eeaas`**:
 
 With a bundler:
 
-```typescript
+```typescript showLineNumbers
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
@@ -44,7 +44,7 @@ egg.start()
 
 Without a bundler:
 
-```html
+```html showLineNumbers
 <script>
   const eeaas = _eeaas.initializeEeaas();
 
