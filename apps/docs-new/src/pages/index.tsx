@@ -59,7 +59,7 @@ const Page = (): JSX.Element => {
           <div className={styles.buttons}>
             <Link
               className="button button--primary button--lg"
-              to="/examples"
+              to="/docs/examples/nyancat"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -72,7 +72,7 @@ const Page = (): JSX.Element => {
             </Link>
             <Link
               className="button button--primary button--lg"
-              to="/docs/getting-started"
+              to="/docs/docs/getting-started"
               style={{
                 display: 'flex',
                 alignItems: 'center',

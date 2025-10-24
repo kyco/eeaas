@@ -9,16 +9,15 @@ import { ExternalLink } from '@site/src/components'
 ## Eeaas instance
 
 | Method                | Returns                  | Description                                   |
-|-----------------------|--------------------------|-----------------------------------------------|
+| --------------------- | ------------------------ | --------------------------------------------- |
 | `register(<UserEgg>)` | `PublicEgg`              | Registers a new easter egg                    |
 | `get(<EggName>)`      | `PublicEgg \| undefined` | Retrieves an easter egg instance by name      |
 | `getAll()`            | `PublicEgg[]`            | Retrieves all registered easter egg instances |
 
-
 ## Egg instance
 
 | Method/Property   | Returns                     | Description                                             |
-|-------------------|-----------------------------|---------------------------------------------------------|
+| ----------------- | --------------------------- | ------------------------------------------------------- |
 | `name`            | `readonly string`           | Access the egg name                                     |
 | `isEnabled`       | `readonly boolean`          | Access the enabled status of the egg                    |
 | `isActivated`     | `readonly boolean`          | Access the activated status of the egg                  |
@@ -30,11 +29,10 @@ import { ExternalLink } from '@site/src/components'
 | `subscribe()`     | `void`                      | Subscribe to egg events                                 |
 | `unsubsribe()`    | `void`                      | Unsubscribe from egg events                             |
 
-
 ## `UserEgg` properties
 
 | Property                 | Type                                                                          | Required | Default              | Description                                                 |
-|--------------------------|-------------------------------------------------------------------------------|----------|----------------------|-------------------------------------------------------------|
+| ------------------------ | ----------------------------------------------------------------------------- | -------- | -------------------- | ----------------------------------------------------------- |
 | `name`                   | `string`                                                                      | Yes      | -                    | Unique identifier for the egg                               |
 | `enabled`                | `boolean`                                                                     | No       | `true`               | Whether the egg is initially enabled                        |
 | `allowMultipleInstances` | `boolean`                                                                     | No       | `false`              | Whether the egg's `onStart` can be triggered multiple times |
@@ -43,7 +41,6 @@ import { ExternalLink } from '@site/src/components'
 | `resources`              | `Resource[]`                                                                  | No       | `[]`                 | External CSS/JS resources to load                           |
 | onStart                  | `((loadedResources: LoadedResource[]) => void \| Promise<void>) \| undefined` | No       | `undefined`          | Called when egg is activated                                |
 | onStop                   | `((loadedResources: LoadedResource[]) => void \| Promise<void>) \| undefined` | No       | `undefined`          | Called when egg is deactivated                              |
-
 
 ## `Trigger` types
 
@@ -55,7 +52,7 @@ Easter eggs can be triggered in one of three ways:
 
 ### Manual trigger
 
-```typescript showLineNumbers
+```typescript
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
@@ -79,7 +76,7 @@ egg.start()
 
 ### Keystroke trigger
 
-```typescript showLineNumbers
+```typescript
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
@@ -108,7 +105,7 @@ Here's the <ExternalLink text="list of supported keystrokes" url="https://github
 
 ### Automatic trigger
 
-```typescript showLineNumbers
+```typescript
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
@@ -121,4 +118,3 @@ const egg = eeaas.register({
   },
 })
 ```
-

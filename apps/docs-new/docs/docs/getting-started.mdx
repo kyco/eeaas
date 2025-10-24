@@ -24,7 +24,7 @@ Without a bundler, available as **`window._eeaas`**:
 
 With a bundler:
 
-```typescript showLineNumbers
+```typescript
 import { initializeEeaas } from '@eeaas/core'
 
 const eeaas = initializeEeaas()
@@ -36,7 +36,7 @@ const egg = eeaas.register({
   },
   onStop() {
     console.log('Easter egg deactivated!')
-  }
+  },
 })
 
 egg.start()
@@ -44,9 +44,9 @@ egg.start()
 
 Without a bundler:
 
-```html showLineNumbers
+```html
 <script>
-  const eeaas = _eeaas.initializeEeaas();
+  const eeaas = _eeaas.initializeEeaas()
 
   const egg = eeaas.register({
     name: 'MyFirstEgg',
@@ -55,12 +55,11 @@ Without a bundler:
     },
     onStop() {
       console.log('Easter egg deactivated!')
-    }
+    },
   })
 
   egg.start()
 </script>
 ```
 
-For more details view the [React Example]() or the [Vanilla JS Example]().
-
+For more details view the [React Example](/docs/docs/code-examples/react) or the [Vanilla JS Example](/docs/docs/code-examples/vanilla-js).
