@@ -1,3 +1,32 @@
+## 2.6.6 (2025-10-24)
+
+### 🚀 Features
+
+- Update base docusaurus with docs ([7a41e46](https://github.com/kyco/eeaas/commit/7a41e46))
+
+### 🩹 Fixes
+
+- Base ref ([4bd70f6](https://github.com/kyco/eeaas/commit/4bd70f6))
+- Pass env var to build ([6a5d176](https://github.com/kyco/eeaas/commit/6a5d176))
+- Remove no longer needed build CLI ([d9bde0a](https://github.com/kyco/eeaas/commit/d9bde0a))
+- Show line numbers ([70793e5](https://github.com/kyco/eeaas/commit/70793e5))
+- Add API reference ([c936181](https://github.com/kyco/eeaas/commit/c936181))
+- Style demo page ([09e4d4d](https://github.com/kyco/eeaas/commit/09e4d4d))
+- Lint ([e6d68b8](https://github.com/kyco/eeaas/commit/e6d68b8))
+- Update ([cfb9be4](https://github.com/kyco/eeaas/commit/cfb9be4))
+- Type ([4b374ce](https://github.com/kyco/eeaas/commit/4b374ce))
+- Lint ([2c2fc44](https://github.com/kyco/eeaas/commit/2c2fc44))
+- Typo ([cf21c40](https://github.com/kyco/eeaas/commit/cf21c40))
+- Path ([a58ab71](https://github.com/kyco/eeaas/commit/a58ab71))
+- Build deps ([878c295](https://github.com/kyco/eeaas/commit/878c295))
+- References ([7a0f403](https://github.com/kyco/eeaas/commit/7a0f403))
+- References ([18ba563](https://github.com/kyco/eeaas/commit/18ba563))
+- **core:** Update docs ([be9dacd](https://github.com/kyco/eeaas/commit/be9dacd))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.5 (2025-10-22)
 
 ### 🩹 Fixes
