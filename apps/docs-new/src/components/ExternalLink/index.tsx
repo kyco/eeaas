@@ -1,14 +1,14 @@
 import { ExternalLink } from 'lucide-react'
 
 type ExternalLinkProps = {
-  title: string
+  text: string
   url: string
 }
 
-const Component = ({ title, url }: ExternalLinkProps) => {
+const Component = ({ text, url }: ExternalLinkProps) => {
   return (
     <a href={url} target="_blank" rel="noreferrer">
-      {title}
+      {text}
       <ExternalLink size={12} style={{ marginLeft: '5px' }} />
     </a>
   )
