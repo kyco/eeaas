@@ -1,0 +1,47 @@
+body.konami {
+  position: relative;
+  overflow: hidden;
+}
+
+body.konami::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300vw;
+  height: 300vh;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg, #ffd1dc, #fef3c7, #c1f7d5, #bae6fd, #d8b4fe, #fecdd3, #e0f2fe, #ffd1dc);
+  animation: spinGradient 5s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@keyframes spinGradient {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.konami-emoji {
+  position: fixed;
+  font-size: 2rem;
+  animation: floatEmoji 1s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 1;
+}
+
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(0vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0.5;
+  }
+}

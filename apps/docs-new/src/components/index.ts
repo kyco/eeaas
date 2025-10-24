@@ -1,6 +1,7 @@
 export { default as EasterEggDemo } from './EasterEggDemo'
 export { default as ExamplesCssInjection } from './ExamplesCssInjection'
 export { default as ExamplesJavaScriptInjection } from './ExamplesJavaScriptInjection'
+export { default as ExamplesKonami } from './ExamplesKonami'
 export { default as ExamplesNyanCat } from './ExamplesNyanCat'
 export { default as ExamplesSnake } from './ExamplesSnake'
 export { default as ExternalLink } from './ExternalLink'

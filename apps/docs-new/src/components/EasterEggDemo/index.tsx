@@ -1,5 +1,6 @@
 import CodeBlock from '@theme/CodeBlock'
 import { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 
 import type { PublicEgg } from '@eeaas/core'
 
@@ -8,9 +9,10 @@ type EasterEggDemoProps = {
   title: string
   code?: string
   trigger?: string
+  description?: ReactNode
 }
 
-const EasterEggDemo = ({ egg, title, code, trigger = 'test' }: EasterEggDemoProps) => {
+const EasterEggDemo = ({ egg, title, code, trigger = 'test', description }: EasterEggDemoProps) => {
   const [state, setState] = useState({ isEnabled: false, isActivated: false })
   const [showCode, setShowCode] = useState(false)
 
@@ -60,6 +62,7 @@ const EasterEggDemo = ({ egg, title, code, trigger = 'test' }: EasterEggDemoProp
       </div>
 
       <div className="margin-top--lg margin-bottom--lg">
+        {description ? <div>{description}</div> : null}
         <p className="margin-bottom--lg">
           Status:{' '}
           {state.isEnabled
