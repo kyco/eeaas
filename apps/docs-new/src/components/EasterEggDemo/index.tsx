@@ -7,9 +7,10 @@ type EasterEggDemoProps = {
   egg: PublicEgg
   title: string
   code?: string
+  trigger?: string
 }
 
-const EasterEggDemo = ({ egg, title, code }: EasterEggDemoProps) => {
+const EasterEggDemo = ({ egg, title, code, trigger = 'test' }: EasterEggDemoProps) => {
   const [state, setState] = useState({ isEnabled: false, isActivated: false })
   const [showCode, setShowCode] = useState(false)
 
@@ -69,7 +70,7 @@ const EasterEggDemo = ({ egg, title, code }: EasterEggDemoProps) => {
         </p>
 
         <input
-          placeholder='Type "test" to trigger the easter egg'
+          placeholder={`Type "${trigger}" to trigger the easter egg`}
           className="padding--md"
           style={{
             borderRadius: 8,
