@@ -1,21 +1,18 @@
-import { AutoAwesome, PlayArrow, Stop } from '@mui/icons-material'
-import { Alert, Box, Button, Card, Chip, FormControlLabel, Stack, Switch, TextField, Typography } from '@mui/material'
+import CodeBlock from '@theme/CodeBlock'
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
-import React, { useEffect, useState } from 'react'
 
 import type { PublicEgg } from '@eeaas/core'
-
-import CodeBlock from '../CodeBlock'
 
 type EasterEggDemoProps = {
   egg: PublicEgg
   title: string
-  description: ReactNode
-  code: string
-  language?: string
+  code?: string
+  trigger?: string
+  description?: ReactNode
 }
 
-const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' }: EasterEggDemoProps) => {
+const EasterEggDemo = ({ egg, title, code, trigger = 'test', description }: EasterEggDemoProps) => {
   const [state, setState] = useState({ isEnabled: false, isActivated: false })
   const [showCode, setShowCode] = useState(false)
 
@@ -26,7 +23,6 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
 
     egg.enable()
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setState({ isEnabled: egg.isEnabled, isActivated: egg.isActivated })
 
     const unsubscribe = egg.subscribe(() => {
@@ -47,82 +43,61 @@ const EasterEggDemo = ({ egg, title, description, code, language = 'javascript' 
     egg?.stop()
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      egg?.enable()
-    } else {
-      egg?.disable()
-    }
-  }
-
   return (
-    <Card sx={{ mb: 4, p: 2 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <AutoAwesome sx={{ mr: 1, color: 'primary.main' }} />
-          <Typography variant="h6" id="example-1">
-            {title}
-          </Typography>
-        </Box>
-        <Chip
-          label={
-            <FormControlLabel
-              control={<Switch checked={state.isEnabled} onChange={handleChange} color="secondary" />}
-              label="Enabled"
-            />
-          }
-          sx={{ py: 2.5, borderRadius: 2, backgroundColor: '#fff' }}
-        />
-      </Box>
-
-      {typeof description === 'string' ? (
-        <Typography variant="body1" color="text.secondary" sx={{ fontStyle: 'italic', mb: 3 }}>
-          {description}
-        </Typography>
-      ) : (
-        <Box>{description}</Box>
-      )}
-
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 3 }}>
-        <Button
+    <div>
+      <div style={{ display: 'flex', gap: '1rem', marginTop: 50 }}>
+        <button
+          className={`button button--${state.isActivated ? 'secondary' : 'primary'} button--lg`}
           onClick={handleTriggerTest}
-          variant="contained"
-          startIcon={<PlayArrow />}
-          disabled={!state.isEnabled}
-          disableElevation
         >
           Trigger
-        </Button>
-        <Button
-          color="error"
+        </button>
+        <button
+          className={`button button--${state.isActivated ? 'primary' : 'secondary'} button--lg`}
           onClick={handleStopTest}
-          variant="outlined"
-          startIcon={<Stop />}
-          disabled={!state.isEnabled || !state.isActivated}
+          disabled={!state.isActivated}
         >
           Stop
-        </Button>
-      </Stack>
+        </button>
+      </div>
 
-      <Box sx={{ backgroundColor: 'grey.50', borderRadius: 2 }}>
-        <Alert severity={state.isEnabled ? (state.isActivated ? 'success' : 'info') : 'warning'} sx={{ mb: 2 }}>
-          Status: {state.isEnabled ? (state.isActivated ? 'Active' : 'Listening for keystrokes...') : 'Not enabled'}
-        </Alert>
+      <div className="margin-top--lg margin-bottom--lg">
+        {description ? <div>{description}</div> : null}
+        <p className="margin-bottom--lg">
+          Status:{' '}
+          {state.isEnabled
+            ? state.isActivated
+              ? 'Active, press "Esc" to cancel.'
+              : 'Listening for keystrokes...'
+            : 'Not enabled'}
+        </p>
 
-        <TextField
-          fullWidth
-          placeholder='Type "test" here to trigger the easter egg'
-          variant="outlined"
-          sx={{ mb: 2 }}
+        <input
+          placeholder={`Type "${trigger}" to trigger the easter egg`}
+          className="padding--md"
+          style={{
+            borderRadius: 8,
+            border: '1px solid var(--ifm-color-primary-lightest)',
+            minWidth: 300,
+            fontSize: 16,
+          }}
         />
-      </Box>
+      </div>
 
-      <Button color="secondary" onClick={() => setShowCode(!showCode)}>
+      <button
+        className="button button--secondary margin-bottom--md"
+        onClick={() => setShowCode(!showCode)}
+        style={{ fontWeight: 'normal' }}
+      >
         {showCode ? 'Hide' : 'Show'} code
-      </Button>
+      </button>
 
-      {showCode ? <CodeBlock language={language} code={code.trim()} sx={{ mt: 2, mb: 0 }} /> : null}
-    </Card>
+      {showCode && code ? (
+        <CodeBlock title={title} language="typescript">
+          {code.trim()}
+        </CodeBlock>
+      ) : null}
+    </div>
   )
 }
 

@@ -1,4 +1,3 @@
-// typescript-react.tsx
 import { useEffect } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
@@ -8,7 +7,7 @@ const trigger: Trigger = {
   type: 'keys',
   keystrokes: ['t', 'e', 's', 't'],
   onKeydown: (event) => {
-    console.log('Keystroke detected:', event.key)
+    console.info('Keystroke detected:', event.key)
   },
 }
 
@@ -22,10 +21,10 @@ const myEgg: UserEgg = {
   trigger,
   stopTrigger,
   onStart() {
-    console.log('Easter egg activated!')
+    console.info('Easter egg activated!')
   },
   onStop() {
-    console.log('Easter egg deactivated!')
+    console.info('Easter egg deactivated!')
   },
 }
 
