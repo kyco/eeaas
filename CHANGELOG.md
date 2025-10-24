@@ -1,3 +1,63 @@
+## 2.6.6 (2025-10-24)
+
+### 🚀 Features
+
+- Update base docusaurus with docs ([7a41e46](https://github.com/kyco/eeaas/commit/7a41e46))
+
+### 🩹 Fixes
+
+- Base ref ([4bd70f6](https://github.com/kyco/eeaas/commit/4bd70f6))
+- Pass env var to build ([6a5d176](https://github.com/kyco/eeaas/commit/6a5d176))
+- Remove no longer needed build CLI ([d9bde0a](https://github.com/kyco/eeaas/commit/d9bde0a))
+- Show line numbers ([70793e5](https://github.com/kyco/eeaas/commit/70793e5))
+- Add API reference ([c936181](https://github.com/kyco/eeaas/commit/c936181))
+- Style demo page ([09e4d4d](https://github.com/kyco/eeaas/commit/09e4d4d))
+- Lint ([e6d68b8](https://github.com/kyco/eeaas/commit/e6d68b8))
+- Update ([cfb9be4](https://github.com/kyco/eeaas/commit/cfb9be4))
+- Type ([4b374ce](https://github.com/kyco/eeaas/commit/4b374ce))
+- Lint ([2c2fc44](https://github.com/kyco/eeaas/commit/2c2fc44))
+- Typo ([cf21c40](https://github.com/kyco/eeaas/commit/cf21c40))
+- Path ([a58ab71](https://github.com/kyco/eeaas/commit/a58ab71))
+- Build deps ([878c295](https://github.com/kyco/eeaas/commit/878c295))
+- References ([7a0f403](https://github.com/kyco/eeaas/commit/7a0f403))
+- References ([18ba563](https://github.com/kyco/eeaas/commit/18ba563))
+- **core:** Update docs ([be9dacd](https://github.com/kyco/eeaas/commit/be9dacd))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
+## 2.6.5 (2025-10-22)
+
+### 🩹 Fixes
+
+- Sync ([53038cc](https://github.com/kyco/eeaas/commit/53038cc))
+- **core:** Add type for "egg name" ([1d65c7a](https://github.com/kyco/eeaas/commit/1d65c7a))
+- **core:** Update logger ([8752ecd](https://github.com/kyco/eeaas/commit/8752ecd))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
+## 2.6.4 (2025-10-22)
+
+### 🩹 Fixes
+
+- Lint ([f0f2d6e](https://github.com/kyco/eeaas/commit/f0f2d6e))
+- Lint ([1806cff](https://github.com/kyco/eeaas/commit/1806cff))
+- **core:** Return egg instance when registering an egg ([05355e1](https://github.com/kyco/eeaas/commit/05355e1))
+- **docs:** Refactor logo and title into a combined button ([9922585](https://github.com/kyco/eeaas/commit/9922585))
+- **docs:** Add easter egg ([05b7e76](https://github.com/kyco/eeaas/commit/05b7e76))
+- **docs:** Typo ([5e000cb](https://github.com/kyco/eeaas/commit/5e000cb))
+- **docs:** Update links ([0e12c50](https://github.com/kyco/eeaas/commit/0e12c50))
+- **docs:** Move link to button ([c47f0c9](https://github.com/kyco/eeaas/commit/c47f0c9))
+- **docs:** Typo ([2ad8d54](https://github.com/kyco/eeaas/commit/2ad8d54))
+- **docs:** Simplify example ([d5307b1](https://github.com/kyco/eeaas/commit/d5307b1))
+
+### ❤️ Thank You
+
+- Cornelius Weidmann
+
 ## 2.6.3 (2025-06-23)
 
 ### 🩹 Fixes
