@@ -68,7 +68,7 @@
       }
 
       if (fruitX === snakeX && fruitY === snakeY) {
-        tailLength++
+        tailLength += 1
         fruitX = Math.floor(Math.random() * gridCount)
         fruitY = Math.floor(Math.random() * gridCount)
       }
