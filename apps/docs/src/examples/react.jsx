@@ -1,4 +1,3 @@
-// react.jsx
 import { useEffect } from 'react'
 
 import { initializeEeaas } from '@eeaas/core'
@@ -8,10 +7,10 @@ const eeaas = initializeEeaas()
 const egg = eeaas.register({
   name: 'React',
   onStart() {
-    console.log('Easter egg activated!')
+    console.info('Easter egg activated!')
   },
   onStop() {
-    console.log('Easter egg deactivated!')
+    console.info('Easter egg deactivated!')
   },
 })
 

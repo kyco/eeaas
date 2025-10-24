@@ -1,9 +1,0 @@
-[id] {
-  scroll-margin-top: 112px;
-}
-
-@media (max-width: 600px) {
-  [id] {
-    scroll-margin-top: 74px;
-  }
-}
