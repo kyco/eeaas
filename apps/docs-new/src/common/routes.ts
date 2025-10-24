@@ -8,14 +8,7 @@ export const ROUTES = {
   DOCS__CODE_EXAMPLES__REACT: `/docs/docs/code-examples/react`,
   DOCS__CODE_EXAMPLES__TYPESCRIPT_REACT: `/docs/docs/code-examples/typescript-react`,
   DOCS__CODE_EXAMPLES__VANILLA_JS: `/docs/docs/code-examples/vanilla-js`,
-  // EXAMPLES: `/examples`,
-  // EXAMPLES__CSS_INJECTION: `/examples/css-injection`,
-  // EXAMPLES__JAVASCRIPT_INJECTION: `/examples/javascript-injection`,
-  // EXAMPLES__KONAMI: `/examples/konami`,
-  EXAMPLES__NYANCAT: `/docs/examples/nyancat`,
-  // EXAMPLES__SNAKE: `/examples/snake`,
-  // EXAMPLES__KONAMI_CODE: `/examples/konami-code`,
-  // EXAMPLES__SECRET_MESSAGE: `/examples/secret-message`,
+  EXAMPLES: `/docs/category/examples`,
 }
 
 export const EXTERNAL_ROUTES = {

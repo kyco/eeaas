@@ -1,0 +1,8 @@
+{
+  "label": "Examples",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore different types of easter eggs and learn how to implement them in your own project. Each example demonstrates a unique technique with interactive demonstrations and code explanations."
+  }
+}

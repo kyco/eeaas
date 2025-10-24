@@ -42,7 +42,7 @@ const EasterEggDemo = ({ egg, title, code }: EasterEggDemoProps) => {
 
   return (
     <div>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '16px' }}>
+      <div style={{ display: 'flex', gap: '1rem', marginTop: 50 }}>
         <button
           className={`button button--${state.isActivated ? 'secondary' : 'primary'} button--lg`}
           onClick={handleTriggerTest}

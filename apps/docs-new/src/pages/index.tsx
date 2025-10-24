@@ -49,7 +49,7 @@ const Page = (): JSX.Element => {
             <Link
               className={`${styles.button} button button--primary button--lg`}
               style={{ border: '1px solid var(--ifm-color-primary-lightest)' }}
-              to={ROUTES.EXAMPLES__NYANCAT}
+              to={ROUTES.EXAMPLES}
             >
               View Examples <ArrowRight />
             </Link>
@@ -91,7 +91,7 @@ const Page = (): JSX.Element => {
           </p>
 
           <div className={styles.buttons}>
-            <Link className={`${styles.button} button button--primary button--lg`} to={ROUTES.EXAMPLES__NYANCAT}>
+            <Link className={`${styles.button} button button--primary button--lg`} to={ROUTES.EXAMPLES}>
               Explore Examples <ArrowRight />
             </Link>
             <Link
