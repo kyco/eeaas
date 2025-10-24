@@ -1,0 +1,133 @@
+---
+sidebar_position: 3
+---
+
+import { EXTERNAL_ROUTES } from '@site/src/common'
+import { ExternalLink } from '@site/src/components'
+
+# API reference
+
+## Eeaas instance
+
+| Method                | Returns                  | Description                                   |
+| --------------------- | ------------------------ | --------------------------------------------- |
+| `register(<UserEgg>)` | `PublicEgg`              | Registers a new easter egg                    |
+| `get(<EggName>)`      | `PublicEgg \| undefined` | Retrieves an easter egg instance by name      |
+| `getAll()`            | `PublicEgg[]`            | Retrieves all registered easter egg instances |
+
+## Egg instance
+
+| Method/Property   | Returns                     | Description                                             |
+| ----------------- | --------------------------- | ------------------------------------------------------- |
+| `name`            | `readonly string`           | Access the egg name                                     |
+| `isEnabled`       | `readonly boolean`          | Access the enabled status of the egg                    |
+| `isActivated`     | `readonly boolean`          | Access the activated status of the egg                  |
+| `loadedResources` | `readonly LoadedResource[]` | Access the resources which have been loaded for the egg |
+| `start()`         | `Promise <void>`            | Manually activate the egg                               |
+| `stop()`          | `Promise <void>`            | Manually deactivate the egg                             |
+| `enable()`        | `void`                      | Enable egg triggers                                     |
+| `disable()`       | `void`                      | Disable egg triggers                                    |
+| `subscribe()`     | `void`                      | Subscribe to egg events                                 |
+| `unsubsribe()`    | `void`                      | Unsubscribe from egg events                             |
+
+## `UserEgg` properties
+
+| Property                 | Type                                                                          | Required | Default              | Description                                                 |
+| ------------------------ | ----------------------------------------------------------------------------- | -------- | -------------------- | ----------------------------------------------------------- |
+| `name`                   | `string`                                                                      | Yes      | -                    | Unique identifier for the egg                               |
+| `enabled`                | `boolean`                                                                     | No       | `true`               | Whether the egg is initially enabled                        |
+| `allowMultipleInstances` | `boolean`                                                                     | No       | `false`              | Whether the egg's `onStart` can be triggered multiple times |
+| `trigger`                | `Trigger`                                                                     | No       | `{ type: 'manual' }` | How the egg is activated                                    |
+| `stopTrigger`            | `Trigger`                                                                     | No       | `{ type: 'manual' }` | How the egg is deactivated                                  |
+| `resources`              | `Resource[]`                                                                  | No       | `[]`                 | External CSS/JS resources to load                           |
+| onStart                  | `((loadedResources: LoadedResource[]) => void \| Promise<void>) \| undefined` | No       | `undefined`          | Called when egg is activated                                |
+| onStop                   | `((loadedResources: LoadedResource[]) => void \| Promise<void>) \| undefined` | No       | `undefined`          | Called when egg is deactivated                              |
+
+## `Trigger` types
+
+Easter eggs can be triggered in one of three ways:
+
+- manually, e.g. by clicking a button (default behaviour)
+- via a keystroke combination
+- or automatically, as soon as the egg gets registered.
+
+### Manual trigger
+
+```typescript
+import { initializeEeaas } from '@eeaas/core'
+
+const eeaas = initializeEeaas()
+
+const egg = eeaas.register({
+  name: 'MyFirstEgg',
+})
+
+// Or, more explicitly:
+//
+// const egg = eeaas.register({
+//   name: 'MyFirstEgg',
+//   trigger: {
+//     type: 'manual',
+//   },
+// })
+
+// You must call the `.start()` method in order to activate the egg
+egg.start()
+```
+
+### Keystroke trigger
+
+```typescript
+import { initializeEeaas } from '@eeaas/core'
+
+const eeaas = initializeEeaas()
+
+const egg = eeaas.register({
+  name: 'MyFirstEgg',
+  trigger: {
+    type: 'keys',
+
+    // Once a user types "nyan" anywhere on the page, the egg will activate
+    keystrokes: ['n', 'y', 'a', 'n'],
+
+    // Optional, controls whether to capture keystrokes when the user is
+    // typing in editable elements (e.g. inputs, textareas, etc.)
+    captureOnInputs: false,
+
+    // Optional, listen to the keystrokes
+    onKeydown: (event) => {
+      console.log('Keystroke detected:', event.key)
+    },
+  },
+})
+```
+
+Here's the <ExternalLink text="list of supported keystrokes" url={EXTERNAL_ROUTES.GITHUB_KEYSTROKES} /> which can be added in the **`keystrokes`** array.
+
+### Automatic trigger
+
+```typescript
+import { initializeEeaas } from '@eeaas/core'
+
+const eeaas = initializeEeaas()
+
+const egg = eeaas.register({
+  name: 'MyFirstEgg',
+  trigger: {
+    // The egg will activate immediately
+    type: 'auto',
+  },
+})
+```
+
+## `Resource` types
+
+Resources are automatically injected and ejected from the DOM when an egg is activated or deactivated, respectively. Resources won't be loaded until **`egg.start()`** method is called.
+
+```typescript
+type Resource = {
+  type: 'css' | 'script'
+  content?: string // Inline CSS/JS
+  url?: string // Local path or external URL to CSS/JS file
+}
+```

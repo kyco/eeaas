@@ -117,7 +117,7 @@
     }
   },
   "tui": {
-    "enabled": true,
+    "enabled": false,
     "autoExit": true
   }
 }

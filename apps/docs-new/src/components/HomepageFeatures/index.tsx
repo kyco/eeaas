@@ -1,71 +1,62 @@
-import Heading from '@theme/Heading'
 import clsx from 'clsx'
+import { Code, Gauge, ShieldCheck } from 'lucide-react'
+import type { JSX } from 'react'
 
+import { EXTERNAL_ROUTES } from '../../common'
+import { useFileSizeInfo } from '../../hooks'
 import styles from './styles.module.css'
 
-type FeatureItem = {
-  title: string
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>
-  description: JSX.Element
-}
+const Component = (): JSX.Element => {
+  const { uncompressed, gzipped } = useFileSizeInfo(EXTERNAL_ROUTES.UNPKG_URL)
 
-const FeatureList: FeatureItem[] = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and used to get your website up and running
-        quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into the{' '}
-        <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same
-        header and footer.
-      </>
-    ),
-  },
-]
-
-function Feature({ title, Svg, description }: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  )
-}
-
-export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+          <div className={clsx('col col--4')}>
+            <div className={styles.card}>
+              <div className="text--center">
+                <Gauge size={40} />
+              </div>
+              <div className="text--center padding-horiz--md">
+                <h3>Zero Dependencies</h3>
+                <p>Pure JavaScript implementation with no external dependencies.</p>
+                <p>
+                  <strong>{gzipped}kB</strong> / {uncompressed}kB (uncompressed)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={clsx('col col--4')}>
+            <div className={styles.card}>
+              <div className="text--center">
+                <ShieldCheck size={40} />
+              </div>
+              <div className="text--center padding-horiz--md">
+                <h3>Safe & Secure</h3>
+                <p>Designed to be non-intrusive and safe without affecting your app's performance.</p>
+                <p>All features are opt-in.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={clsx('col col--4')}>
+            <div className={styles.card}>
+              <div className="text--center">
+                <Code size={40} />
+              </div>
+              <div className="text--center padding-horiz--md">
+                <h3>Easy Integration</h3>
+                <p>Simple API that works with any framework, even stock standard JavaScript and HTML.</p>
+                <p>No fancy tools required.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
+export default Component

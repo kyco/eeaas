@@ -4,8 +4,5 @@
   "version": "0.0.1",
   "private": true,
   "author": "Cornelius Weidmann <cornelius@kyco.io> (https://kyco.io)",
-  "homepage": "https://kyco.github.io/eeaas/",
-  "scripts": {
-    "deploy": "bash ../../build/build.sh deploy-docs"
-  }
+  "homepage": "https://kyco.github.io/eeaas/"
 }

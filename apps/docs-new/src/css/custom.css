@@ -6,25 +6,46 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #1e88e5;
+  --ifm-color-primary-dark: #187bd1;
+  --ifm-color-primary-darker: #1774c5;
+  --ifm-color-primary-darkest: #135fa3;
+  --ifm-color-primary-light: #3594e8;
+  --ifm-color-primary-lighter: #419ae9;
+  --ifm-color-primary-lightest: #64aded;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --text-secondary: #475569;
+  --text-70: #ffffffb3;
+  --default-border: #f2f2f2;
+  --card-bg: #f8fafc;
+
+  --mui-pink-400: #ec407a;
+  --mui-pink-500: #e91e63;
+  --mui-purple-400: #ab47bc;
+  --mui-deep-purple-400: #7e57c2;
+
+  --hero-stage-1: var(--ifm-color-primary);
+  --hero-stage-2: var(--mui-purple-400);
+  --hero-stage-3: var(--mui-pink-500);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #00897b;
+  --ifm-color-primary-dark: #007b6f;
+  --ifm-color-primary-darker: #007469;
+  --ifm-color-primary-darkest: #006056;
+  --ifm-color-primary-light: #009787;
+  --ifm-color-primary-lighter: #009e8d;
+  --ifm-color-primary-lightest: #00b2a0;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --text-secondary: #94a3b8;
+  --text-70: #000000b3;
+  --default-border: transparent;
+  --card-bg: rgb(36, 37, 38);
+
+  --hero-stage-1: var(--ifm-color-primary);
+  --hero-stage-2: var(--mui-deep-purple-400);
+  --hero-stage-3: var(--mui-pink-400);
 }
