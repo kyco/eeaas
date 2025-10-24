@@ -119,7 +119,7 @@
         if (nyanEl) {
           nyanEl.style.backgroundPosition = `${34 * frame}px`
         }
-        frame++
+        frame += 1
       }, 100),
     ]
 
