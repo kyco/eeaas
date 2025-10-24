@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Heading from '@theme/Heading'
 import Layout from '@theme/Layout'
 import clsx from 'clsx'
-import { ArrowRight, CirclePlay, Egg, FlaskConical } from 'lucide-react'
+import { ArrowRight, CirclePlay, Code } from 'lucide-react'
 import { useState } from 'react'
 import type { JSX } from 'react'
 
@@ -54,55 +54,27 @@ const Page = (): JSX.Element => {
             {siteConfig.title}
           </Heading>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <p style={{ opacity: 0.7 }}>Built with modern JavaScript.</p>
+          <p className={styles.heroDescription}>Built with modern JavaScript.</p>
 
           <div className={styles.buttons}>
             <Link
-              className="button button--primary button--lg"
+              className={`${styles.button} button button--primary button--lg`}
+              style={{ border: '1px solid var(--ifm-color-primary-lightest)' }}
               to="/docs/examples/nyancat"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                border: '1px solid var(--ifm-color-primary-lightest)',
-                borderRadius: '8px',
-              }}
             >
-              <FlaskConical /> View Examples
+              View Examples <ArrowRight />
             </Link>
             <Link
-              className="button button--primary button--lg"
+              className={`${styles.button} button button--primary button--lg`}
+              style={{ border: '1px solid var(--ifm-color-primary-lightest)' }}
               to="/docs/docs/getting-started"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                border: '1px solid var(--ifm-color-primary-lightest)',
-                borderRadius: '8px',
-              }}
             >
               <CirclePlay /> Get Started
             </Link>
           </div>
 
           {clickCount >= 20 ? (
-            <button
-              style={{
-                position: 'absolute',
-                bottom: 40,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                zIndex: 2,
-                padding: '12px 27px',
-                backgroundColor: 'var(--ifm-color-primary)',
-                border: '5px solid #fff',
-                borderRadius: 100,
-                fontWeight: 'bold',
-                fontSize: '18px',
-                cursor: 'pointer',
-              }}
-              onClick={handleReset}
-            >
+            <button className={styles.resetButton} onClick={handleReset}>
               Reset
             </button>
           ) : null}
@@ -110,7 +82,37 @@ const Page = (): JSX.Element => {
       </header>
 
       <main>
+        <div className="container text--center" style={{ maxWidth: 800, marginTop: 50 }}>
+          <h2 style={{ fontSize: 32 }}>Why?</h2>
+          <p className={styles.more}>I once nearly got fired for adding easter eggs to a production app.</p>
+          <p className={styles.more}>
+            This library not only helps you keep the easter egg code out of the production code you ship to your users,
+            but it also makes it really easy to add easter eggs to any project.
+          </p>
+          <p className={styles.more}>Easter eggs make apps and websites more fun, so go ahead and add them.</p>
+        </div>
+
         <HomepageFeatures />
+
+        <div className="container text--center" style={{ maxWidth: 800, margin: '50px auto 100px' }}>
+          <h2 style={{ fontSize: 20 }}>Get Started</h2>
+          <p className={styles.more}>
+            Explore examples to see different types of easter eggs in action. Each example demonstrates a different
+            technique and use case.
+          </p>
+
+          <div className={styles.buttons}>
+            <Link className={`${styles.button} button button--primary button--lg`} to="/docs/examples/nyancat">
+              Explore Examples <ArrowRight />
+            </Link>
+            <Link
+              className={`${styles.button} button button--primary button--lg button--outline`}
+              to="/docs/docs/getting-started"
+            >
+              <Code /> Documentation
+            </Link>
+          </div>
+        </div>
       </main>
     </Layout>
   )

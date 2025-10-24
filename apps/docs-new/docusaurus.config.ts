@@ -68,6 +68,9 @@ const config: Config = {
         },
       ],
     },
+    footer: {
+      copyright: `Brought to you by <a href="https://kyco.io" target="_blank" rel="noopener noreferrer">kyco</a>.`,
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

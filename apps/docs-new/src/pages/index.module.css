@@ -1,14 +1,25 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
+
+/* hero(secretRevealed = false, isEven = false) {
+  return {
+    position: 'relative',
+    background: secretRevealed
+      ? isEven
+        ? `linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)`
+        : `linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)`
+      : '#6366f1',
+    color: 'white',
+    py: { xs: 8, md: 6 },
+    textAlign: 'center',
+    overflow: 'hidden',
+    transition: 'background 0.5s ease',
+  }
+} */
 
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -24,8 +35,41 @@
   gap: 1rem;
 }
 
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
 .heroImgage {
   width: 94px;
   height: 94px;
   margin-bottom: 1rem;
+}
+
+.heroDescription {
+  font-size: 18px;
+  color: var(--text-70);
+}
+
+.more {
+  color: var(--text-secondary);
+}
+
+.resetButton {
+  position: absolute;
+  bottom: 40;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 12px 27px;
+  background-color: var(--ifm-color-primary);
+  border: 5px solid #fff;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
 }

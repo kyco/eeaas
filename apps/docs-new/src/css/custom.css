@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #64aded;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --text-secondary: #475569;
+  --text-70: #ffffffb3;
+  --default-border: #f2f2f2;
+  --card-bg: #f8fafc;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,4 +31,8 @@
   --ifm-color-primary-lighter: #009e8d;
   --ifm-color-primary-lightest: #00b2a0;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --text-secondary: #94a3b8;
+  --text-70: #000000b3;
+  --default-border: transparent;
+  --card-bg: rgb(36, 37, 38);
 }
