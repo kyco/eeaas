@@ -2,6 +2,8 @@ import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes as prismThemes } from 'prism-react-renderer'
 
+import { EXTERNAL_ROUTES } from './src/common'
+
 const config: Config = {
   title: 'Easter eggs as a service',
   tagline: 'A zero-dependency library to inject easter eggs into any app or website.',
@@ -69,7 +71,7 @@ const config: Config = {
       ],
     },
     footer: {
-      copyright: `Brought to you by <a href="https://kyco.io" target="_blank" rel="noopener noreferrer">kyco</a>.`,
+      copyright: `Brought to you by <a href="${EXTERNAL_ROUTES.KYCO}" target="_blank" rel="noopener noreferrer">kyco</a>.`,
     },
     prism: {
       theme: prismThemes.github,

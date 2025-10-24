@@ -1,5 +1,5 @@
 .features {
-  margin: 50px 0;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   padding: 2rem 0;
@@ -11,6 +11,7 @@
   border: 1px solid var(--default-border);
   border-radius: 8px;
   background: var(--card-bg);
+  margin-bottom: 30px;
 }
 
 .features svg {

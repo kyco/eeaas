@@ -2,9 +2,13 @@ import clsx from 'clsx'
 import { Code, Gauge, ShieldCheck } from 'lucide-react'
 import type { JSX } from 'react'
 
+import { EXTERNAL_ROUTES } from '../../common'
+import { useFileSizeInfo } from '../../hooks'
 import styles from './styles.module.css'
 
 const Component = (): JSX.Element => {
+  const { uncompressed, gzipped } = useFileSizeInfo(EXTERNAL_ROUTES.UNPKG_URL)
+
   return (
     <section className={styles.features}>
       <div className="container">
@@ -18,7 +22,7 @@ const Component = (): JSX.Element => {
                 <h3>Zero Dependencies</h3>
                 <p>Pure JavaScript implementation with no external dependencies.</p>
                 <p>
-                  <strong>2.2kB</strong> / 5.9kB (uncompressed)
+                  <strong>{gzipped}kB</strong> / {uncompressed}kB (uncompressed)
                 </p>
               </div>
             </div>

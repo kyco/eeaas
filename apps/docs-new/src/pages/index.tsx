@@ -7,29 +7,15 @@ import { ArrowRight, CirclePlay, Code } from 'lucide-react'
 import { useState } from 'react'
 import type { JSX } from 'react'
 
+import { ROUTES } from '../common'
 import { HomepageFeatures } from '../components'
 import styles from './index.module.css'
+import { ui } from './styled'
 
-const avatar = (secretRevealed = false, clickCount = 0) => {
-  return {
-    width: '100px',
-    height: '100px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    transform: clickCount > 0 ? `scale(${Math.pow(1.2, clickCount)})` : 'scale(1)',
-    backgroundColor: secretRevealed ? '#77dd77' : 'transparent',
-    border: '3px solid',
-    borderRadius: secretRevealed ? '50px' : 0,
-    borderColor: secretRevealed ? '#fff' : 'transparent',
-    '&:hover': {
-      transform: `scale(${Math.pow(1.2, clickCount)})`,
-    },
-    zIndex: 1,
-  }
-}
 const Page = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext()
   const [clickCount, setClickCount] = useState(0)
+  const sx = ui()
 
   const handleAvatarClick = () => {
     setClickCount((prev) => prev + 1)
@@ -41,12 +27,15 @@ const Page = (): JSX.Element => {
 
   return (
     <Layout title="Eeaas" description={siteConfig.tagline}>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <header
+        className={clsx('hero hero--primary', styles.heroBanner)}
+        style={sx.hero(clickCount >= 7, clickCount % 2 === 0)}
+      >
         <div className="container">
           <img
             src="img/logo-512x512-transparent.png"
             alt="Eeaas Logo"
-            style={avatar(clickCount >= 5, clickCount)}
+            style={sx.avatar(clickCount >= 5, clickCount)}
             onClick={handleAvatarClick}
           />
 
@@ -60,14 +49,14 @@ const Page = (): JSX.Element => {
             <Link
               className={`${styles.button} button button--primary button--lg`}
               style={{ border: '1px solid var(--ifm-color-primary-lightest)' }}
-              to="/docs/examples/nyancat"
+              to={ROUTES.EXAMPLES__NYANCAT}
             >
               View Examples <ArrowRight />
             </Link>
             <Link
               className={`${styles.button} button button--primary button--lg`}
               style={{ border: '1px solid var(--ifm-color-primary-lightest)' }}
-              to="/docs/docs/getting-started"
+              to={ROUTES.DOCS__GETTING_STARTED}
             >
               <CirclePlay /> Get Started
             </Link>
@@ -94,7 +83,7 @@ const Page = (): JSX.Element => {
 
         <HomepageFeatures />
 
-        <div className="container text--center" style={{ maxWidth: 800, margin: '50px auto 100px' }}>
+        <div className="container text--center" style={{ maxWidth: 800, margin: '10px auto 100px' }}>
           <h2 style={{ fontSize: 20 }}>Get Started</h2>
           <p className={styles.more}>
             Explore examples to see different types of easter eggs in action. Each example demonstrates a different
@@ -102,12 +91,12 @@ const Page = (): JSX.Element => {
           </p>
 
           <div className={styles.buttons}>
-            <Link className={`${styles.button} button button--primary button--lg`} to="/docs/examples/nyancat">
+            <Link className={`${styles.button} button button--primary button--lg`} to={ROUTES.EXAMPLES__NYANCAT}>
               Explore Examples <ArrowRight />
             </Link>
             <Link
               className={`${styles.button} button button--primary button--lg button--outline`}
-              to="/docs/docs/getting-started"
+              to={ROUTES.DOCS__GETTING_STARTED}
             >
               <Code /> Documentation
             </Link>

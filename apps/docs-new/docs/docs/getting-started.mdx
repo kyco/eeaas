@@ -2,6 +2,10 @@
 sidebar_position: 1
 ---
 
+import { EXTERNAL_ROUTES, ROUTES } from '@site/src/common'
+import CodeBlock from '@theme/CodeBlock'
+import Link from '@docusaurus/Link'
+
 # Getting started
 
 **`@eeaas/core`** lets you inject JavaScript and CSS into any app without bundling it into your production build. It's ideal for easter eggs, hidden features or experimental logic.
@@ -16,9 +20,7 @@ npm install @eeaas/core
 
 Without a bundler, available as **`window._eeaas`**:
 
-```html
-<script src="https://unpkg.com/@eeaas/core@latest/dist/eeaas.min.js"></script>
-```
+<CodeBlock language="html">{`<script src="${EXTERNAL_ROUTES.UNPKG_URL}"></script>`}</CodeBlock>
 
 ## Basic usage
 
@@ -62,4 +64,4 @@ Without a bundler:
 </script>
 ```
 
-For more details view the [React Example](/docs/docs/code-examples/react) or the [Vanilla JS Example](/docs/docs/code-examples/vanilla-js).
+For more details view the <Link to={ROUTES.DOCS__CODE_EXAMPLES__REACT}>React Example</Link> or the <Link to={ROUTES.DOCS__CODE_EXAMPLES__VANILLA_JS}>Vanilla JS Example</Link>.

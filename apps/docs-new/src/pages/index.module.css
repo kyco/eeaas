@@ -5,25 +5,13 @@
   overflow: hidden;
 }
 
-/* hero(secretRevealed = false, isEven = false) {
-  return {
-    position: 'relative',
-    background: secretRevealed
-      ? isEven
-        ? `linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)`
-        : `linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)`
-      : '#6366f1',
-    color: 'white',
-    py: { xs: 8, md: 6 },
-    textAlign: 'center',
-    overflow: 'hidden',
-    transition: 'background 0.5s ease',
-  }
-} */
-
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
   }
 }
 

@@ -2,6 +2,7 @@
 sidebar_position: 3
 ---
 
+import { EXTERNAL_ROUTES } from '@site/src/common'
 import { ExternalLink } from '@site/src/components'
 
 # API reference
@@ -101,7 +102,7 @@ const egg = eeaas.register({
 })
 ```
 
-Here's the <ExternalLink text="list of supported keystrokes" url="https://github.com/kyco/eeaas/blob/main/packages/core/src/types/types_keys.ts" /> which can be added in the **`keystrokes`** array.
+Here's the <ExternalLink text="list of supported keystrokes" url={EXTERNAL_ROUTES.GITHUB_KEYSTROKES} /> which can be added in the **`keystrokes`** array.
 
 ### Automatic trigger
 
