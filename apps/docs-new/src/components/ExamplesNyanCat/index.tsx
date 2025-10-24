@@ -11,15 +11,7 @@ const ExamplesNyanCat = () => {
     return null
   }
 
-  return (
-    <EasterEggDemo
-      egg={egg1}
-      title="Nyancat"
-      description='Type "test" to trigger, press "Esc" to cancel. Or use the buttons below.'
-      code={egg1_code}
-      language="typescript"
-    />
-  )
+  return <EasterEggDemo egg={egg1} title="nyancat.ts" code={egg1_code} />
 }
 
 export default ExamplesNyanCat

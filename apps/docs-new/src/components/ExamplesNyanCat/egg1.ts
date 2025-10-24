@@ -12,7 +12,7 @@ export const eeaas = initializeEeaas()
 const jsUrl = `/eeaas/example-nyancat.js`
 const cssUrl = `/eeaas/example-nyancat.css`
 
-const nyancat = eeaas.register({
+eeaas.register({
   name: 'Nyancat',
   enabled: false,
   trigger: {
