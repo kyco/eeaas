@@ -21,9 +21,9 @@ const ExamplesCssInjection = () => {
 
   return (
     <>
-      <EasterEggDemo egg={egg1} title="css-injection.ts" code={egg1_code} />
-      <EasterEggDemo egg={egg2} title="css-injection.ts" code={egg2_code} trigger="test2" />
-      <EasterEggDemo egg={egg3} title="css-injection.ts" code={egg3_code} trigger="test3" />
+      <EasterEggDemo egg={egg1} title="css-inline.ts" code={egg1_code} />
+      <EasterEggDemo egg={egg2} title="css-path.ts" code={egg2_code} trigger="test2" />
+      <EasterEggDemo egg={egg3} title="css-url.ts" code={egg3_code} trigger="test3" />
     </>
   )
 }
