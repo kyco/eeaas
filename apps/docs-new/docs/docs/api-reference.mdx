@@ -119,3 +119,15 @@ const egg = eeaas.register({
   },
 })
 ```
+
+## `Resource` types
+
+Resources are automatically injected and ejected from the DOM when an egg is activated or deactivated, respectively. Resources won't be loaded until **`egg.start()`** method is called.
+
+```typescript
+type Resource = {
+  type: 'css' | 'script'
+  content?: string // Inline CSS/JS
+  url?: string // Local path or external URL to CSS/JS file
+}
+```
