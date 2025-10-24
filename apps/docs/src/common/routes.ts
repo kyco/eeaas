@@ -12,9 +12,9 @@ export const ROUTES = {
 }
 
 export const EXTERNAL_ROUTES = {
-  GITHUB_CODE_EXAMPLES__REACT: `https://github.com/kyco/eeaas/blob/main/apps/docs-new/src/examples/react.jsx`,
-  GITHUB_CODE_EXAMPLES__TYPESCRIPT_REACT: `https://github.com/kyco/eeaas/blob/main/apps/docs-new/src/examples/typescript-react.tsx`,
-  GITHUB_CODE_EXAMPLES__VANILLA_JS: `https://github.com/kyco/eeaas/blob/main/apps/docs-new/src/examples/vanilla-js.html`,
+  GITHUB_CODE_EXAMPLES__REACT: `https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/react.jsx`,
+  GITHUB_CODE_EXAMPLES__TYPESCRIPT_REACT: `https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/typescript-react.tsx`,
+  GITHUB_CODE_EXAMPLES__VANILLA_JS: `https://github.com/kyco/eeaas/blob/main/apps/docs/src/examples/vanilla-js.html`,
   GITHUB_EEAAS: `https://github.com/kyco/eeaas`,
   GITHUB_KEYSTROKES: `https://github.com/kyco/eeaas/blob/main/packages/core/src/types/types_keys.ts`,
   KYCO: `https://kyco.io`,
