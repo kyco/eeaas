@@ -27,7 +27,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@nx-extend/docusaurus": "^4.0.1",
     "@nx/eslint": "22.0.1",
-    "@nx/eslint-plugin": "22.0.1",
+    "@nx/eslint-plugin": "22.0.2",
     "@nx/js": "22.0.1",
     "@nx/react": "22.0.1",
     "@nx/vite": "22.0.1",
