@@ -29,7 +29,7 @@
     "@nx/eslint": "22.0.1",
     "@nx/eslint-plugin": "22.0.1",
     "@nx/js": "22.0.1",
-    "@nx/react": "22.0.1",
+    "@nx/react": "22.0.2",
     "@nx/vite": "22.0.1",
     "@nx/web": "22.0.1",
     "@swc-node/register": "^1.11.1",
