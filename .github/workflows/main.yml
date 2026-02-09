@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           filter: tree:0
@@ -35,7 +35,7 @@ jobs:
           git reset --hard
 
       - name: Cache packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: node-cache-v1
         with:
           path: node_modules
@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup environment
         uses: actions/setup-node@v6
@@ -86,7 +86,7 @@ jobs:
           git reset --hard
 
       - name: Cache packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: node-cache-v1
         with:
           path: node_modules
