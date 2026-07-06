@@ -2,7 +2,7 @@
   "name": "@eeaas/source",
   "description": "Easter eggs as a service",
   "scripts": {
-    "update-packages": "npx npm-check-updates -u"
+    "update-packages": "npx npm-check-updates --format group --cooldown 1 -i"
   },
   "private": true,
   "dependencies": {

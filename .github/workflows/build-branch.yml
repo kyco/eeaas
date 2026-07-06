@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Setup environment
         uses: actions/setup-node@v6
         with:
-          node-version: '24.13.0'
+          node-version: '26.4.0'
 
       - name: Get packages hash
         run: |
