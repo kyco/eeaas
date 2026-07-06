@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_eeaas_source=self.webpackChunk_eeaas_source||[]).push([[464],{2495(e){e.exports=JSON.parse('{"metadata":{"permalink":"/eeaas/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
