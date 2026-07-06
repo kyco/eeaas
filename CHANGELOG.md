@@ -1,14 +1,3 @@
-## 2.6.7 (2026-07-06)
-
-### 🩹 Fixes
-
-- Remove unused deps ([5ed0180](https://github.com/kyco/eeaas/commit/5ed0180))
-- Type ([ae649fd](https://github.com/kyco/eeaas/commit/ae649fd))
-
-### ❤️ Thank You
-
-- Cornelius Weidmann
-
 ## 2.6.6 (2025-10-24)
 
 ### 🚀 Features
