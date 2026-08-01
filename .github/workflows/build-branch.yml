@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Nx - Get SHAs
-        uses: nrwl/nx-set-shas@v4
+        uses: nrwl/nx-set-shas@v5
         with:
           main-branch-name: 'develop'
 
